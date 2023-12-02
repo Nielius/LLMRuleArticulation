@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "rule-articulation"
+version = "0.1.0"
+description = ""
+authors = ["Niels uit de Bos <nielius@gmail.com>"]
+readme = "README.md"
+packages = [{include = "rule_articulation", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+instructor = "^0.4.0"
+nltk = "^3.8.1"
+datasets = "^2.15.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
