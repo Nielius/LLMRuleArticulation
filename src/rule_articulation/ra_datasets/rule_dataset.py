@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import random
 
-from rule_articulation.using_openai_directly import LabelledInput
+from rule_articulation.task_model import LabelledInput
 
 
 class RuleDataset(ABC):

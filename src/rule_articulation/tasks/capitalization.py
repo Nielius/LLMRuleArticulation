@@ -2,7 +2,7 @@ import random
 
 from rule_articulation.ra_datasets.reuters_sentences import get_reuters_sentences
 from rule_articulation.ra_datasets.rule_dataset import RuleDataset
-from rule_articulation.using_openai_directly import LabelledInput, TaskDescription
+from rule_articulation.task_model import LabelledInput, TaskDescription
 
 dataset = get_reuters_sentences()
 
@@ -49,13 +49,18 @@ class CapitalizationDataset(RuleDataset):
         ]
 
 
+def get_capitalization_dataset() -> CapitalizationDataset:
+    return CapitalizationDataset()
+
+
 capitalization_task = TaskDescription(
     labelled_inputs=[
         LabelledInput("the cat sat on the mat", True),
         LabelledInput("THE DOG RAN IN THE PARK", False),
         LabelledInput("THE mat sat on the cat", False),
         LabelledInput("the house is cold", True),
-    ] + [
+    ]
+    + [
         LabelledInput(
             input="gasoline prices rose 4.2 pct last month after increasing  6.6 pct in january, but were still 18 pct below levels of a  year ago, the department said.",
             label=False,
