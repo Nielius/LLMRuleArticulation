@@ -55,15 +55,14 @@ def get_capitalization_dataset() -> CapitalizationDataset:
 
 capitalization_task = TaskDescription(
     human_articulation="Return true if the sentence has at least one capital letter, false otherwise.",
-    labelled_inputs=[
+    example_labelled_inputs=[
         LabelledInput("the cat sat on the mat", False),
-        LabelledInput("the CAT SAT on THE mat", True),
+        LabelledInput("the cAt sat on the mat", True),
         LabelledInput("the DOG RAN IN THE PARK", True),
         LabelledInput("the dog ran in the park", False),
         LabelledInput("THE mat sat on the cat", True),
         LabelledInput("the house is cold", False),
-    ]
-    + [
+    ] + [
         LabelledInput(
             input="gasoline prices rose 4.2 pct last month after increasing  6.6 pct in january, but were still 18 pct below levels of a  year ago, the department said.",
             label=False,

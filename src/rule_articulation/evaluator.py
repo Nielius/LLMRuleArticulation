@@ -4,37 +4,53 @@ from dataclasses import dataclass
 from functools import cached_property
 
 from openai import OpenAI
+from openai.types.chat import ChatCompletion
 
 from rule_articulation.secrets import get_openai_key
-from rule_articulation.task_model import TaskDescription, LabelledInput
+from rule_articulation.task_model import (
+    TaskDescription,
+    LabelledInput,
+    format_labelled_input,
+)
 
 logger = logging.getLogger(__name__)
 client = OpenAI(**get_openai_key())
 total_tokens_used = 0
 
 
-def get_true_or_false_response(
-    system_prompt: str, prompt: str, json_key: str = "label"
-) -> bool | None:
+def send_prompt(
+    system_prompt: str, user_prompt: str, json: bool = True
+) -> ChatCompletion:
     global total_tokens_used
     logger.debug("System prompt: %s", system_prompt)
-    logger.debug("Prompt: %s", prompt)
+    logger.debug("User prompt: %s", user_prompt)
+
+    additional_kwargs = {"response_format": {"type": "json_object"}} if json else {}
+
     response = client.chat.completions.create(
         # model="gpt-4-1106-preview",
         model="gpt-3.5-turbo-1106",
-        response_format={"type": "json_object"},
         messages=[
             {
                 "role": "system",
                 "content": system_prompt,
             },
-            {"role": "user", "content": prompt},
+            {"role": "user", "content": user_prompt},
         ],
+        **additional_kwargs,
     )
     total_tokens_used += response.usage.total_tokens
+    logger.debug("Response: %s", response.choices[0].message.content)
 
+    return response
+
+
+def get_true_or_false_response(
+    system_prompt: str, prompt: str, json_key: str = "label"
+) -> bool | None:
+    """Basically, send_prompt + parsing"""
+    response = send_prompt(system_prompt, prompt)
     content = json.loads(response.choices[0].message.content)
-    logger.debug("Response: %s", content)
 
     match content.get(json_key):
         case True:
@@ -42,7 +58,7 @@ def get_true_or_false_response(
         case False:
             return False
         case _:
-            print(f"Invalid response from GPT-3: {content}")
+            print(f"Invalid response: {content}")
             return None
 
 
@@ -88,8 +104,40 @@ class TaskEvaluator:
         input_strings = [labelled_input.input for labelled_input in test_data]
 
         output = [
-            get_true_or_false_response(task.get_system_prompt(), f'Input: "{input}".\nLabel: ???')
+            get_true_or_false_response(
+                task.get_system_prompt(), format_labelled_input(input, "???")
+            )
             for input in input_strings
         ]
 
         return EvaluationReport(task, test_data, output)
+
+    def ask_articulation(
+        self,
+        task: TaskDescription,
+    ) -> str:
+        response = send_prompt(
+            json=False,
+            system_prompt="""\
+You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logic, and is well-informed.
+            """,
+            user_prompt="""\
+Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+"""
+            + "\n\n".join(
+                [
+                    format_labelled_input(labelled_input.input, labelled_input.label)
+                    for labelled_input in task.example_labelled_inputs
+                ]
+            ),
+        )
+
+        articulation = response.choices[0].message.content
+
+        return articulation

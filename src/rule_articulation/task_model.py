@@ -7,10 +7,14 @@ class LabelledInput:
     label: bool
 
 
+def format_labelled_input(input: str, label: bool | str) -> str:
+    return f'Input: "{input}"\nLabel: {label}'
+
+
 @dataclass
 class TaskDescription:
     human_articulation: str
-    labelled_inputs: list[LabelledInput]
+    example_labelled_inputs: list[LabelledInput]
     prompt_preamble: str = """You are a precise classifier, and you need to respond with a JSON object that is either
 '{"label": true}' or '{"label": false}'.
 
@@ -28,8 +32,8 @@ These are the example sentences:
             + "\n\n"
             + "\n\n".join(
                 [
-                    f'Input: "{labelled_input.input}"\nLabel: {labelled_input.label}'
-                    for labelled_input in self.labelled_inputs
+                    format_labelled_input(labelled_input.input, labelled_input.label)
+                    for labelled_input in self.example_labelled_inputs
                 ]
             )
             + "\n\n---\n\nNow do the same for any new sentences provided to you.\n\n"
