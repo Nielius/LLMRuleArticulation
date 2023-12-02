@@ -23,5 +23,10 @@ def capitalization(n: int = 10, seed: int = 42):
     evaluation_report.print()
 
 
+@app.command()
+def something_else(name: str, formal: bool = False):
+    raise NotImplementedError
+
+
 if __name__ == "__main__":
     app()

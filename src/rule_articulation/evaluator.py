@@ -13,17 +13,20 @@ client = OpenAI(**get_openai_key())
 total_tokens_used = 0
 
 
-def get_true_or_false_response(prompt: str, json_key: str = "label") -> bool | None:
+def get_true_or_false_response(
+    system_prompt: str, prompt: str, json_key: str = "label"
+) -> bool | None:
     global total_tokens_used
+    logger.debug("System prompt: %s", system_prompt)
     logger.debug("Prompt: %s", prompt)
     response = client.chat.completions.create(
+        # model="gpt-4-1106-preview",
         model="gpt-3.5-turbo-1106",
         response_format={"type": "json_object"},
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful classifier, and you need to respond with a JSON object that is either"
-                f"'{{\"{json_key}\": true}}' or '{{\"{json_key}\": false}}'.",
+                "content": system_prompt,
             },
             {"role": "user", "content": prompt},
         ],
@@ -67,6 +70,16 @@ class EvaluationReport:
             if response != labelled_input.label
         ]
 
+    def print(self):
+        print(f"Fraction correct: {self.fraction_correct}")
+        print(f"Total tokens used: {total_tokens_used}")
+        print("Mislabelled responses:")
+        for labelled_input, response in self.mislabelled_responses:
+            print(f"Input: {labelled_input.input}")
+            print(f"Label: {labelled_input.label}")
+            print(f"Response: {response}")
+            print()
+
 
 class TaskEvaluator:
     def evaluate(
@@ -75,11 +88,7 @@ class TaskEvaluator:
         input_strings = [labelled_input.input for labelled_input in test_data]
 
         output = [
-            get_true_or_false_response(
-                task.get_prompt()
-                + "\n\n---\n\nNow provide the label for the following input in JSON format:\n\n"
-                f'Input: "{input}"'
-            )
+            get_true_or_false_response(task.get_system_prompt(), f'Input: "{input}".\nLabel: ???')
             for input in input_strings
         ]
 
