@@ -40,7 +40,7 @@ class CapitalizationDataset(RuleDataset):
     ) -> list[LabelledInput]:
         return [
             LabelledInput(
-                input=introduce_random_capitalization(sentence)
+                input=introduce_random_capitalization(sentence.lower())
                 if label
                 else sentence.lower(),
                 label=label,
@@ -61,14 +61,15 @@ capitalization_task = TaskDescription(
         LabelledInput("the DOG RAN IN THE PARK", True),
         LabelledInput("the dog ran in the park", False),
         LabelledInput("THE mat sat on the cat", True),
-        LabelledInput("the house is cold", False),
+        LabelledInput("my name is john", False),
+        LabelledInput("my name is johN", True),
     ] + [
         LabelledInput(
-            input="gasoline prices rose 4.2 pct last month after increasing  6.6 pct in january, but were still 18 pct below levels of a  year ago, the department said.",
+            input="baker was optimistic about brazil, which has stopped  interest payments on much of its outstanding debt with foreign  commercial banks.",
             label=False,
         ),
         LabelledInput(
-            input="Gelco ExprEss LTd was one of  tHE compAniEs schedulEd FoR divestitUre.",
+            input="gelco exprEss lTd was one of  tHE compAniEs schedulEd FoR divestitUre.",
             label=True,
         ),
         # LabelledInput(

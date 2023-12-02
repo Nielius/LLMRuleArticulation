@@ -18,50 +18,6 @@ client = OpenAI(**get_openai_key())
 total_tokens_used = 0
 
 
-def send_prompt(
-    system_prompt: str, user_prompt: str, json: bool = True
-) -> ChatCompletion:
-    global total_tokens_used
-    logger.debug("System prompt: %s", system_prompt)
-    logger.debug("User prompt: %s", user_prompt)
-
-    additional_kwargs = {"response_format": {"type": "json_object"}} if json else {}
-
-    response = client.chat.completions.create(
-        # model="gpt-4-1106-preview",
-        model="gpt-3.5-turbo-1106",
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt,
-            },
-            {"role": "user", "content": user_prompt},
-        ],
-        **additional_kwargs,
-    )
-    total_tokens_used += response.usage.total_tokens
-    logger.debug("Response: %s", response.choices[0].message.content)
-
-    return response
-
-
-def get_true_or_false_response(
-    system_prompt: str, prompt: str, json_key: str = "label"
-) -> bool | None:
-    """Basically, send_prompt + parsing"""
-    response = send_prompt(system_prompt, prompt)
-    content = json.loads(response.choices[0].message.content)
-
-    match content.get(json_key):
-        case True:
-            return True
-        case False:
-            return False
-        case _:
-            print(f"Invalid response: {content}")
-            return None
-
-
 @dataclass
 class EvaluationReport:
     task: TaskDescription
@@ -98,13 +54,18 @@ class EvaluationReport:
 
 
 class TaskEvaluator:
+    openai_model: str
+
+    def __init__(self, openai_model: str):
+        self.openai_model = openai_model
+
     def evaluate(
         self, task: TaskDescription, test_data: list[LabelledInput]
     ) -> EvaluationReport:
         input_strings = [labelled_input.input for labelled_input in test_data]
 
         output = [
-            get_true_or_false_response(
+            self.get_true_or_false_response(
                 task.get_system_prompt(), format_labelled_input(input, "???")
             )
             for input in input_strings
@@ -116,7 +77,7 @@ class TaskEvaluator:
         self,
         task: TaskDescription,
     ) -> str:
-        response = send_prompt(
+        response = self.send_prompt(
             json=False,
             system_prompt="""\
 You are an excellent and precise classifier that is well-versed in logic and reasoning.
@@ -141,3 +102,48 @@ Think step-by-step, and check your answer, before providing the final answer.
         articulation = response.choices[0].message.content
 
         return articulation
+
+    def send_prompt(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        json: bool = True,
+    ) -> ChatCompletion:
+        global total_tokens_used
+        logger.debug("System prompt: %s", system_prompt)
+        logger.debug("User prompt: %s", user_prompt)
+
+        additional_kwargs = {"response_format": {"type": "json_object"}} if json else {}
+
+        response = client.chat.completions.create(
+            # model="gpt-4-1106-preview",
+            model=self.openai_model,
+            messages=[
+                {
+                    "role": "system",
+                    "content": system_prompt,
+                },
+                {"role": "user", "content": user_prompt},
+            ],
+            **additional_kwargs,
+        )
+        total_tokens_used += response.usage.total_tokens
+        logger.debug("Response: %s", response.choices[0].message.content)
+
+        return response
+
+    def get_true_or_false_response(
+        self, system_prompt: str, prompt: str, json_key: str = "label"
+    ) -> bool | None:
+        """Basically, send_prompt + parsing"""
+        response = self.send_prompt(system_prompt, prompt)
+        content = json.loads(response.choices[0].message.content)
+
+        match content.get(json_key):
+            case True:
+                return True
+            case False:
+                return False
+            case _:
+                print(f"Invalid response: {content}")
+                return None
