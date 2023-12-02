@@ -43,9 +43,15 @@ def run(task: str, gpt4: bool):
     ex.info["report"] = report
     ex.info["fraction_correct"] = report.fraction_correct
     ex.info["mislabelled_responses"] = report.mislabelled_responses
+    ex.info["evaluation_prompt_example"] = evaluator.evaluation_prompt_messages(test_data[0].input)
 
     # Second, ask for articulation
     articulation = evaluator.ask_articulation()
     ex.info["articulation"] = articulation
+    ex.info["articulation_prompt_messages"] = evaluator.articulation_prompt_messages()
+    # TODO: store the entire articulation chat here
 
-    # TODO: store prompts for both evaluation and articulation
+    # {"role": "system", "content": "You are a helpful assistant."},
+    # {"role": "user", "content": "Who won the world series in 2020?"},
+    # {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+    # {"role": "user", "content": "Where was it played?"}

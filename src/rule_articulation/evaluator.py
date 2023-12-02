@@ -85,12 +85,9 @@ class TaskEvaluator:
 
     def evaluate(self, test_data: list[LabelledInput]) -> EvaluationReport:
         input_strings = [labelled_input.input for labelled_input in test_data]
-        system_prompt = self.task.get_system_prompt()
 
         output = [
-            self.get_true_or_false_response(
-                system_prompt, format_labelled_input(input, "???")
-            )
+            self.get_true_or_false_response(self.evaluation_prompt_messages(input))
             for input in input_strings
         ]
 
@@ -99,33 +96,42 @@ class TaskEvaluator:
     def ask_articulation(self) -> str:
         response = self.send_prompt(
             json=False,
-            messages=messages_for_single_prompt(
-                system_prompt="""\
-You are an excellent and precise classifier that is well-versed in logic and reasoning.
-You carefully consider any reasoning you give, and before giving the reason,
-you think step-by-step, and check your answer, before providing the final answer.
-You collocutor is equally precise and logic, and is well-informed.
-            """,
-                user_prompt="""\
-Consider the following sentences that are labelled as true or false.
-Deduce the rule that determines whether a sentence is true or false.
-Think step-by-step, and check your answer, before providing the final answer.
-
-"""
-                + "\n\n".join(
-                    [
-                        format_labelled_input(
-                            labelled_input.input, labelled_input.label
-                        )
-                        for labelled_input in self.task.example_labelled_inputs
-                    ]
-                ),
-            ),
+            messages=self.articulation_prompt_messages(),
         )
 
         articulation = response.choices[0].message.content
 
         return articulation
+
+    def evaluation_prompt_messages(
+        self, input: str
+    ) -> list[ChatCompletionMessageParam]:
+        return messages_for_single_prompt(
+            system_prompt=self.task.get_system_prompt(),
+            user_prompt=format_labelled_input(input, "???"),
+        )
+
+    def articulation_prompt_messages(self) -> list[ChatCompletionMessageParam]:
+        return messages_for_single_prompt(
+            system_prompt="""\
+You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logic, and is well-informed.
+""",
+            user_prompt="""\
+Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+"""
+            + "\n\n".join(
+                [
+                    format_labelled_input(labelled_input.input, labelled_input.label)
+                    for labelled_input in self.task.example_labelled_inputs
+                ]
+            ),
+        )
 
     def send_prompt(
         self,
@@ -155,12 +161,10 @@ Think step-by-step, and check your answer, before providing the final answer.
         return response
 
     def get_true_or_false_response(
-        self, system_prompt: str, prompt: str, json_key: str = "label"
+        self, messages: list[ChatCompletionMessageParam], json_key: str = "label"
     ) -> bool | None:
         """Basically, send_prompt + parsing"""
-        response = self.send_prompt(
-            messages=messages_for_single_prompt(system_prompt, prompt)
-        )
+        response = self.send_prompt(messages)
         content = json.loads(response.choices[0].message.content)
 
         match content.get(json_key):

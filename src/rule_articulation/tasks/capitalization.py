@@ -35,9 +35,7 @@ class CapitalizationDataset(RuleDataset):
     def __init__(self) -> object:
         self.sentences = get_reuters_sentences()
 
-    def get_examples_with_label(
-        self, n: int, labels: list[bool]
-    ) -> list[LabelledInput]:
+    def get_examples_with_label(self, labels: list[bool]) -> list[LabelledInput]:
         return [
             LabelledInput(
                 input=introduce_random_capitalization(sentence.lower())
@@ -45,7 +43,9 @@ class CapitalizationDataset(RuleDataset):
                 else sentence.lower(),
                 label=label,
             )
-            for sentence, label in zip(random.sample(self.sentences, k=n), labels)
+            for sentence, label in zip(
+                random.sample(self.sentences, k=len(labels)), labels
+            )
         ]
 
 
@@ -63,7 +63,8 @@ capitalization_task = TaskDescription(
         LabelledInput("THE mat sat on the cat", True),
         LabelledInput("my name is john", False),
         LabelledInput("my name is johN", True),
-    ] + [
+    ]
+    + [
         LabelledInput(
             input="baker was optimistic about brazil, which has stopped  interest payments on much of its outstanding debt with foreign  commercial banks.",
             label=False,
