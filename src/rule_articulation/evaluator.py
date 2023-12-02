@@ -4,7 +4,12 @@ from dataclasses import dataclass
 from functools import cached_property
 
 from openai import OpenAI
-from openai.types.chat import ChatCompletion
+from openai.types.chat import (
+    ChatCompletion,
+    ChatCompletionMessageParam,
+    ChatCompletionSystemMessageParam,
+    ChatCompletionUserMessageParam,
+)
 
 from rule_articulation.secrets import get_openai_key
 from rule_articulation.task_model import (
@@ -53,6 +58,23 @@ class EvaluationReport:
             print()
 
 
+def messages_for_single_prompt(
+    system_prompt: str,
+    user_prompt: str,
+) -> list[ChatCompletionMessageParam]:
+    """Just a system prompt and a user prompt"""
+    return [
+        ChatCompletionSystemMessageParam(
+            content=system_prompt,
+            role="system",
+        ),
+        ChatCompletionUserMessageParam(
+            content=user_prompt,
+            role="user",
+        ),
+    ]
+
+
 class TaskEvaluator:
     openai_model: str
 
@@ -79,23 +101,27 @@ class TaskEvaluator:
     ) -> str:
         response = self.send_prompt(
             json=False,
-            system_prompt="""\
+            messages=messages_for_single_prompt(
+                system_prompt="""\
 You are an excellent and precise classifier that is well-versed in logic and reasoning.
 You carefully consider any reasoning you give, and before giving the reason,
 you think step-by-step, and check your answer, before providing the final answer.
 You collocutor is equally precise and logic, and is well-informed.
             """,
-            user_prompt="""\
+                user_prompt="""\
 Consider the following sentences that are labelled as true or false.
 Deduce the rule that determines whether a sentence is true or false.
 Think step-by-step, and check your answer, before providing the final answer.
 
 """
-            + "\n\n".join(
-                [
-                    format_labelled_input(labelled_input.input, labelled_input.label)
-                    for labelled_input in task.example_labelled_inputs
-                ]
+                + "\n\n".join(
+                    [
+                        format_labelled_input(
+                            labelled_input.input, labelled_input.label
+                        )
+                        for labelled_input in task.example_labelled_inputs
+                    ]
+                ),
             ),
         )
 
@@ -105,26 +131,24 @@ Think step-by-step, and check your answer, before providing the final answer.
 
     def send_prompt(
         self,
-        system_prompt: str,
-        user_prompt: str,
+        messages: list[ChatCompletionMessageParam],
         json: bool = True,
     ) -> ChatCompletion:
         global total_tokens_used
-        logger.debug("System prompt: %s", system_prompt)
-        logger.debug("User prompt: %s", user_prompt)
+        if len(messages) == 0:
+            raise ValueError("Must provide at least one message")
+        elif len(messages) == 2:
+            logger.debug("System prompt: %s", messages[0]["content"])
+            logger.debug("User prompt: %s", messages[1]["content"])
+        else:
+            logger.debug("Prompt: %s", messages[-1]["content"])
 
         additional_kwargs = {"response_format": {"type": "json_object"}} if json else {}
 
         response = client.chat.completions.create(
             # model="gpt-4-1106-preview",
             model=self.openai_model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt,
-                },
-                {"role": "user", "content": user_prompt},
-            ],
+            messages=messages,
             **additional_kwargs,
         )
         total_tokens_used += response.usage.total_tokens
@@ -136,7 +160,9 @@ Think step-by-step, and check your answer, before providing the final answer.
         self, system_prompt: str, prompt: str, json_key: str = "label"
     ) -> bool | None:
         """Basically, send_prompt + parsing"""
-        response = self.send_prompt(system_prompt, prompt)
+        response = self.send_prompt(
+            messages=messages_for_single_prompt(system_prompt, prompt)
+        )
         content = json.loads(response.choices[0].message.content)
 
         match content.get(json_key):

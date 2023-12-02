@@ -12,6 +12,7 @@ instructor = "^0.4.0"
 nltk = "^3.8.1"
 datasets = "^2.15.0"
 typer = "^0.9.0"
+sacred = "^0.8.5"
 
 [tool.poetry.group.test.dependencies]
 pytest = "*"

@@ -19,7 +19,7 @@ class TaskDescription:
 '{"label": true}' or '{"label": false}'.
 
 Below, you are given a list of sentences, each labelled as true or false.
-There is a single, simple rule that determines whether a setence is labelled true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
 Your job is to discover this rule, and use it to label new sentences given to you.
 
 These are the example sentences:
@@ -29,7 +29,6 @@ These are the example sentences:
     def get_system_prompt(self) -> str:
         return (
             self.prompt_preamble
-            + "\n\n"
             + "\n\n".join(
                 [
                     format_labelled_input(labelled_input.input, labelled_input.label)

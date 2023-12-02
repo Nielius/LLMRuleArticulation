@@ -11,3 +11,12 @@
   "api_key": "sk-XXXXX"
 }
 ```
+
+
+Examples:
+
+
+```
+python src/rule_articulation/full_experiment.py with gpt4=True task=test
+
+```
