@@ -77,28 +77,26 @@ def messages_for_single_prompt(
 
 class TaskEvaluator:
     openai_model: str
+    task: TaskDescription
 
-    def __init__(self, openai_model: str):
+    def __init__(self, task: TaskDescription, openai_model: str):
+        self.task = task
         self.openai_model = openai_model
 
-    def evaluate(
-        self, task: TaskDescription, test_data: list[LabelledInput]
-    ) -> EvaluationReport:
+    def evaluate(self, test_data: list[LabelledInput]) -> EvaluationReport:
         input_strings = [labelled_input.input for labelled_input in test_data]
+        system_prompt = self.task.get_system_prompt()
 
         output = [
             self.get_true_or_false_response(
-                task.get_system_prompt(), format_labelled_input(input, "???")
+                system_prompt, format_labelled_input(input, "???")
             )
             for input in input_strings
         ]
 
-        return EvaluationReport(task, test_data, output)
+        return EvaluationReport(self.task, test_data, output)
 
-    def ask_articulation(
-        self,
-        task: TaskDescription,
-    ) -> str:
+    def ask_articulation(self) -> str:
         response = self.send_prompt(
             json=False,
             messages=messages_for_single_prompt(
@@ -119,7 +117,7 @@ Think step-by-step, and check your answer, before providing the final answer.
                         format_labelled_input(
                             labelled_input.input, labelled_input.label
                         )
-                        for labelled_input in task.example_labelled_inputs
+                        for labelled_input in self.task.example_labelled_inputs
                     ]
                 ),
             ),

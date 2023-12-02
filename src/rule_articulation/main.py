@@ -27,9 +27,9 @@ def eval(
 ):
     dataset = CapitalizationDataset()
 
-    evaluation_report = TaskEvaluator(openai_model=get_openai_model(gpt4)).evaluate(
-        capitalization_task, dataset.sample(n)
-    )
+    evaluation_report = TaskEvaluator(
+        task=capitalization_task, openai_model=get_openai_model(gpt4)
+    ).evaluate(dataset.sample(n))
     evaluation_report.print()
 
 
@@ -37,9 +37,9 @@ def eval(
 def articulate(
     gpt4: bool = typer.Option(False, "-4", "--gpt4", help="Use GPT-4 instead of GPT-3"),
 ):
-    articulation = TaskEvaluator(openai_model=get_openai_model(gpt4)).ask_articulation(
-        capitalization_task
-    )
+    articulation = TaskEvaluator(
+        task=capitalization_task, openai_model=get_openai_model(gpt4)
+    ).ask_articulation()
     print("Articulation:", articulation)
 
 
