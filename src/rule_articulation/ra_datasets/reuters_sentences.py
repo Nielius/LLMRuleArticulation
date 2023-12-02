@@ -9,6 +9,7 @@ from nltk.corpus import reuters
 @cache
 def get_reuters_sentences(
     exclude_headlines: bool = True,
+    exclude_short_and_long_sentences: bool = True,
     remove_punctuation: bool = False,
     lower_case: bool = False,
 ) -> list[str]:
@@ -16,6 +17,7 @@ def get_reuters_sentences(
     return list(
         _get_reuters_iterator(
             exclude_headlines=exclude_headlines,
+            exclude_short_and_long_sentences=exclude_short_and_long_sentences,
             remove_punctuation=remove_punctuation,
             lower_case=lower_case,
         )
@@ -24,6 +26,7 @@ def get_reuters_sentences(
 
 def _get_reuters_iterator(
     exclude_headlines: bool = True,
+    exclude_short_and_long_sentences: bool = True,
     remove_punctuation: bool = False,
     lower_case: bool = False,
 ) -> Iterator[str]:
@@ -36,7 +39,7 @@ def _get_reuters_iterator(
         if exclude_headlines and is_headline(sentence):
             continue
 
-        if not(40 < len(sentence) < 180):
+        if exclude_short_and_long_sentences and not(40 < len(sentence) < 180):
             continue
 
         if remove_punctuation:
