@@ -1,8 +1,10 @@
+from rule_articulation.ra_datasets.gutenberg_sentences import get_gutenberg_sentences
 from rule_articulation.ra_datasets.same_letter_wordlist import (
     StartEndLetterDataset,
     ends_in_same_letter,
 )
 from rule_articulation.ra_datasets.short_sentence_wordlist import ShortSentenceDataset
+from rule_articulation.ra_datasets.source_mixer import SourceMixerDataset
 from rule_articulation.ra_datasets.wordnet_wordlist import (
     PalindromeWordDataset,
     is_palindrome,
@@ -44,3 +46,19 @@ def test_short_sentence_dataset():
             assert len(labelled_input.input) < dataset.short_threshold
         else:
             assert len(labelled_input.input) > dataset.long_threshold
+
+
+def test_source_mixer_dataset():
+    source_1 = get_gutenberg_sentences("bible")[:200]
+    source_2 = get_gutenberg_sentences("shakespeare")[:200]
+
+    dataset = SourceMixerDataset(sources=(source_1, source_2))
+    labelled_inputs = dataset.sample(100)
+
+    source_1_set = set(source_1)
+    source_2_set = set(source_2)
+    for labelled_input in labelled_inputs:
+        if labelled_input.label:
+            assert labelled_input.input in source_1_set
+        else:
+            assert labelled_input.input in source_2_set
