@@ -1,3 +1,5 @@
+import re
+from rule_articulation.ra_datasets.arithmetic import ArithmeticDataset
 from rule_articulation.ra_datasets.gutenberg_sentences import get_gutenberg_sentences
 from rule_articulation.ra_datasets.same_letter_wordlist import (
     StartEndLetterDataset,
@@ -62,3 +64,19 @@ def test_source_mixer_dataset():
             assert labelled_input.input in source_1_set
         else:
             assert labelled_input.input in source_2_set
+
+
+def test_arithmetic_dataset():
+    dataset = ArithmeticDataset()
+    labelled_inputs = dataset.sample(100)
+
+    sum_re = re.compile(r"(\d+) \+ (\d+) = (\d+)")
+
+    for labelled_input in labelled_inputs:
+        match = sum_re.match(labelled_input.input)
+        x, y, z = [int(s) for s in match.groups()]
+
+        if labelled_input.label:
+            assert x + y == z
+        else:
+            assert x + y != z
