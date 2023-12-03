@@ -78,10 +78,17 @@ def messages_for_single_prompt(
 class TaskEvaluator:
     openai_model: str
     task: TaskDescription
+    num_articulations: int
 
-    def __init__(self, task: TaskDescription, openai_model: str):
+    def __init__(
+        self,
+        task: TaskDescription,
+        openai_model: str,
+        num_articulations: int = 10,
+    ):
         self.task = task
         self.openai_model = openai_model
+        self.num_articulations = num_articulations
 
     def evaluate(self, test_data: list[LabelledInput]) -> EvaluationReport:
         input_strings = [labelled_input.input for labelled_input in test_data]
@@ -93,13 +100,14 @@ class TaskEvaluator:
 
         return EvaluationReport(self.task, test_data, output)
 
-    def ask_articulation(self) -> str:
+    def ask_articulation(self) -> list[str]:
         response = self.send_prompt(
             json=False,
             messages=self.articulation_prompt_messages(),
+            n=self.num_articulations,
         )
 
-        articulation = response.choices[0].message.content
+        articulation = [choice.message.content for choice in response.choices]
 
         return articulation
 
@@ -137,6 +145,7 @@ Think step-by-step, and check your answer, before providing the final answer.
         self,
         messages: list[ChatCompletionMessageParam],
         json: bool = True,
+        n: int = 1,
     ) -> ChatCompletion:
         global total_tokens_used
         if len(messages) == 0:
@@ -153,6 +162,7 @@ Think step-by-step, and check your answer, before providing the final answer.
             # model="gpt-4-1106-preview",
             model=self.openai_model,
             messages=messages,
+            n=n,
             **additional_kwargs,
         )
         total_tokens_used += response.usage.total_tokens

@@ -22,20 +22,24 @@ def experiment_config():
 
     task: str = "capitalization"
     gpt4: bool = False
+    num_test_examples: int = 10
+    num_articulations: int = 1
 
 
 @ex.automain
-def run(task: str, gpt4: bool):
+def run(task: str, gpt4: bool, num_test_examples: int, num_articulations: int):
     print("Running experiment with config:")
-    print(f"task: {task}")
+    print(f"{task=}")
     print(f"gpt4: {gpt4} (type: {type(gpt4)})")
+    print(f"{num_test_examples=}")
+    print(f"{num_articulations=}")
 
     task = get_task(task)
     evaluator = TaskEvaluator(
-        task=task.description, openai_model=get_openai_model(gpt4)
+        task=task.description, openai_model=get_openai_model(gpt4), num_articulations=num_articulations
     )
 
-    test_data = task.dataset.sample(10)
+    test_data = task.dataset.sample(num_test_examples)
     ex.info["test_data"] = test_data
 
     # First, evaluate
@@ -51,8 +55,8 @@ def run(task: str, gpt4: bool):
     )
 
     # Second, ask for articulation
-    articulation = evaluator.ask_articulation()
-    ex.info["articulation"] = articulation
+    articulations = evaluator.ask_articulation()
+    ex.info["articulation"] = articulations
     ex.info["articulation_prompt_messages"] = evaluator.articulation_prompt_messages()
     # TODO: store the entire articulation chat here
 

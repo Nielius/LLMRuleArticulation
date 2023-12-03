@@ -23,4 +23,10 @@ python src/rule_articulation/full_experiment.py with gpt4=True task=capitalizati
 python src/rule_articulation/main.py eval bibleshakespeare
 python src/rule_articulation/main.py eval -4 bibleshakespeare
 python src/rule_articulation/main.py articulate -4 bibleshakespeare
+
+
+# When you run a full experiment, the results are stored in `experiments/results/<experiment_number>`
+# You can print a small report using
+
+python src/rule_articulation/main.py report print <experiment_number>
 ```
