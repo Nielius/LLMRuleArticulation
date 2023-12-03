@@ -1,7 +1,12 @@
 import random
 
 from rule_articulation.ra_datasets.reuters_sentences import get_reuters_sentences
-from rule_articulation.task_model import LabelledInput, TaskDescription, RuleDataset, RuleArticulationTask
+from rule_articulation.task_model import (
+    LabelledInput,
+    TaskDescription,
+    RuleDataset,
+    RuleArticulationTask,
+)
 
 
 def introduce_random_capitalization(sentence: str) -> str:
@@ -60,14 +65,12 @@ capitalization_task_description = TaskDescription(
         LabelledInput("THE mat sat on the cat", True),
         LabelledInput("my name is john", False),
         LabelledInput("my name is johN", True),
-    ]
-    + [
         LabelledInput(
-            input="baker was optimistic about brazil, which has stopped  interest payments on much of its outstanding debt with foreign  commercial banks.",
+            input="baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.",
             label=False,
         ),
         LabelledInput(
-            input="gelco exprEss lTd was one of  tHE compAniEs schedulEd FoR divestitUre.",
+            input="gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.",
             label=True,
         ),
         # LabelledInput(
