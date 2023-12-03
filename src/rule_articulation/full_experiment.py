@@ -1,14 +1,13 @@
+from dataclasses import asdict
 from pathlib import Path
 
 from sacred import Experiment
 from sacred.observers import FileStorageObserver
 
-from rule_articulation.evaluator import TaskEvaluator, total_tokens_used
-from rule_articulation.main import get_openai_model
-from rule_articulation.tasks.capitalization import (
-    capitalization_task,
-    CapitalizationDataset,
-)
+from rule_articulation.evaluator import TaskEvaluator
+from rule_articulation.utils import get_openai_model, get_task, set_default_log_settings
+
+set_default_log_settings()
 
 ex = Experiment("config_demo")
 
@@ -31,10 +30,12 @@ def run(task: str, gpt4: bool):
     print(f"task: {task}")
     print(f"gpt4: {gpt4} (type: {type(gpt4)})")
 
-    task = capitalization_task
-    evaluator = TaskEvaluator(task=task, openai_model=get_openai_model(gpt4))
+    task = get_task(task)
+    evaluator = TaskEvaluator(
+        task=task.description, openai_model=get_openai_model(gpt4)
+    )
 
-    test_data = CapitalizationDataset().sample(10)
+    test_data = task.dataset.sample(10)
     ex.info["test_data"] = test_data
 
     # First, evaluate
@@ -42,8 +43,12 @@ def run(task: str, gpt4: bool):
 
     ex.info["report"] = report
     ex.info["fraction_correct"] = report.fraction_correct
-    ex.info["mislabelled_responses"] = report.mislabelled_responses
-    ex.info["evaluation_prompt_example"] = evaluator.evaluation_prompt_messages(test_data[0].input)
+    ex.info["mislabelled_responses"] = [
+        (asdict(input), response) for input, response in report.mislabelled_responses
+    ]
+    ex.info["evaluation_prompt_example"] = evaluator.evaluation_prompt_messages(
+        test_data[0].input
+    )
 
     # Second, ask for articulation
     articulation = evaluator.ask_articulation()

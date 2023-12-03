@@ -2,8 +2,7 @@ import random
 from typing import Iterator
 
 from rule_articulation.ra_datasets.reuters_sentences import get_reuters_sentences
-from rule_articulation.ra_datasets.rule_dataset import RuleDataset
-from rule_articulation.task_model import LabelledInput
+from rule_articulation.task_model import LabelledInput, RuleDataset
 
 
 class ShortSentenceDataset(RuleDataset):

@@ -1,4 +1,8 @@
+import random
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from functools import cached_property
+from typing import Callable
 
 
 @dataclass
@@ -9,6 +13,17 @@ class LabelledInput:
 
 def format_labelled_input(input: str, label: bool | str) -> str:
     return f'Input: "{input}"\nLabel: {label}'
+
+
+class RuleDataset(ABC):
+    @abstractmethod
+    def get_examples_with_label(self, labels: list[bool]) -> list[LabelledInput]:
+        raise NotImplementedError()
+
+    def sample(self, n: int, p_true: float = 0.5) -> list[LabelledInput]:
+        return self.get_examples_with_label(
+            [random.random() < p_true for _ in range(n)]
+        )
 
 
 @dataclass
@@ -37,3 +52,13 @@ These are the example sentences:
             )
             + "\n\n---\n\nNow do the same for any new sentences provided to you.\n\n"
         )
+
+
+@dataclass
+class RuleArticulationTask:
+    description: TaskDescription
+    get_dataset: Callable[[], RuleDataset]
+
+    @cached_property
+    def dataset(self) -> RuleDataset:
+        return self.get_dataset()

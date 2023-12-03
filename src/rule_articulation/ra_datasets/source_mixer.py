@@ -2,8 +2,7 @@ import random
 from typing import Iterator
 
 from rule_articulation.ra_datasets.gutenberg_sentences import get_gutenberg_sentences
-from rule_articulation.ra_datasets.rule_dataset import RuleDataset
-from rule_articulation.task_model import LabelledInput
+from rule_articulation.task_model import LabelledInput, RuleDataset
 
 
 class SourceMixerDataset(RuleDataset):

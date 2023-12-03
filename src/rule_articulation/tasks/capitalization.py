@@ -1,10 +1,7 @@
 import random
 
 from rule_articulation.ra_datasets.reuters_sentences import get_reuters_sentences
-from rule_articulation.ra_datasets.rule_dataset import RuleDataset
-from rule_articulation.task_model import LabelledInput, TaskDescription
-
-dataset = get_reuters_sentences()
+from rule_articulation.task_model import LabelledInput, TaskDescription, RuleDataset, RuleArticulationTask
 
 
 def introduce_random_capitalization(sentence: str) -> str:
@@ -53,7 +50,7 @@ def get_capitalization_dataset() -> CapitalizationDataset:
     return CapitalizationDataset()
 
 
-capitalization_task = TaskDescription(
+capitalization_task_description = TaskDescription(
     human_articulation="Return true if the sentence has at least one capital letter, false otherwise.",
     example_labelled_inputs=[
         LabelledInput("the cat sat on the mat", False),
@@ -106,4 +103,9 @@ capitalization_task = TaskDescription(
         #     label=True,
         # ),
     ],
+)
+
+capitalization_task = RuleArticulationTask(
+    description=capitalization_task_description,
+    get_dataset=get_capitalization_dataset,
 )

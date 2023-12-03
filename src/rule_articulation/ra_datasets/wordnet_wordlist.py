@@ -7,8 +7,7 @@ import nltk
 
 from nltk.corpus import wordnet
 
-from rule_articulation.ra_datasets.rule_dataset import RuleDataset
-from rule_articulation.task_model import LabelledInput
+from rule_articulation.task_model import LabelledInput, RuleDataset
 
 
 def is_palindrome(word: str) -> bool:

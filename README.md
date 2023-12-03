@@ -17,6 +17,10 @@ Examples:
 
 
 ```
-python src/rule_articulation/full_experiment.py with gpt4=True task=test
+python src/rule_articulation/full_experiment.py with gpt4=True task=capitalization
+
+python src/rule_articulation/main.py eval bibleshakespeare
+python src/rule_articulation/main.py eval -4 bibleshakespeare
+python src/rule_articulation/main.py articulate -4 bibleshakespeare
 
 ```
