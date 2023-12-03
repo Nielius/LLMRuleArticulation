@@ -3,6 +3,7 @@ from typing import Annotated
 
 import typer
 
+import rule_articulation.dev_tools.sample_input as sample_input
 from rule_articulation.evaluator import TaskEvaluator
 from rule_articulation.utils import get_openai_model, get_task, set_default_log_settings
 
@@ -11,6 +12,7 @@ set_default_log_settings()
 
 
 app = typer.Typer()
+app.add_typer(sample_input.app, name="sample-input")
 
 
 @app.command()

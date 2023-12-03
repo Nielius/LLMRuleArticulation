@@ -126,10 +126,9 @@ class PalindromeWordDataset(RuleDataset):
         "irori",
         "isi",
         "kaiak",
-        "Kanak",
+        "kanak",
         "kayak",
         "kazak",
-        "Kazak",
         "keek",
         "kelek",
         "kinnikinnik",
@@ -242,8 +241,8 @@ class PalindromeWordDataset(RuleDataset):
         "succus",
         "sulus",
         "sus",
-        "Susus",
-        "Tacocat",
+        "qusus",
+        "tacocat",
         "tat",
         "tattarrattat",
         "tdt",
@@ -282,7 +281,9 @@ class PalindromeWordDataset(RuleDataset):
 
     def __init__(self):
         nltk.download("wordnet")
-        self.all_words = list(islice(wordnet.words(), 100))
+        all_words = list(wordnet.words())
+        random.shuffle(all_words)
+        self.all_words = all_words
 
     def get_examples_with_label(self, labels: list[bool]) -> list[LabelledInput]:
         num_of_palindromes = sum(labels)
@@ -311,6 +312,10 @@ class PalindromeWordDataset(RuleDataset):
                 continue
 
             if is_palindrome(candidate):
+                continue
+
+            if "_" in candidate:
+                # the non-palindrome dataset contains "words" that are actually several words (e.g. "camphor_oil" and "plant_scientist")
                 continue
 
             # otherwise, accept

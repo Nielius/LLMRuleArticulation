@@ -30,7 +30,7 @@ def sanitized_sentences(
 
         sentence = excess_space_re.sub(" ", sentence)
 
-        yield sentence.replace("\n", " ")
+        yield sentence
 
 
 def is_headline(sentence):
