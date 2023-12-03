@@ -117,7 +117,7 @@ class TaskEvaluator:
 You are an excellent and precise classifier that is well-versed in logic and reasoning.
 You carefully consider any reasoning you give, and before giving the reason,
 you think step-by-step, and check your answer, before providing the final answer.
-You collocutor is equally precise and logic, and is well-informed.
+You collocutor is equally precise and logical, and is well-informed.
 """,
             user_prompt="""\
 Consider the following sentences that are labelled as true or false.

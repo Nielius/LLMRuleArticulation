@@ -10,11 +10,28 @@ same_letter_task = RuleArticulationTask(
         human_articulation="Return true if the sentence starts and ends with the same letter",
         example_labelled_inputs=[
             LabelledInput(
-                input="xenophobic patissiers make tasteless gateaux", label=True
+                input="zany artists like jazz",
+                label=True,
             ),
             LabelledInput(
-                input="xenophobic patissiers make tasteless cakes", label=False
+                input="many artists like jazz",
+                label=False,
             ),
+            LabelledInput(
+                input="xerox everything you find in your mailbox",
+                label=True,
+            ),
+            LabelledInput(
+                input="xerox everything you find in this drawer",
+                label=False,
+            ),
+            # This biases too much towards "French"
+            # LabelledInput(
+            #     input="xenophobic patissiers make tasteless gateaux", label=True
+            # ),
+            # LabelledInput(
+            #     input="xenophobic patissiers make tasteless cakes", label=False
+            # ),
             LabelledInput(
                 input="quite a lot of people know the french word for five is cinq",
                 label=True,
