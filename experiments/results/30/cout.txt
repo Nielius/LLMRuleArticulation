@@ -1,0 +1,1890 @@
+INFO:config_demo:Running command 'run'
+INFO:config_demo:Started run with ID "30"
+DEBUG:config_demo:Starting Heartbeat
+DEBUG:run:Started
+Running experiment with config:
+task='sameletter'
+gpt4: False (type: <class 'bool'>)
+num_test_examples=30
+num_articulations=10
+[nltk_data] Downloading package reuters to /home/niels/nltk_data...
+[nltk_data]   Package reuters is already up-to-date!
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "despite current strong interest in gold mine stocks many investors still want to buy physical gold witte said"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "despite current strong interest in gold mine stocks many investors still want to buy physical gold witte said"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f2ec3765e90>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f2ecadc15b0> server_hostname='api.openai.com' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f2ec3765990>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'131'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999631'), (b'x-ratelimit-remaining-tokens_usage_based', b'999631'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'9a1195f6686c5ed51a94dc47b54b8763'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=EdYM23E.tROWQs0o6MTLBlvtFDQC.Z3AbkchOs.sOE4-1701642626-0-AX8PXL7cofSaA2nocGVyU+zAcvthNobdJay6+QgNllXgSxbzUE0ti+DZF8UsYucs9phzKMxyXLXAaCN+SUqwHhM=; path=/; expires=Sun, 03-Dec-23 23:00:26 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=J1yDCHoVkLKtAVfaeaW0SEqEJ9LsekcqbVcJF.toHK4-1701642626302-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff410c7de460fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the officials said the tariffs would be ended as soon as japan started adhering to the agreement"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the officials said the tariffs would be ended as soon as japan started adhering to the agreement"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'121'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999634'), (b'x-ratelimit-remaining-tokens_usage_based', b'999634'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'9d69853ca228f82f620cb8e830672638'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff410e98d460fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the resource gap in the governments finances on current account will be bridged over the near term bank governor jaafar hussein said in the report"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the resource gap in the governments finances on current account will be bridged over the near term bank governor jaafar hussein said in the report"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'131'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999622'), (b'x-ratelimit-remaining-tokens_usage_based', b'999622'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'4b0c7bf19732be812aa29695c57eab6d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41108b6760fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "naval escorts as too public an admission of its need for protection they said"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "naval escorts as too public an admission of its need for protection they said"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'214'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999639'), (b'x-ratelimit-remaining-tokens_usage_based', b'999639'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'9efe6741ed22276e7aacbacf03255c26'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41131ea760fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "ecuador was forced to suspend exports after the pipeline connecting its jungle oil fields with the pacific ocean port of balao was damaged last week by an earthquake"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "ecuador was forced to suspend exports after the pipeline connecting its jungle oil fields with the pacific ocean port of balao was damaged last week by an earthquake"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'195'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999617'), (b'x-ratelimit-remaining-tokens_usage_based', b'999617'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'f4c9f778dbda6355bf8d3f3aa1f3d725'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41163b0360fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the official who asked not to be named told reuters that the guarantee was given in an unpublished clause of the agreement"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the official who asked not to be named told reuters that the guarantee was given in an unpublished clause of the agreement"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'115'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999627'), (b'x-ratelimit-remaining-tokens_usage_based', b'999627'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'054608c44f81fed520f7c8293b737dd6'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4118fef460fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the bill sets out us trade negotiating objectives for the uruguay round of talks under the general agreement on tariffs and trade"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the bill sets out us trade negotiating objectives for the uruguay round of talks under the general agreement on tariffs and trade"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'120'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999626'), (b'x-ratelimit-remaining-tokens_usage_based', b'999626'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'b021e2b732934eac61cdbd964f2020c3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff411ada1560fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the company also said it has agreed to repurchase up to three mln common shares on the open market"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the company also said it has agreed to repurchase up to three mln common shares on the open market"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'102'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999634'), (b'x-ratelimit-remaining-tokens_usage_based', b'999634'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'54ab7f55bcd949c8918cb82307324e7f'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff411d3d3060fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "eightyoctane petrol increases to 90 sucres from 50"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "eightyoctane petrol increases to 90 sucres from 50"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'108'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'9fe0f9daca2eccab68f3bff1177de618'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff411f482660fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the average exchange rate was 1623 shillings per us dlr last year a fall of only 12 pct from 16432 in 1985"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the average exchange rate was 1623 shillings per us dlr last year a fall of only 12 pct from 16432 in 1985"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'172'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999631'), (b'x-ratelimit-remaining-tokens_usage_based', b'999631'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'233d8912c43382d68f0786548261b124'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4121dbe960fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "the reports earlier this week said that cable would be offered a five pct stake up from an originally proposed three pct"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "the reports earlier this week said that cable would be offered a five pct stake up from an originally proposed three pct"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'168'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999627'), (b'x-ratelimit-remaining-tokens_usage_based', b'999627'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'd529d2687330826bb2d88eb6daaaafd5'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41241ead60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "this includeseliminating existing restrictions in the ec as far as possible"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "this includeseliminating existing restrictions in the ec as far as possible"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'222'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999639'), (b'x-ratelimit-remaining-tokens_usage_based', b'999639'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'd8b1dfc32d81a7adad0722dd726b1c7d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41267a3860fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "quinn echoed the sentiment of many analysts that there are large amounts of cash waiting to be invested"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "quinn echoed the sentiment of many analysts that there are large amounts of cash waiting to be invested"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'125'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999631'), (b'x-ratelimit-remaining-tokens_usage_based', b'999631'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'592ecd70f6d6e297e8e27c5200399214'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41298e2460fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "he said the implication for equity markets in neutral to bullish"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "he said the implication for equity markets in neutral to bullish"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'187'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999642'), (b'x-ratelimit-remaining-tokens_usage_based', b'999642'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'18168cf99392e67a8238a07842781c59'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff412b891160fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "he said revenue should not be raised by taxing the consumer and called the proposal repugnant"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "he said revenue should not be raised by taxing the consumer and called the proposal repugnant"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'168'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999635'), (b'x-ratelimit-remaining-tokens_usage_based', b'999635'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'bca895983b3912d96d2010f3269c9b64'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff412eacdd60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "most expect fed policy to be neutral for bonds near term"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "most expect fed policy to be neutral for bonds near term"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'279'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999643'), (b'x-ratelimit-remaining-tokens_usage_based', b'999643'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'c99cc04856f6d4dc412f3f45b80715de'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4131483960fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "as long as opec maintains its output curbs demand for its oil will rise in april and may sheikh ali said adding that kuwait was strongly committed to its opec quota"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "as long as opec maintains its output curbs demand for its oil will rise in april and may sheikh ali said adding that kuwait was strongly committed to its opec quota"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'166'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999617'), (b'x-ratelimit-remaining-tokens_usage_based', b'999617'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'f86a9275da63dca949afcaac0d39cc46'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41346c6960fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "revenue would provide 4884 billion shillings leaving a deficit of 2849 billion to be financed through domestic and foreign loans"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "revenue would provide 4884 billion shillings leaving a deficit of 2849 billion to be financed through domestic and foreign loans"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'170'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999626'), (b'x-ratelimit-remaining-tokens_usage_based', b'999626'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'63f1570307baa89906b73f722fe1b224'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4136effc60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "standard closed in new york last night at 6478 dlrs down 134 dlrs"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "standard closed in new york last night at 6478 dlrs down 134 dlrs"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'173'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999642'), (b'x-ratelimit-remaining-tokens_usage_based', b'999642'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'b17ff6651a2479610f33d6da4b6c177b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41397b6360fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "this acquisition includes all of livingwells rights to its recently announced powercise fitness equipment"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "this acquisition includes all of livingwells rights to its recently announced powercise fitness equipment"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'184'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999631'), (b'x-ratelimit-remaining-tokens_usage_based', b'999631'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'58fb30ea47fc300437b39c3bd4c74923'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff413c2eb060fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "this move may force interest rates up by creating a revenue vacuum which must be filled by higher government borrowing"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "this move may force interest rates up by creating a revenue vacuum which must be filled by higher government borrowing"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'118'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999628'), (b'x-ratelimit-remaining-tokens_usage_based', b'999628'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'e05ccdfdeaab1eca65f11c1426bd880f'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff413eb9fb60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "while poland is unlikely to seek compensation it says it has a moral right to assistance from the us"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "while poland is unlikely to seek compensation it says it has a moral right to assistance from the us"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'165'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999632'), (b'x-ratelimit-remaining-tokens_usage_based', b'999632'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'20b614c829f4ff305d4f71321bcec3ef'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4140ac3760fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "australia has said it is not setting any export quota"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "australia has said it is not setting any export quota"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'102'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999644'), (b'x-ratelimit-remaining-tokens_usage_based', b'999644'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'a3742b2696b5cc2b6e896c1a5cfb316b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff41433f4760fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "paul cain a vice president at shearson lehman brothers said the elimination of price limits will cut back on panic buying or selling and contribute to more orderly markets"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "paul cain a vice president at shearson lehman brothers said the elimination of price limits will cut back on panic buying or selling and contribute to more orderly markets"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'146'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999614'), (b'x-ratelimit-remaining-tokens_usage_based', b'999614'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'23ms'), (b'x-ratelimit-reset-tokens_usage_based', b'23ms'), (b'x-request-id', b'646a9f750892c16c713112bf5aa55acf'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4145aa5560fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "sterling remained supported by optimism on the uk"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "sterling remained supported by optimism on the uk"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'112'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'4aa94ddbf8f2dde136ceaa14a5cbce00'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4147dd0660fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "stephen t mcclellan of merrill lynch research said most software companies are currently valued at about 20 times pershare earnings"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "stephen t mcclellan of merrill lynch research said most software companies are currently valued at about 20 times pershare earnings"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'206'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999625'), (b'x-ratelimit-remaining-tokens_usage_based', b'999625'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'3c1548375d108550738ca62c295aba15'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff414a2fec60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "production has also been seriously affected in recent years by equipment breakdowns deteriorating ore and shortages of spare parts fuel and lubricants"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "production has also been seriously affected in recent years by equipment breakdowns deteriorating ore and shortages of spare parts fuel and lubricants"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'172'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999621'), (b'x-ratelimit-remaining-tokens_usage_based', b'999621'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'5abf811b7aeadeacf0fa96584923e437'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff414e5da860fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "she was unable to say if there had been any prior contact between waste management and chemlawn officials"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "she was unable to say if there had been any prior contact between waste management and chemlawn officials"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'142'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999631'), (b'x-ratelimit-remaining-tokens_usage_based', b'999631'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'9e5f4be14426b127a03aa319dc636a59'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff415149d260fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "venezuelas total proven reserves as of december 31 1986 were 55521 billion barrels the fourth largest amount in the world hernandez said"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "venezuelas total proven reserves as of december 31 1986 were 55521 billion barrels the fourth largest amount in the world hernandez said"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'251'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999623'), (b'x-ratelimit-remaining-tokens_usage_based', b'999623'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'1984b880a77275129be6162dbb771ecb'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4153ccbf60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "shr figures after preferred dividend requirements"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "shr figures after preferred dividend requirements"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'125'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'7a618e5bbcce11f44c3a9336e73e6903'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4156980f60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logical, and is well-informed.
+
+DEBUG:rule_articulation.evaluator:User prompt: Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+Input: "zany artists like jazz"
+Label: True
+
+Input: "many artists like jazz"
+Label: False
+
+Input: "xerox everything you find in your mailbox"
+Label: True
+
+Input: "xerox everything you find in this drawer"
+Label: False
+
+Input: "quite a lot of people know the french word for five is cinq"
+Label: True
+
+Input: "quite a lot of people know the french word for four is quatre"
+Label: False
+
+Input: "this compares with the previous januarys 139 pct"
+Label: True
+
+Input: "this compares with the previous januarys 139 payroll cost tranfer"
+Label: False
+
+Input: "no other details were disclosed about the amount of millipores investment in protein"
+Label: True
+
+Input: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+Label: False
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n', 'role': 'system'}, {'content': 'Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: "zany artists like jazz"\nLabel: True\n\nInput: "many artists like jazz"\nLabel: False\n\nInput: "xerox everything you find in your mailbox"\nLabel: True\n\nInput: "xerox everything you find in this drawer"\nLabel: False\n\nInput: "quite a lot of people know the french word for five is cinq"\nLabel: True\n\nInput: "quite a lot of people know the french word for four is quatre"\nLabel: False\n\nInput: "this compares with the previous januarys 139 pct"\nLabel: True\n\nInput: "this compares with the previous januarys 139 payroll cost tranfer"\nLabel: False\n\nInput: "no other details were disclosed about the amount of millipores investment in protein"\nLabel: True\n\nInput: "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"\nLabel: False', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 10}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:30:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'7171'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999505'), (b'x-ratelimit-remaining-tokens_usage_based', b'999505'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'29ms'), (b'x-ratelimit-reset-tokens_usage_based', b'29ms'), (b'x-request-id', b'1b11ef96ab72eeee8d4cd3cd6d0e0fd1'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4158faba60fc-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: Let's analyze the true and false sentences to deduce the rule that determines their truth value.
+
+True sentences:
+1. "zany artists like jazz"
+2. "xerox everything you find in your mailbox"
+3. "quite a lot of people know the french word for five is cinq"
+4. "this compares with the previous januarys 139 pct"
+5. "no other details were disclosed about the amount of millipores investment in protein"
+
+False sentences:
+1. "many artists like jazz"
+2. "xerox everything you find in this drawer"
+3. "quite a lot of people know the french word for four is quatre"
+4. "this compares with the previous januarys 139 payroll cost tranfer"
+5. "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said"
+
+Upon analysis, I have come to the conclusion that the rule determining the truth or falsity of the given sentences is the presence of specific or general terms and the adherence to grammatical correctness.
+
+For the true sentences, in each case, the statements are general and grammatically correct.
+For the false sentences, each statement contains a specific or restrictive term and/or is not grammatically correct.
+
+Therefore, the rule for determining whether a sentence is true or false is based on the presence of specific or general terms and adherence to grammatical correctness.
+DEBUG:run:Finished after 0:00:21.
+INFO:config_demo:Completed after 0:00:21

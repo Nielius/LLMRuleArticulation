@@ -1,0 +1,22 @@
+{
+  "__annotations__": {
+    "gpt4": {
+      "py/type": "builtins.bool"
+    },
+    "num_articulations": {
+      "py/type": "builtins.int"
+    },
+    "num_test_examples": {
+      "py/type": "builtins.int"
+    },
+    "task": {
+      "py/type": "builtins.str"
+    }
+  },
+  "__doc__": "This is my demo configuration",
+  "gpt4": false,
+  "num_articulations": 10,
+  "num_test_examples": 30,
+  "seed": 205256682,
+  "task": "capitalization"
+}

@@ -1,0 +1,559 @@
+{
+  "articulation": [
+    "Let's analyze the true and false sentences to deduce the rule that determines their truth value.\n\nTrue sentences:\n1. \"zany artists like jazz\"\n2. \"xerox everything you find in your mailbox\"\n3. \"quite a lot of people know the french word for five is cinq\"\n4. \"this compares with the previous januarys 139 pct\"\n5. \"no other details were disclosed about the amount of millipores investment in protein\"\n\nFalse sentences:\n1. \"many artists like jazz\"\n2. \"xerox everything you find in this drawer\"\n3. \"quite a lot of people know the french word for four is quatre\"\n4. \"this compares with the previous januarys 139 payroll cost tranfer\"\n5. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nUpon analysis, I have come to the conclusion that the rule determining the truth or falsity of the given sentences is the presence of specific or general terms and the adherence to grammatical correctness.\n\nFor the true sentences, in each case, the statements are general and grammatically correct.\nFor the false sentences, each statement contains a specific or restrictive term and/or is not grammatically correct.\n\nTherefore, the rule for determining whether a sentence is true or false is based on the presence of specific or general terms and adherence to grammatical correctness.",
+    "Let's carefully examine the set of sentences labeled as true or false.\n\n1. \"zany artists like jazz\" - True\n2. \"many artists like jazz\" - False\n3. \"xerox everything you find in your mailbox\" - True\n4. \"xerox everything you find in this drawer\" - False\n5. \"quite a lot of people know the french word for five is cinq\" - True\n6. \"quite a lot of people know the french word for four is quatre\" - False\n7. \"this compares with the previous januarys 139 pct\" - True\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" - False\n9. \"no other details were disclosed about the amount of millipores investment in protein\" - True\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" - False\n\nUpon careful examination of the sentences, it appears that the true sentences involve a general statement that can apply to a broad group or concept, while the false sentences involve a specific or individualized instance that does not apply universally. In the true sentences, the statements describe a general and widely applicable concept, while the false sentences provide specific, limited instances that are not universally true.\n\nTherefore, it seems that the rule determining the truth value of the sentences involves the generality or universality of the statement being made. If the statement is generally applicable, it is true; if it is specific and not broadly applicable, it is false.",
+    "Let's carefully analyze the true and false statements to deduce the rule that determines their truth value:\n\n1. \"zany artists like jazz\" - True\n2. \"many artists like jazz\" - False\n3. \"xerox everything you find in your mailbox\" - True\n4. \"xerox everything you find in this drawer\" - False\n5. \"quite a lot of people know the french word for five is cinq\" - True\n6. \"quite a lot of people know the french word for four is quatre\" - False\n7. \"this compares with the previous januarys 139 pct\" - True\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" - False\n9. \"no other details were disclosed about the amount of millipores investment in protein\" - True\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" - False\n\nUpon examining the statements, we notice that the true statements generally describe a general concept or action without specific conditions, while the false statements tend to describe specific or limiting conditions.\n\nIt seems that the true statements are more general in nature and tend to apply to a broader set of possibilities. On the other hand, the false statements contain more specific and limiting conditions that make them less likely to be universally true.\n\nBased on this analysis, the rule that determines whether a statement is true or false seems to be the level of generality in the statement. The more general a statement, the more likely it is to be true, while specific and limiting conditions tend to make a statement false.\n\nTherefore, the rule appears to be: Statements that describe general concepts or actions without specific conditions are more likely to be true, whereas statements with specific or limiting conditions are more likely to be false.",
+    "Let's carefully consider the true and false examples to deduce the rule that determines whether a sentence is true or false.\n\nFor the first pair of sentences: \"zany artists like jazz\" is labeled as True, while \"many artists like jazz\" is labeled as False. It seems that the presence of the word \"zany\" versus \"many\" is what distinguishes the truth value. It appears that the use of the word \"zany\" seems to create a sense of uniqueness or peculiarity, whereas \"many\" suggests a more general or common occurrence.\n\nThe second pair of sentences: \"xerox everything you find in your mailbox\" is labeled as True, while \"xerox everything you find in this drawer\" is labeled as False. It seems that the context is important here. The activity of xeroxing everything is feasible in a mailbox, where one might expect to find a manageable amount of items, but it is not feasible in a drawer, where there could be a larger and more diverse set of items.\n\nThe third pair: \"quite a lot of people know the French word for five is cinq\" is labeled as True, while \"quite a lot of people know the French word for four is quatre\" is labeled as False. The difference here seems to be the accuracy of the statement. In the true statement, the French word for five is indeed \"cinq,\" whereas in the false statement, the French word for four is \"quatre.\"\n\nIn the next pair: \"this compares with the previous January's 139 pct\" is labeled as True, while \"this compares with the previous January's 139 payroll cost transfer\" is labeled as False. Here, the difference seems to be the nature of the comparison. In the true statement, the comparison is made using a percentage (pct), whereas in the false statement, the comparison seems to involve payroll cost transfer, which is not consistent with the comparison made in the true statement.\n\nFinally, for the last pair: \"no other details were disclosed about the amount of Millipore's investment in protein\" is labeled as True, while \"no interest will accrue or will be payable on the debentures starting May 18 the computer and communications company said\" is labeled as False. The distinction here seems to be about the nature of what is being disclosed. In the true statement, the lack of disclosure about the amount of investment is conveyed, whereas in the false statement, the focus is on the accrual of interest and the payment on debentures.\n\nAfter carefully considering the patterns in these sentences, it seems that the rule determining whether a sentence is true or false is based on the accuracy of information, feasibility of actions, nature of comparisons, and the relevance of the statement to the context. Therefore, the sentences are true if they accurately represent the information, involve feasible actions, make appropriate comparisons, and are contextually relevant. Otherwise, they are false.",
+    "Let's carefully analyze the true and false statements to deduce the rule that determines their truth value.\n\n1. \"zany artists like jazz\" (True) vs. \"many artists like jazz\" (False)\nThe difference between these two sentences is the word \"zany\" versus \"many.\" The rule appears to be that when the adjectives used to describe the subject are more specific, the statement is true. \"Zany\" is more specific than \"many.\"\n\n2. \"xerox everything you find in your mailbox\" (True) vs. \"xerox everything you find in this drawer\" (False)\nThe difference here is the location specified after \"find in your\" - \"mailbox\" versus \"this drawer.\" The rule seems to be that if the action is specified for a broad category (like \"mailbox\"), the statement is true, but if it's something more specific (like \"this drawer\"), the statement is false.\n\n3. \"quite a lot of people know the French word for five is cinq\" (True) vs. \"quite a lot of people know the French word for four is quatre\" (False)\nIn this case, the specific number mentioned seems to determine the truth value. When a specific number is mentioned, the statement is true.\n\n4. \"this compares with the previous January's 139 pct\" (True) vs. \"this compares with the previous January's 139 payroll cost transfer\" (False)\nThe difference here is that \"139 pct\" is more specific than \"139 payroll cost transfer.\" Thus, when the comparison is made with a more specific item, the statement is true.\n\n5. \"no other details were disclosed about the amount of Millipore's investment in protein\" (True) vs. \"no interest will accrue or will be payable on the debentures starting May 18 the computer and communications company said\" (False)\nIn this case, the rule seems to be that when the lack of details is about a specific topic, the statement is true, but if it's more general, the statement is false.\n\nUpon careful consideration, the rule that determines whether a sentence is true or false appears to be the specificity of the information provided. When the statement contains more specific details, it is true; otherwise, it is false.",
+    "Let's carefully consider the true and false labels for each sentence and see if we can deduce a rule. \n\nFor the first pair of sentences, \"zany artists like jazz\" is labeled as True, and \"many artists like jazz\" is labeled as False. It seems that the difference between the two lies in the adjective used before \"artists.\" For the True label, we have \"zany artists,\" and for the False label, we have \"many artists.\" This suggests that the presence of the adjective \"zany\" makes the sentence True, while the absence of this adjective makes the sentence False.\n\nNow let's examine the second pair of sentences. \"xerox everything you find in your mailbox\" is labeled as True, and \"xerox everything you find in this drawer\" is labeled as False. Again, the difference seems to lie in the specific noun mentioned, \"mailbox\" in the True label and \"drawer\" in the False label. This suggests that the presence of \"mailbox\" makes the sentence True, while the presence of \"drawer\" makes the sentence False.\n\nMoving on to the third pair of sentences. \"quite a lot of people know the French word for five is cinq\" is labeled as True, and \"quite a lot of people know the French word for four is quatre\" is labeled as False. Similar to the first pair of sentences, the difference lies in the specific number mentioned, \"five\" in the True label and \"four\" in the False label. This suggests that the presence of the number \"five\" makes the sentence True, while the presence of the number \"four\" makes the sentence False.\n\nConsidering the fourth pair of sentences, \"this compares with the previous Januarys 139 pct\" is labeled as True, and \"this compares with the previous Januarys 139 payroll cost transfer\" is labeled as False. Here, the presence of \"139 pct\" makes the sentence True, while the presence of \"139 payroll cost transfer\" makes the sentence False.\n\nLastly, let's review the fifth pair of sentences. \"no other details were disclosed about the amount of Millipore's investment in protein\" is labeled as True, and \"no interest will accrue or will be payable on the debentures starting May 18 the computer and communications company said\" is labeled as False. The presence of \"Millipore's investment in protein\" makes the sentence True, while the presence of \"interest will accrue or will be payable on the debentures starting May 18\" makes the sentence False.\n\nConsidering all the pairs of sentences, I can deduce the following rule: The presence of a specific phrase or item mentioned in the sentence determines the truth value. If the specific item or phrase matches the given criteria, the sentence is labeled as True; otherwise, it is labeled as False. Therefore, the rule for determining whether a sentence is true or false is based on the presence or absence of specific adjectives, nouns, numbers, or phrases in the sentence.",
+    "Let's carefully analyze the given sentences to deduce the rule determining whether each sentence is labeled as True or False.\n\nFor the first pair of sentences:\n\"zany artists like jazz\" is labeled as True, while \"many artists like jazz\" is labeled as False. Considering the difference between these two sentences, it seems that the presence of the word \"zany\" in the first sentence and \"many\" in the second sentence is the likely cause for the difference in labeling.\n\nFor the second pair of sentences:\n\"xerox everything you find in your mailbox\" is labeled as True, while \"xerox everything you find in this drawer\" is labeled as False. The difference in these two sentences seems to be the location specified for xeroxing, mailbox versus drawer.\n\nFor the third pair of sentences:\n\"quite a lot of people know the french word for five is cinq\" is labeled as True, while \"quite a lot of people know the french word for four is quatre\" is labeled as False. The difference here is the accurate knowledge of the French words for numbers five and four.\n\nFor the fourth pair of sentences:\n\"this compares with the previous januarys 139 pct\" is labeled as True, while \"this compares with the previous januarys 139 payroll cost tranfer\" is labeled as False. It appears that the inclusion of \"pct\" in the first sentence and \"payroll cost transfer\" in the second sentence is the reason for the difference in labeling.\n\nFor the fifth pair of sentences:\n\"no other details were disclosed about the amount of millipores investment in protein\" is labeled as True, while \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" is labeled as False. The distinction here seems to be between the disclosure of details versus the accrual of interest on debentures.\n\nBased on the analysis, it seems that the rule determining whether a sentence is labeled as True or False is based on specific word choices and contexts specified in the sentences. The context and specific details seem to play a crucial role in determining the truth value of the sentences.\n\nTherefore, the rule could be: The specific words and contexts specified in the sentence determine whether it is labeled as True or False.\n\nConsidering the reasoning process and the analysis of the given sentences, the final answer is: The specific words and contexts specified in the sentence determine whether it is labeled as True or False.",
+    "Let's analyze the given sentences to deduce the rule that determines whether a sentence is true or false.\n\nFirst, let's consider the sentences labeled as true:\n\n1. \"zany artists like jazz\"\n2. \"xerox everything you find in your mailbox\"\n3. \"quite a lot of people know the french word for five is cinq\"\n4. \"this compares with the previous januarys 139 pct\"\n5. \"no other details were disclosed about the amount of millipores investment in protein\"\n\nNext, let's consider the sentences labeled as false:\n\n1. \"many artists like jazz\"\n2. \"xerox everything you find in this drawer\"\n3. \"quite a lot of people know the french word for four is quatre\"\n4. \"this compares with the previous januarys 139 payroll cost tranfer\"\n5. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nUpon careful consideration, it appears that the rule that determines whether a sentence is true or false is related to the existence of specific and accurate details. The true sentences seem to convey specific and accurate information, while the false sentences either contain inaccurate details or lack the specificity required to be deemed true.\n\nTherefore, the rule can be deduced as follows:\nA sentence is labeled as true if it conveys specific and accurate information, whereas it is labeled as false if it either contains inaccurate details or lacks the necessary specificity.",
+    "Let's carefully analyze the true and false sentences to deduce the rule that determines their truth value. \n\nFor the first pair of sentences, the true sentence is \"zany artists like jazz,\" whereas the false sentence is \"many artists like jazz.\" The key difference between these sentences lies in the use of the words \"zany\" and \"many.\" \"Zany\" implies an eccentric or unconventional nature, which makes the statement more open-ended and likely to be true. On the other hand, \"many\" suggests a larger, more defined group, making the statement more specific and thus more likely to be false.\n\nProceeding to the second pair, we observe that the true sentence is \"xerox everything you find in your mailbox,\" while the false sentence is \"xerox everything you find in this drawer.\" The critical distinction is the specificity of location. The mailbox is a general and inclusive space for finding things, making the statement more generally applicable and true. However, the drawer suggests a specific and limited space, reducing the likelihood of finding everything to xerox, thus making the statement less likely to be true.\n\nNow, looking at the third pair, we see that the true sentence is \"quite a lot of people know the French word for five is cinq,\" while the false sentence is \"quite a lot of people know the French word for four is quatre.\" The difference lies in the factual knowledge of numbers in French. It is likely that more people know the French word for \"five\" due to its prominence and common usage, rendering the statement to be likely true. Conversely, the French word for \"four\" is less widely known, making the statement less likely to be true.\n\nMoving on to the fourth pair, the true sentence is \"this compares with the previous January's 139 pct,\" while the false sentence is \"this compares with the previous January's 139 payroll cost transfer.\" Here, the defining factor is the specificity of the comparison. \"139 pct\" is a general comparison based on percentage, making it more likely to be true as it allows for a broader comparison. Conversely, the inclusion of \"payroll cost transfer\" makes the comparison more specific, reducing the likelihood of it being true.\n\nFinally, for the last pair of sentences, the true statement is \"no other details were disclosed about the amount of Millipore's investment in protein,\" and the false statement is \"no interest will accrue or will be payable on the debentures starting May 18 the computer and communications company said.\" The determining factor here is the nature of disclosure. \"No other details were disclosed\" refers to a lack of information, making the statement true. Conversely, the statement about interest accruing is a specific claim about future actions, making it more specific and less likely to be true.\n\nAfter carefully analyzing these sentences, we can deduce the rule that determines whether a sentence is true or false: the level of specificity and generality in the statements. More specific statements are less likely to be true, as they restrict the scope of the statement, while more general statements are likely to be true given their broader applicability.",
+    "Let's carefully consider the true and false labels for each sentence and see if we can deduce a rule. \n\nFor each true sentence, it seems that the subject-verb-object structure makes logical sense. For example, \"zany artists like jazz\" and \"xerox everything you find in your mailbox\" follow a clear subject-verb-object pattern where the action makes sense.\n\nFor the false sentences, it appears that there is a lack of logical coherence or grammatical error. For instance, \"many artists like jazz\" is not inherently illogical, but it seems to lack the specific and clear action of the true statements. Similarly, \"xerox everything you find in this drawer\" lacks the logical coherence found in the true sentences.\n\nBased on these observations, it seems that the rule that determines whether a sentence is true or false could depend on the logical coherence of the subject-verb-object structure, as well as the presence of a clear action that makes sense in the context of the sentence.\n\nAfter carefully considering and checking the reasoning, the rule that determines whether a sentence is true or false is based on the logical coherence of the subject-verb-object structure and the presence of a clear, sensible action within the sentence."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"zany artists like jazz\"\nLabel: True\n\nInput: \"many artists like jazz\"\nLabel: False\n\nInput: \"xerox everything you find in your mailbox\"\nLabel: True\n\nInput: \"xerox everything you find in this drawer\"\nLabel: False\n\nInput: \"quite a lot of people know the french word for five is cinq\"\nLabel: True\n\nInput: \"quite a lot of people know the french word for four is quatre\"\nLabel: False\n\nInput: \"this compares with the previous januarys 139 pct\"\nLabel: True\n\nInput: \"this compares with the previous januarys 139 payroll cost tranfer\"\nLabel: False\n\nInput: \"no other details were disclosed about the amount of millipores investment in protein\"\nLabel: True\n\nInput: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\nLabel: False",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"zany artists like jazz\"\nLabel: True\n\nInput: \"many artists like jazz\"\nLabel: False\n\nInput: \"xerox everything you find in your mailbox\"\nLabel: True\n\nInput: \"xerox everything you find in this drawer\"\nLabel: False\n\nInput: \"quite a lot of people know the french word for five is cinq\"\nLabel: True\n\nInput: \"quite a lot of people know the french word for four is quatre\"\nLabel: False\n\nInput: \"this compares with the previous januarys 139 pct\"\nLabel: True\n\nInput: \"this compares with the previous januarys 139 payroll cost tranfer\"\nLabel: False\n\nInput: \"no other details were disclosed about the amount of millipores investment in protein\"\nLabel: True\n\nInput: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"despite current strong interest in gold mine stocks many investors still want to buy physical gold witte said\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 0.4666666666666667,
+  "mislabelled_responses": [
+    {
+      "py/tuple": [
+        {
+          "input": "despite current strong interest in gold mine stocks many investors still want to buy physical gold witte said",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the officials said the tariffs would be ended as soon as japan started adhering to the agreement",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the bill sets out us trade negotiating objectives for the uruguay round of talks under the general agreement on tariffs and trade",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "eightyoctane petrol increases to 90 sucres from 50",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the average exchange rate was 1623 shillings per us dlr last year a fall of only 12 pct from 16432 in 1985",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "this includeseliminating existing restrictions in the ec as far as possible",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "quinn echoed the sentiment of many analysts that there are large amounts of cash waiting to be invested",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "he said revenue should not be raised by taxing the consumer and called the proposal repugnant",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "revenue would provide 4884 billion shillings leaving a deficit of 2849 billion to be financed through domestic and foreign loans",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "this move may force interest rates up by creating a revenue vacuum which must be filled by higher government borrowing",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "while poland is unlikely to seek compensation it says it has a moral right to assistance from the us",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "paul cain a vice president at shearson lehman brothers said the elimination of price limits will cut back on panic buying or selling and contribute to more orderly markets",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "sterling remained supported by optimism on the uk",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "production has also been seriously affected in recent years by equipment breakdowns deteriorating ore and shortages of spare parts fuel and lubricants",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "venezuelas total proven reserves as of december 31 1986 were 55521 billion barrels the fourth largest amount in the world hernandez said",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "shr figures after preferred dividend requirements",
+          "label": true
+        },
+        false
+      ]
+    }
+  ],
+  "report": {
+    "fraction_correct": 0.4666666666666667,
+    "mislabelled_responses": [
+      {
+        "py/tuple": [
+          {
+            "py/id": 2
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 3
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 8
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 10
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 11
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 13
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 14
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 16
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 19
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 22
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 23
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 25
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 26
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 28
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 30
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 31
+          },
+          false
+        ]
+      }
+    ],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "zany artists like jazz",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "many artists like jazz",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "xerox everything you find in your mailbox",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "xerox everything you find in this drawer",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "quite a lot of people know the french word for five is cinq",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "quite a lot of people know the french word for four is quatre",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "this compares with the previous januarys 139 pct",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "this compares with the previous januarys 139 payroll cost tranfer",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "no other details were disclosed about the amount of millipores investment in protein",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence starts and ends with the same letter",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "despite current strong interest in gold mine stocks many investors still want to buy physical gold witte said",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the officials said the tariffs would be ended as soon as japan started adhering to the agreement",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the resource gap in the governments finances on current account will be bridged over the near term bank governor jaafar hussein said in the report",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "naval escorts as too public an admission of its need for protection they said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "ecuador was forced to suspend exports after the pipeline connecting its jungle oil fields with the pacific ocean port of balao was damaged last week by an earthquake",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the official who asked not to be named told reuters that the guarantee was given in an unpublished clause of the agreement",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the bill sets out us trade negotiating objectives for the uruguay round of talks under the general agreement on tariffs and trade",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the company also said it has agreed to repurchase up to three mln common shares on the open market",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "eightyoctane petrol increases to 90 sucres from 50",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the average exchange rate was 1623 shillings per us dlr last year a fall of only 12 pct from 16432 in 1985",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the reports earlier this week said that cable would be offered a five pct stake up from an originally proposed three pct",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this includeseliminating existing restrictions in the ec as far as possible",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "quinn echoed the sentiment of many analysts that there are large amounts of cash waiting to be invested",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "he said the implication for equity markets in neutral to bullish",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "he said revenue should not be raised by taxing the consumer and called the proposal repugnant",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "most expect fed policy to be neutral for bonds near term",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "as long as opec maintains its output curbs demand for its oil will rise in april and may sheikh ali said adding that kuwait was strongly committed to its opec quota",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "revenue would provide 4884 billion shillings leaving a deficit of 2849 billion to be financed through domestic and foreign loans",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "standard closed in new york last night at 6478 dlrs down 134 dlrs",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this acquisition includes all of livingwells rights to its recently announced powercise fitness equipment",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this move may force interest rates up by creating a revenue vacuum which must be filled by higher government borrowing",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "while poland is unlikely to seek compensation it says it has a moral right to assistance from the us",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "australia has said it is not setting any export quota",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "paul cain a vice president at shearson lehman brothers said the elimination of price limits will cut back on panic buying or selling and contribute to more orderly markets",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "sterling remained supported by optimism on the uk",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "stephen t mcclellan of merrill lynch research said most software companies are currently valued at about 20 times pershare earnings",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "production has also been seriously affected in recent years by equipment breakdowns deteriorating ore and shortages of spare parts fuel and lubricants",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "she was unable to say if there had been any prior contact between waste management and chemlawn officials",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "venezuelas total proven reserves as of december 31 1986 were 55521 billion barrels the fourth largest amount in the world hernandez said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "shr figures after preferred dividend requirements",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}

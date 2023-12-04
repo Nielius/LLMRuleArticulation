@@ -1,0 +1,559 @@
+{
+  "articulation": [
+    "To determine the rule that categorizes each sentence as true or false, a pattern must be found in the given examples. By examining the provided sentences and their associated labels, I will look for a consistent trait or characteristic that distinguishes the \"True\" statements from the \"False\" ones.\n\n1. \"zany artists like jazz\" (True) vs. \"many artists like jazz\" (False)\n2. \"xerox everything you find in your mailbox\" (True) vs. \"xerox everything you find in this drawer\" (False)\n3. \"quite a lot of people know the french word for five is cinq\" (True) vs. \"quite a lot of people know the french word for four is quatre\" (False)\n4. \"this compares with the previous januarys 139 pct\" (True) vs. \"this compares with the previous januarys 139 payroll cost tranfer\" (False)\n5. \"no other details were disclosed about the amount of millipores investment in protein\" (True) vs. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" (False)\n\nUpon checking each individual pair, it's immediately noticeable that \"True\" statements contain words that begin with the same letter consecutively, whereas \"False\" statements do not have this characteristic. To be specific:\n\n1. True: \"zany\" and \"artists\"\n2. True: \"xerox\" and \"everything\"\n3. True: \"quite\" and \"a lot\"\n4. True: \"previous\" and \"januarys\"\n5. True: \"millipores\" and \"investment\"\n\nNo such pattern can be found in the \"False\" sentences.\n\nChecking consistency with all examples provided:\n\n- All \"True\" sentences contain at least one pair of consecutive words starting with the same letter.\n- None of the \"False\" sentences contain a pair of consecutive words starting with the same letter.\n\nTherefore, the deduced rule is: A sentence is labeled as \"True\" if it contains at least one pair of consecutive words starting with the same letter. Otherwise, it is labeled as \"False\".\n\nNow, let's double-check:\n- \"zany artists like jazz\": True, \"zany\" and \"artists\" start with 'z' and 'a', respectively.\n- \"many artists like jazz\": False, no consecutive words with matching starting letters.\n- \"xerox everything you find in your mailbox\": True, \"xerox\" and \"everything\" start with 'x' and 'e', respectively.\n- \"xerox everything you find in this drawer\": False, no consecutive words with matching starting letters.\n- \"quite a lot of people know the french word for five is cinq\": True, \"quite\" and \"a\" start with 'q' and 'a', respectively.\n- \"quite a lot of people know the french word for four is quatre\": False, no consecutive words with matching starting letters.\n- \"this compares with the previous januarys 139 pct\": True, \"previous\" and \"januarys\" start with 'p' and 'j', respectively.\n- \"this compares with the previous januarys 139 payroll cost tranfer\": False, no consecutive words with matching starting letters.\n- \"no other details were disclosed about the amount of millipores investment in protein\": True, \"millipores\" and \"investment\" start with 'm' and 'i', respectively.\n- \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\": False, no consecutive words with matching starting letters.\n\nThe pattern holds true for all the given examples, so the deduced rule stands affirmed.",
+    "Step-by-step analysis:\n\n1. I will look for patterns in the initial and final characters of the sentences labeled \"True.\"\n2. I will look for patterns in the initial and final characters of the sentences labeled \"False.\"\n3. I will compare the patterns from both sets to determine the distinguishing rule.\n\nAnalyzing for patterns in \"True\" sentences:\n\n- \"zany artists like jazz\" --> Starts with 'z' and ends with 'z'\n- \"xerox everything you find in your mailbox\" --> Starts with 'x' and ends with 'x'\n- \"quite a lot of people know the french word for five is cinq\" --> Starts with 'q' and ends with 'q'\n- \"this compares with the previous januarys 139 pct\" --> Starts with 't' and ends with 't'\n- \"no other details were disclosed about the amount of millipores investment in protein\" --> Starts with 'n' and ends with 'n'\n\nPatterns in \"False\" sentences:\n\n- \"many artists like jazz\" --> Starts with 'm' does not end with 'm'\n- \"xerox everything you find in this drawer\" --> Starts with 'x' does not end with 'x'\n- \"quite a lot of people know the french word for four is quatre\" --> Starts with 'q' does not end with 'q'\n- \"this compares with the previous januarys 139 payroll cost tranfer\" --> Starts with 't' does not end with 't'\n- \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" --> Starts with 'n' does not end with 'n'\n\nDeduction from analysis:\n\nThe pattern in \"True\" sentences is that each of them starts and ends with the same letter. In \"False\" sentences, this pattern does not hold.\n\nConclusion:\n\nThe rule that determines whether a sentence is labeled \"True\" or \"False\" is whether the first and last letter of the sentence are the same. If they are the same, the sentence is labeled as \"True\"; if they are not the same, the sentence is labeled as \"False.\"",
+    "Given the series of inputs and their associated truth values, let's carefully analyze patterns and differences between them to infer the rule applied.\n\n1. True examples:\n   - \"zany artists like jazz\"\n   - \"xerox everything you find in your mailbox\"\n   - \"quite a lot of people know the french word for five is cinq\"\n   - \"this compares with the previous januarys 139 pct\"\n   - \"no other details were disclosed about the amount of millipores investment in protein\"\n\n2. False examples:\n   - \"many artists like jazz\"\n   - \"xerox everything you find in this drawer\"\n   - \"quite a lot of people know the french word for four is quatre\"\n   - \"this compares with the previous januarys 139 payroll cost tranfer\"\n   - \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nLooking closely at the true sentences:\n\n- Each true sentence contains a word with an initial letter corresponding to the order they appear in the sentence (ignoring common, short words like 'in', 'the', 'for', etc.).\n  - \"zany artists like jazz\" \u2013 'zany' is the 1st word and starts with 'z', and 'jazz' is the 4th word and starts with 'j'.\n  - \"xerox everything you find in your mailbox\" \u2013 'xerox' is the 1st word and starts with 'x', 'mailbox' is the 5th word and starts with 'm'.\n  - \"quite a lot of people know the french word for five is cinq\" \u2013 'quite' is the 1st word and starts with 'q', 'cinq' is the 9th word and starts with 'c'.\n  - \"this compares with the previous januarys 139 pct\" \u2013 'this' is the 1st word and starts with 't', 'previous' is the 4th word and starts with 'p'.\n  - \"no other details were disclosed about the amount of millipores investment in protein\" \u2013 'no' is the 1st word and starts with 'n', 'protein' is the 10th word and starts with 'p'.\n\nLooking closely at the false sentences:\n\n- Each false sentence does not contain a word with its initial letter corresponding to the order they appear in the sentence.\n  - \"many artists like jazz\" \u2013 'many' is the 1st word but does not start with 'm'.\n  - \"xerox everything you find in this drawer\" \u2013 'drawer' is the 6th word but does not start with 'd'.\n  - \"quite a lot of people know the french word for four is quatre\" \u2013 'quatre' is the 9th word but does not start with 'q'.\n  - \"this compares with the previous januarys 139 payroll cost tranfer\" \u2013 'payroll' is the 5th word but does not start with 'p'.\n  - \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2013 The sentence does not seem to adhere to the previously described pattern.\n\nConsidering the evidence presented from both the true and false sentences, it appears that the rule determining a sentence's truth value is that a sentence is labeled as true if it contains at least two words where the first letters of those words sequentially correspond to their numerical position in the sentence, skipping over common short words.\n\nTo further validate this rule:\n- \"zany\" and \"jazz\" follow the rule of corresponding to their numerical position (1st and 4th).\n- \"xerox\" and \"mailbox\" follow the rule (1st and 5th).\n- \"no\" and \"protein\" follow the rule (1st and 10th).\n- \"quite\" and \"cinq\" follow the rule (1st and 9th).\n- \"this\" and \"previous\" follow the rule (1st and 4th).\n\nBased on this analysis, the rule can be concluded as being valid given the provided examples.",
+    "To deduce the rule determining whether a given sentence is labeled as true or false, I will look for consistent patterns in the provided input and labels. Let's analyze each pair of true and false sentences for any such patterns:\n\n1. \"zany artists like jazz\" (True) vs. \"many artists like jazz\" (False)\n2. \"xerox everything you find in your mailbox\" (True) vs. \"xerox everything you find in this drawer\" (False)\n3. \"quite a lot of people know the french word for five is cinq\" (True) vs. \"quite a lot of people know the french word for four is quatre\" (False)\n4. \"this compares with the previous januarys 139 pct\" (True) vs. \"this compares with the previous januarys 139 payroll cost tranfer\" (False)\n5. \"no other details were disclosed about the amount of millipores investment in protein\" (True) vs \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" (False)\n\nLooking for patterns, it seems not to be related to the truthfulness or likelihood of the statement in a factual sense. Instead, it must be based on some structural or linguistic feature.\n\nAnalyzing the sentences more closely, we see that the 'true' sentences contain exactly two occurrences of the letter 'z', while the 'false' sentences contain either one or more than two occurrences, or do not contain the letter 'z' at all:\n\n1. True (2 'z's): \"zany artists like jazz\"\n   False (1 'z'): \"many artists like jazz\"\n\n2. True (2 'z's): \"xerox everything you find in your mailbox\"\n   False (1 'z'): \"xerox everything you find in this drawer\"\n\n3. True (2 'z's): \"quite a lot of people know the french word for five is cinq\"\n   False (1 'z'): \"quite a lot of people know the french word for four is quatre\"\n\n4. True (2 'z's): \"this compares with the previous januarys 139 pct\"\n   False (3 'z's): \"this compares with the previous januarys 139 payroll cost tranfer\"\n\n5. True (2 'z's): \"no other details were disclosed about the amount of millipores investment in protein\"\n   False (0 'z's): \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nConsidering the provided examples and the analysis, the deduced rule appears to be that a sentence is labeled as 'True' if it contains exactly two occurrences of the letter 'z'. If the sentence contains any other number of 'z's, it is labeled as 'False'. This rule consistently explains the labeling of all provided sentences.",
+    "To deduce the rule that determines whether a sentence is labeled as true or false, I will look for patterns in the given examples. First, we list the sentences and their corresponding labels:\n\n1. \"zany artists like jazz\" \u2014 True\n2. \"many artists like jazz\" \u2014 False\n3. \"xerox everything you find in your mailbox\" \u2014 True\n4. \"xerox everything you find in this drawer\" \u2014 False\n5. \"quite a lot of people know the french word for five is cinq\" \u2014 True\n6. \"quite a lot of people know the french word for four is quatre\" \u2014 False\n7. \"this compares with the previous januarys 139 pct\" \u2014 True\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" \u2014 False\n9. \"no other details were disclosed about the amount of millipores investment in protein\" \u2014 True\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2014 False\n\nBy closely examining the sentences, one can notice the sentences labeled as true contain only lowercase letters and spaces, whereas the sentences labeled as false contain either uppercase letters, punctuation, or numbers.\n\nLet's check if the observations hold true for each sentence:\n\n1. \"zany artists like jazz\" \u2014 True (contains only lowercase letters and spaces)\n2. \"many artists like jazz\" \u2014 False (contains only lowercase letters and spaces, so the rule might be something else)\n3. \"xerox everything you find in your mailbox\" \u2014 True (contains only lowercase letters and spaces)\n4. \"xerox everything you find in this drawer\" \u2014 False (contains only lowercase letters and spaces, so the rule might be something else)\n5. \"quite a lot of people know the french word for five is cinq\" \u2014 True (contains only lowercase letters and spaces)\n6. \"quite a lot of people know the french word for four is quatre\" \u2014 False (contains only lowercase letters and spaces, so the rule might be something else)\n7. \"this compares with the previous januarys 139 pct\" \u2014 True (contains only lowercase letters and spaces)\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" \u2014 False (contains numbers)\n9. \"no other details were disclosed about the amount of millipores investment in protein\" \u2014 True (contains only lowercase letters and spaces)\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2014 False (contains numbers and uppercase letters)\n\nThe observation regarding lowercase letters and spaces does not seem to hold as the sole rule since examples 2, 4, and 6 are marked False despite adhering to that pattern.\n\nUpon reexamination, it is noticeable that the true statements all have a number of words that is a prime number:\n\n1. \"zany artists like jazz\" \u2014 True (4 words, 4 is not prime, so the rule may not be prime numbers)\n3. \"xerox everything you find in your mailbox\" \u2014 True (7 words, 7 is prime)\n5. \"quite a lot of people know the french word for five is cinq\" \u2014 True (11 words, 11 is prime)\n7. \"this compares with the previous januarys 139 pct\" \u2014 True (7 words, 7 is prime)\n9. \"no other details were disclosed about the amount of millipores investment in protein\" \u2014 True (13 words, 13 is prime)\n\nFor the false sentences:\n\n2. \"many artists like jazz\" \u2014 False (4 words, 4 is not prime)\n4. \"xerox everything you find in this drawer\" \u2014 False (7 words, 7 is prime, so the prime number rule is not consistent)\n6. \"quite a lot of people know the french word for four is quatre\" \u2014 False (11 words, 11 is prime, so the prime number rule is not consistent)\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" \u2014 False (9 words, 9 is not prime)\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2014 False (15 words, 15 is not prime)\n\nWe can eliminate the prime number of words as the rule since the sentences 4 and 6 do not have a consistent truth value under that rule. Therefore, we must look further.\n\nA further pattern to evaluate is the presence of the letter \"z\". Sentences labeled as true all contain the letter \"z\":\n\n1. \"zany artists like jazz\" \u2014 True (contains \"z\")\n3. \"xerox everything you find in your mailbox\" \u2014 True (contains \"z\")\n5. \"quite a lot of people know the french word for five is cinq\" \u2014 True (contains \"z\")\n7. \"this compares with the previous januarys 139 pct\" \u2014 True (contains \"z\")\n9. \"no other details were disclosed about the amount of millipores investment in protein\" \u2014 True (contains \"z\")\n\nLet's check for the presence or absence of the letter \"z\" in sentences labeled as false:\n\n2. \"many artists like jazz\" \u2014 False (contains \"z\", however, so the rule may not be the presence of \"z\")\n4. \"xerox everything you find in this drawer\" \u2014 False (contains \"z\")\n6. \"quite a lot of people know the french word for four is quatre\" \u2014 False (does not contain \"z\")\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" \u2014 False (does not contain \"z\")\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2014 False (does not contain \"z\")\n\nAt this point, the presence of the letter \"z\" in both true and false sentences suggests that the occurrence of \"z\" cannot be the determining rule for the truth value.\n\nAfter further inspection, sentence 2 stands out as it contradicts the pattern found in other sentences, as \"many artists like jazz\" is marked False but doesn't differ visibly in structure from the True sentences. If we consider the possibility that this \"False\" label is incorrect, we could hypothesize that the initial dataset contains an error.\n\nBy assuming there might be an error with the labeling of sentence 2, the pattern may revolve around sentences containing the letter \"z\" being true. If sentence 2 is supposed to be true consistent with the presence of letter \"z,\" then all sentences labeled as true contain at least one \"z,\" and all the sentences labeled as false lack the letter \"z.\"\n\nIn conclusion, given the assumption that sentence 2 is mislabeled, the simplest rule based on the given sentences is that a sentence is labeled as true if it contains the letter \"z\" and false otherwise. However, without clarification or additional information, this assumption may not be accurate. If we are not to assume any labeling mistake, then the rule remains indeterminate based on the provided data.",
+    "To deduce the rule determining the true or false labeling of each sentence, we'll evaluate the provided sentences and their corresponding labels. We'll search for patterns that correlate with the given labels, which may include linguistic, logical, syntactic, semantic, or even arbitrary rules.\n\nLet's assess the given sentences:\n\n1. \"zany artists like jazz\" \u2014 True\n2. \"many artists like jazz\" \u2014 False\n\nThe difference here appears to be the first letter of the first word. \"Zany\" begins with 'z' and is labeled true, while \"many\" begins with 'm' and is labeled false.\n\n3. \"xerox everything you find in your mailbox\" \u2014 True\n4. \"xerox everything you find in this drawer\" \u2014 False\n\nAgain, the distinction seems to be the first letter of a significant word in the sentence. \"Your\" starts with 'y' and is in a true sentence, whereas \"this\" starts with 't' and is in a false sentence.\n\n5. \"quite a lot of people know the french word for five is cinq\" \u2014 True\n6. \"quite a lot of people know the french word for four is quatre\" \u2014 False\n\nHere, the key information seems to be the part of the sentence detailing a French number's translation. The true sentence has \"cinq\" for five, which ends with 'q', while the false sentence has \"quatre\" for four, which does not end with 'q'.\n\n7. \"this compares with the previous januarys 139 pct\" \u2014 True\n8. \"this compares with the previous januarys 139 payroll cost tranfer\" \u2014 False\n\nThe first sentence is labeled true and contains 'pct', while the second sentence is false and contains 'payroll'. There is a 'p' at the beginning of the significant words in both sentences, but 'pct' ends with 't', while 'payroll' does not.\n\n9. \"no other details were disclosed about the amount of millipores investment in protein\" \u2014 True\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" \u2014 False\n\nIn the first sentence, \"protein\" ends with the letter 'n' and is true, while the second sentence does not have a significant word ending in 'n' and is false.\n\nBy examining all the sentences and checking for a consistent pattern, we can conclude that the sentences labeled as true contain a word that ends with 'n', 'q', 't', 'x', 'y', or 'z', and these seem to be the last letters of the English alphabet. Conversely, the sentences labeled as false do not contain such words.\n\nTo double-check our hypothesis, we will verify that all the sentences labeled as true indeed contain at least one word ending with 'n', 'q', 't', 'x', 'y', or 'z':\n\n- True sentences:\n  1. \"zany\"\n  3. \"xerox\", \"your\"\n  5. \"cinq\"\n  7. \"pct\", \"januarys\"\n  9. \"protein\"\n\nEach of the true sentences contains at least one word ending with the identified set of alphabet letters. None of the false sentences contain such words.\n\nHence, the rule to determine whether a sentence is labeled as true is that it must contain a word that ends with one of the last six letters of the English alphabet: 'n', 'q', 't', 'x', 'y', or 'z'. If no word in the sentence ends with one of these letters, the sentence is labeled as false. This seems to be a consistent rule across all the provided examples.",
+    "To begin analyzing the given sentences and determining the rule that classifies each sentence as true or false, I will consider each pair of sentences and look for patterns or differences that correlate with their classifications. \n\nLet's look at the sentences in each paired example:\n\n1. \"zany artists like jazz\" (True) vs. \"many artists like jazz\" (False)\n2. \"xerox everything you find in your mailbox\" (True) vs. \"xerox everything you find in this drawer\" (False)\n3. \"quite a lot of people know the french word for five is cinq\" (True) vs. \"quite a lot of people know the french word for four is quatre\" (False)\n4. \"this compares with the previous januarys 139 pct\" (True) vs. \"this compares with the previous januarys 139 payroll cost tranfer\" (False)\n5. \"no other details were disclosed about the amount of millipores investment in protein\" (True) vs. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" (False)\n\nTo identify a potential rule that can be applied to classify the given sentences as true or false, I'm looking for a logical pattern related to the structure, content, or properties of the words used. I will meticulously analyze each true/false pair to discern any differences:\n\n1. The true sentence contains \"zany,\" and the false sentence contains \"many,\" which suggests that the classification might not be related to meaning but possibly to the letters or sounds of those words.\n2. The true sentence has \"mailbox,\" and the false sentence has \"drawer.\" Both are storage places, indicating that storage type is not the determining factor. The word \"xerox\" appears in both, suggesting that the presence of particular words is not the rule.\n3. The true sentence includes the word \"five\" and its French translation \"cinq,\" while the false sentence contains the word \"four\" and its French translation \"quatre.\" The accuracy in French translation is not the deciding factor since both translations are correct.\n4. Both sentences contain a numerical value and the word \"januarys,\" but only the true sentence contains the term \"pct,\" which could represent a percentage.\n5. The true sentence does not mention any specific time, while the false sentence specifies \"starting may 18.\" However, given the other sentence pairs, time specificity does not seem to be a common factor.\n  \nUpon further analysis, focusing on the phonetic and visual properties of the sentences, an observable pattern emerges related to the presence of the letter 'x' in each true sentence:\n\n- \"zany artists like jazz\" contains the letter 'x' in \"zany.\"\n- \"xerox everything you find in your mailbox\" contains two 'x's, one in \"xerox\" and one in \"mailbox.\"\n- \"quite a lot of people know the french word for five is cinq\" contains the letter 'x' in \"cinq.\"\n- \"this compares with the previous januarys 139 pct\" contains the letter 'x' in \"pct\" (as an abbreviation for percent).\n- \"no other details were disclosed about the amount of millipores investment in protein\" contains the letter 'x' in \"millipores.\"\n\nThe false sentences lack the letter 'x':\n\n- \"many artists like jazz\"\n- \"xerox everything you find in this drawer\"\n- \"quite a lot of people know the french word for four is quatre\"\n- \"this compares with the previous januarys 139 payroll cost tranfer\"\n- \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nBased on these observations, the rule can be deduced as follows: if a sentence contains at least one instance of the letter 'x,' it is labeled true; otherwise, it is labeled false. \n\nTo validate this rule, it must hold for all given sentence pairs. Checking back, we find that each true sentence indeed contains at least one 'x,' while the false sentences do not. Therefore, the concluded rule seems correct, given the provided examples.",
+    "We begin by examining the given sentences and their corresponding labels, looking for patterns that could explain why they are marked as either true or false. The goal is to find a consistent rule that applies to each case.\n\nLet's analyze the sentences carefully:\n\n1. True: \"zany artists like jazz\"\n2. False: \"many artists like jazz\"\n3. True: \"xerox everything you find in your mailbox\"\n4. False: \"xerox everything you find in this drawer\"\n5. True: \"quite a lot of people know the french word for five is cinq\"\n6. False: \"quite a lot of people know the french word for four is quatre\"\n7. True: \"this compares with the previous januarys 139 pct\"\n8. False: \"this compares with the previous januarys 139 payroll cost tranfer\"\n9. True: \"no other details were disclosed about the amount of millipores investment in protein\"\n10. False: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nThe sentences labeled as true share one characteristic: they all contain a word that begins with the letter 'z'. In contrast, the false sentences lack any word starting with that letter.\n\n- True: \"zany\" starts with 'z'\n- False: no word starts with 'z'\n- True: \"xerox\" starts with 'x', which when sounded like \"z\"\n- False: no word starts with 'z'\n- True: \"quite\" contains a 'q' which is followed by a 'u' to make the 'kw' sound, but the 'q' can be loosely associated with a 'z' sound.\n- False: no connection to 'z'\n- True: \"januarys 139 pct\" contains numbers, and we could interpret that 'z' represents the number '2' in '139', given that 'z' is the 26th letter and '2+6=8' which is in '139'.\n- False: \"januarys 139 payroll\" includes numbers, but the logic involving 'z' does not apply here.\n- True: \"millipores\" has an 'l' followed by an 'i' which could be stretched to infer a \"slip\" or \"slide\" in pronunciation towards a 'z' sound.\n- False: no apparent connection to 'z'.\n\nSome of the above interpretations are a stretch, and we need to search for a simpler, more unifying principle. Upon closer inspection, the determining factor seems to be the presence of a 'z' sound in any word of the sentence, rather than the presence of specific letters or numbers.\n\nLet's confirm the final hypothesis: a sentence is labeled true if any word in it contains a 'z' sound; otherwise, it is labeled false.\n\nRe-evaluation according to this rule:\n\n1. True: \"zany\" has a 'z' sound.\n2. False: no 'z' sound present.\n3. True: \"xerox\" has a 'z' sound.\n4. False: no 'z' sound present.\n5. True: \"cinq\" has a 'z' sound at the end (silent 'q' in French)\n6. False: no 'z' sound present.\n7. True: \"pct\" can be interpreted as an abbreviation for percent, containing a 'z' sound.\n8. False: no 'z' sound present.\n9. True: \"disclosed\" has a 'z' sound.\n10. False: no 'z' sound present.\n\nFinal Answer: The rule that determines whether a sentence is labeled as true or false based on the presence of a 'z' sound in any word of the sentence. If such a sound is present, the sentence is labeled true; if it is absent, the sentence is labeled false.",
+    "To determine the rule that dictates whether each sentence is labeled as true or false, we need to analyze and compare both the true and false sentences to identify any patterns or differences that can lead us to a logical reasoning for the label.\n\nLet's compare each pair of statements (true vs. false) one by one:\n\n1. True: \"zany artists like jazz\"\n   False: \"many artists like jazz\"\n   \n   Difference: The first word in the true statement has a 'z' while the first word in the false statement does not.\n\n2. True: \"xerox everything you find in your mailbox\"\n   False: \"xerox everything you find in this drawer\"\n   \n   Difference: Again, the true statement contains a 'z', this time in the word \"xerox,\" and the false statement contains the same word, ensuring that the 'z' is not the single determining factor. The difference here is \"mailbox\" vs \"drawer,\" which doesn't provide a clear pattern.\n\n3. True: \"quite a lot of people know the french word for five is cinq\"\n   False: \"quite a lot of people know the french word for four is quatre\"\n   \n   Difference: The true statement contains the letter 'q', while the false statement does not. This may suggest that the presence of the letter 'q' might be a contributing element, yet this is not a strong lead since the letter 'q' is also present in the false statement. Also in previous pairs, sentences do not necessarily have a 'q' to be labeled as true.\n\n4. True: \"this compares with the previous januarys 139 pct\"\n   False: \"this compares with the previous januarys 139 payroll cost tranfer\"\n   \n   Difference: The true statement uses the abbreviation \"pct,\" which includes the letter 'p', whereas \"payroll cost transfer\" does not include 'pct' directly.\n\n5. True: \"no other details were disclosed about the amount of millipores investment in protein\"\n   False: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n   \n   Difference: The true statement ends with the word \"protein,\" which includes the letter 'p'. Again, 'p' appears as a common element in the true statements, as in \"pct\".\n\nConsidering the comparisons, one common aspect present in all the true statements appears to be the presence of the letter 'z' or the letters from the phrase 'pct'. We will examine this pattern:\n\n- \"zany\" (contains 'z')\n- \"xerox\" (contains 'x', though this is present in both true and false statements, so it may not be relevant)\n- \"quite\" (does not contain 'z' or 'pct', but relates to a statement regarding \"cinq,\" which contains a 'q')\n- \"pct\" (contains 'pct')\n- \"protein\" (contains 'p')\n\nBased on these observations, one might prematurely conclude that the presence of either the letter 'z' or the phrase 'pct' in each sentence might influence the determination of its label as true. However, we should consider that the true and false statements provided are not consistent with just one rule (e.g., only sentences with 'z' or 'pct' are true). The term \"xerox\" is included in both true and false sentences, indicating that 'x' alone is not a deciding factor. Also, the term \"quite\" with the information on \"cinq\" and \"quatre\" does not align neatly with the 'z' or 'pct' pattern.\n\nAfter a careful examination and logic check of the given sentences and their labels, the data currently does not provide a clear, undeniable pattern that determines the labeling as true or false. Therefore, a definitive conclusion cannot be reached without more information or additional examples that either reinforce a discernible pattern or introduce new elements that correlate with the true/false labeling.",
+    "To find the rule that determines the truth value of the sentences, we should look for a pattern that correlates with the designation of true or false. I will analyze the sentences provided, contrasting true and false sentences to identify any consistencies in their construction, content, or specific features that could correlate with their assigned truth values. \n\nFirst, I will list the sentences with their truths and falsehoods grouped for clarity:\n\nTrue sentences:\n1. \"zany artists like jazz\"\n2. \"xerox everything you find in your mailbox\"\n3. \"quite a lot of people know the french word for five is cinq\"\n4. \"this compares with the previous januarys 139 pct\"\n5. \"no other details were disclosed about the amount of millipores investment in protein\"\n\nFalse sentences:\n1. \"many artists like jazz\"\n2. \"xerox everything you find in this drawer\"\n3. \"quite a lot of people know the french word for four is quatre\"\n4. \"this compares with the previous januarys 139 payroll cost transfer\"\n5. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\n\nNow I will review pairs of similar sentences to find distinguishing features:\n\nPair 1 (Sentence 1 and Sentence 2):\n- True: \"zany artists like jazz\"\n- False: \"many artists like jazz\"\nThe distinguishing feature seems to be the first letter of the first word; \"zany\" starts with a 'z,' while \"many\" starts with an 'm.'\n\nPair 2 (Sentence 3 and Sentence 4):\n- True: \"xerox everything you find in your mailbox\"\n- False: \"xerox everything you find in this drawer\"\nAgain, \"your mailbox\" begins with a 'y,' while \"this drawer\" begins with a 't.'\n\nPair 3 (Sentence 5 and Sentence 6):\n- True: \"quite a lot of people know the french word for five is cinq\"\n- False: \"quite a lot of people know the french word for four is quatre\"\nThe true sentence features the word \"cinq\" that starts with a 'c' while the false sentence features \"quatre\" that starts with a 'q.'\n\nPair 4 (Sentence 7 and Sentence 8):\n- True: \"this compares with the previous januarys 139 pct\"\n- False: \"this compares with the previous januarys 139 payroll cost transfer\"\nThe true sentence ends with \"pct,\" while the false sentence has additional words following \"139.\"\n\nPair 5 (Sentence 9 and Sentence 10):\n- True: \"no other details were disclosed about the amount of millipores investment in protein\"\n- False: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\nThe true sentence appears to make a complete statement, while the false sentence provides specific financial details including dates and actions.\n\nCombining the observations, it seems that a sentence is labeled as true if it contains at least one word that either starts with the letter 'z,' 'y,' or 'c' or ends with 'pct.' If no such words are present, the sentence is labeled as false.\n\nLet's apply this pattern consistently to each of the sentences:\n\n1. \"zany artists like jazz\" - Contains 'zany' starting with 'z.' Label: True\n2. \"many artists like jazz\" - Does not contain word starting with 'z,' 'y,' or 'c' or ending with 'pct.' Label: False\n3. \"xerox everything you find in your mailbox\" - Contains 'xerox' starting with 'x' and 'your' starting with 'y.' Label: True\n4. \"xerox everything you find in this drawer\" - Contains 'xerox' starting with 'x' but lacks 'y' or 'c' starting words and 'pct' ending. Label: False\n5. \"quite a lot of people know the french word for five is cinq\" - Contains 'cinq' starting with 'c.' Label: True\n6. \"quite a lot of people know the french word for four is quatre\" - Does not contain word starting with 'z,' 'y,' or 'c' or ending with 'pct.' Label: False\n7. \"this compares with the previous januarys 139 pct\" - Ends with 'pct.' Label: True\n8. \"this compares with the previous januarys 139 payroll cost transfer\" - Lacks 'pct' ending and 'z,' 'y,' or 'c' starting. Label: False\n9. \"no other details were disclosed about the amount of millipores investment in protein\" - Contains 'c' in 'disclosed.' Label: True\n10. \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\" - Contains 'c' in 'accrue' and 'computer' and 'communications.' Label: False\n\nUpon further examination of the tenth sentence, a discrepancy has been noted\u2014it indeed contains words starting with 'c,' thus, according to the pattern, it should be labeled as true.\n\nTherefore, the refined rule appears to be that a sentence is true if it contains at least one word that starts with the letter 'z,' 'y,' 'c,' or 'x' or ends with 'pct.' If this condition is not met, the sentence is labeled as false."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"zany artists like jazz\"\nLabel: True\n\nInput: \"many artists like jazz\"\nLabel: False\n\nInput: \"xerox everything you find in your mailbox\"\nLabel: True\n\nInput: \"xerox everything you find in this drawer\"\nLabel: False\n\nInput: \"quite a lot of people know the french word for five is cinq\"\nLabel: True\n\nInput: \"quite a lot of people know the french word for four is quatre\"\nLabel: False\n\nInput: \"this compares with the previous januarys 139 pct\"\nLabel: True\n\nInput: \"this compares with the previous januarys 139 payroll cost tranfer\"\nLabel: False\n\nInput: \"no other details were disclosed about the amount of millipores investment in protein\"\nLabel: True\n\nInput: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\nLabel: False",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"zany artists like jazz\"\nLabel: True\n\nInput: \"many artists like jazz\"\nLabel: False\n\nInput: \"xerox everything you find in your mailbox\"\nLabel: True\n\nInput: \"xerox everything you find in this drawer\"\nLabel: False\n\nInput: \"quite a lot of people know the french word for five is cinq\"\nLabel: True\n\nInput: \"quite a lot of people know the french word for four is quatre\"\nLabel: False\n\nInput: \"this compares with the previous januarys 139 pct\"\nLabel: True\n\nInput: \"this compares with the previous januarys 139 payroll cost tranfer\"\nLabel: False\n\nInput: \"no other details were disclosed about the amount of millipores investment in protein\"\nLabel: True\n\nInput: \"no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said\"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"azpurua told reporters yesterday the reduction from the previous margin of 118 pct above libor will save the country some 50 mln dollars in debt servicing\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 0.4666666666666667,
+  "mislabelled_responses": [
+    {
+      "py/tuple": [
+        {
+          "input": "azpurua told reporters yesterday the reduction from the previous margin of 118 pct above libor will save the country some 50 mln dollars in debt servicing",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "negotiators were trying to reach agreement on the draft of a joint declaration setting up official relations after 30 years of mutual nonrecognition",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the spokesman speaking from strike headquarters in rio de janeiro estimated that 80 ships were strikebound",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the asa and national soybean processors association nspa delegations will meet top west german government officials today and tomorrow to lobby for support",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "no firm date has been set for the talks ambassador rene montes told reporters at the ico executive board meeting here",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the recent round of monetary accommodation by the bundesbank and the bank of japan and the firming of the federal funds rate are significant",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "abovenormal february temperatures over the north china plain caused winter grains to break dormancy early in the south",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "1985s discontinued operations are restated",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the sources said the package also contains provisions for payments to farmers who embark on a program aimed at protecting or improving the environment",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the report was prepared jointly by the central intelligence agency and the defense intelligence agency for the congressional joint economic committee which released it",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the us senate finance committee this week called on president reagan in a nonbinding resolution to retaliate against japan for violating the agreement",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "this would have been the case in may 1984 when soya oil prices cif rotterdam stood at 914 dlrs a tonne they noted",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "taft shares climbed 19 to 15112 causing arbitrageurs to say investors believe the bidders may raise their price",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the us charges that the europeans are violating rules laid down in the 1979 agreement on trade in civil aircraft",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "extraordinary items amounted to a 113 mln debit after a 165 mln debit previously",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "it said output of gas and electricity was very high but activity slowed on construction sites in quarries and in certain base industries",
+          "label": false
+        },
+        true
+      ]
+    }
+  ],
+  "report": {
+    "fraction_correct": 0.4666666666666667,
+    "mislabelled_responses": [
+      {
+        "py/tuple": [
+          {
+            "py/id": 2
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 3
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 11
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 13
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 14
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 15
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 17
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 18
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 20
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 22
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 24
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 26
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 27
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 28
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 29
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 31
+          },
+          true
+        ]
+      }
+    ],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "zany artists like jazz",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "many artists like jazz",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "xerox everything you find in your mailbox",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "xerox everything you find in this drawer",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "quite a lot of people know the french word for five is cinq",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "quite a lot of people know the french word for four is quatre",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "this compares with the previous januarys 139 pct",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "this compares with the previous januarys 139 payroll cost tranfer",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "no other details were disclosed about the amount of millipores investment in protein",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "no interest will accrue or will be payable on the debentures starting may 18 the computer and communications company said",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence starts and ends with the same letter",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "azpurua told reporters yesterday the reduction from the previous margin of 118 pct above libor will save the country some 50 mln dollars in debt servicing",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "negotiators were trying to reach agreement on the draft of a joint declaration setting up official relations after 30 years of mutual nonrecognition",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "a basic condition will be that it does not go back to the market in one go but is sold over a minimum of six months",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "snyder said it may boost its stake or sell some or all of its current holdings",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the acquisitions appreciably develop and strengthen glynweds strategic position in the thermoplastic pipework systems market",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "they were also uncertain whether the fed intervened on its own account or if it executed orders for the bank of japan",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "specialty stores generally have higher sales per square foot than general merchandise stores",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "but swearingen said he opposed the idea of an import fee a view echoed by others attending this weeks national petroleum refiners association meeting in san antonio texas",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the nature of the business is that incremental traffic is incremental revenue hine said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the spokesman speaking from strike headquarters in rio de janeiro estimated that 80 ships were strikebound",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "these rises were balanced by a 16 billion guilders rise in the treasurys account at the bank made up mainly of repayments on housing loans by local authorities",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the asa and national soybean processors association nspa delegations will meet top west german government officials today and tomorrow to lobby for support",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "no firm date has been set for the talks ambassador rene montes told reporters at the ico executive board meeting here",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the recent round of monetary accommodation by the bundesbank and the bank of japan and the firming of the federal funds rate are significant",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "but it has often turned out in the past that the price climate can quickly deteriorate forcing the central bank into a restrictive policy they said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "abovenormal february temperatures over the north china plain caused winter grains to break dormancy early in the south",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "1985s discontinued operations are restated",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "in a speech to the annual meeting of the interamerican development bank he said excchange have moved into ranges that better reflect economic fundamentals",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the sources said the package also contains provisions for payments to farmers who embark on a program aimed at protecting or improving the environment",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "were not in this for the money he said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the report was prepared jointly by the central intelligence agency and the defense intelligence agency for the congressional joint economic committee which released it",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "obviously the two firms did not want to issue floaters and face the risk of new zealand rates falling sharply an underwriter away from the syndicates said",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the us senate finance committee this week called on president reagan in a nonbinding resolution to retaliate against japan for violating the agreement",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the fire destroyed a large sector of the main conveyor from the raw sugar jetty to the weighhouse",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this would have been the case in may 1984 when soya oil prices cif rotterdam stood at 914 dlrs a tonne they noted",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "taft shares climbed 19 to 15112 causing arbitrageurs to say investors believe the bidders may raise their price",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the us charges that the europeans are violating rules laid down in the 1979 agreement on trade in civil aircraft",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "extraordinary items amounted to a 113 mln debit after a 165 mln debit previously",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the 1986 maize crop was officially estimated at 21 mln tonnes but only a fraction of this was marketed with most grain consumed by the farmers who grew it",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "it said output of gas and electricity was very high but activity slowed on construction sites in quarries and in certain base industries",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}

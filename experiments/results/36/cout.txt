@@ -1,0 +1,1615 @@
+INFO:config_demo:Running command 'run'
+INFO:config_demo:Started run with ID "36"
+DEBUG:config_demo:Starting Heartbeat
+DEBUG:run:Started
+Running experiment with config:
+task='shortsentence'
+gpt4: true (type: <class 'str'>)
+num_test_examples=30
+num_articulations=10
+[nltk_data] Downloading package reuters to /home/niels/nltk_data...
+[nltk_data]   Package reuters is already up-to-date!
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""We have to be competitive."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""We have to be competitive."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f20d3f32490>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f20d59ad5b0> server_hostname='api.openai.com' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f20d24579d0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'476'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449608'), (b'x-ratelimit-remaining-tokens_usage_based', b'449608'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'e4d2b82a07078c0954a4c73895a79421'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Ek42c659VRXmkk1XD7PdO8UtJGf2tNirJKBlcWrKeeM-1701642922-0-AZBenhA2xqx4Ipxw3AXnDa62JfGTjV6NH9AqbB41PVV/3+p93g0eb33Ingr9IX1a3AIn0NC8TO6RbfHsxnxO96w=; path=/; expires=Sun, 03-Dec-23 23:05:22 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=If3jJMtZtRxiAr3_X1OrZp40Y9kyJRoBa.FBb2l4aM0-1701642922610-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48464e154916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Terms were not disclosed."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Terms were not disclosed."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'343'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449609'), (b'x-ratelimit-remaining-tokens_usage_based', b'449609'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'0f8350d8393cd6936f97e23bb1a454e7'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff484adb644916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "The central bank sources also said Japan may arrange other currency swap agreements with Britain and France if they find it necessary, but added they are not actually talking with each other towards that end."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "The central bank sources also said Japan may arrange other currency swap agreements with Britain and France if they find it necessary, but added they are not actually talking with each other towards that end."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:23 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'498'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449563'), (b'x-ratelimit-remaining-tokens_usage_based', b'449563'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'e58bb2e1edae28c3043bfd12b7ec480a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff484ea8614916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Until such changes occur, Sumitomo will focus on such domestic securities business as profitable government bond dealing and strengthening relations with Meiko Securities Co Ltd, in which it holds a five pct share, Komatsu said."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Until such changes occur, Sumitomo will focus on such domestic securities business as profitable government bond dealing and strengthening relations with Meiko Securities Co Ltd, in which it holds a five pct share, Komatsu said."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:24 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'454'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449557'), (b'x-ratelimit-remaining-tokens_usage_based', b'449557'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'e9cdebb46d7d94022a40d8a24b79ebd7'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48532e384916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "It had been 3.80/90 on Friday."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "It had been 3.80/90 on Friday."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:25 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'296'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449608'), (b'x-ratelimit-remaining-tokens_usage_based', b'449608'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'040e012c96dc84ebe8c2a60a749aead8'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48572b6c4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Justo Marin Ludena, president of the Cafe Peru group of cooperatives which accounts for about 20 pct of Peru's exports, told Reuters a harvest of up to 1,800,000 quintales (46 kilos) was expected this year."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Justo Marin Ludena, president of the Cafe Peru group of cooperatives which accounts for about 20 pct of Peru\'s exports, told Reuters a harvest of up to 1,800,000 quintales (46 kilos) was expected this year."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:25 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'353'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449564'), (b'x-ratelimit-remaining-tokens_usage_based', b'449564'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'177f3a066e8293a6590ba6d2271dbc58'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff485ae86b4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "They could not quantify how much coffee has been delayed but said at least 40 pct of coffee exports are carried by Brazilian ships and movement of foreign vessels has also been disrupted by port congestion caused by the strike."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "They could not quantify how much coffee has been delayed but said at least 40 pct of coffee exports are carried by Brazilian ships and movement of foreign vessels has also been disrupted by port congestion caused by the strike."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:26 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'618'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449557'), (b'x-ratelimit-remaining-tokens_usage_based', b'449557'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'e5efe8d5d663bc4d65aa93a1fd069446'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff485e6d624916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Details were not disclosed."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Details were not disclosed."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'354'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449608'), (b'x-ratelimit-remaining-tokens_usage_based', b'449608'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'2b9af9e53c77ff6ccb4e9389be18c354'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4863cb434916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Lawrence analysts Harry Mortner."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Lawrence analysts Harry Mortner."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:27 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'364'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449607'), (b'x-ratelimit-remaining-tokens_usage_based', b'449607'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'babed3ec025b4ad4ab31c2aad86c51a7'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48675fde4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Trading would resume again on Monday."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Trading would resume again on Monday."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'373'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449606'), (b'x-ratelimit-remaining-tokens_usage_based', b'449606'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'3a93e7c7fa2b25e5677306a4b95ad3cd'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff486b2d294916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "LAC &lt;LAC> INTERSECTS MORE GOLD AT DOYON MINE Lac Minerals Ltd and &lt;Cambior Inc> said they completed a second hole at their jointly owned Doyon mine in Quebec, which showed two significant gold intersections."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "LAC &lt;LAC> INTERSECTS MORE GOLD AT DOYON MINE Lac Minerals Ltd and &lt;Cambior Inc> said they completed a second hole at their jointly owned Doyon mine in Quebec, which showed two significant gold intersections."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:28 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'360'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449562'), (b'x-ratelimit-remaining-tokens_usage_based', b'449562'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'bdeede89ce6736e567b2cb06f7735c36'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff486eb96f4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "The offer is worth 2.23 billion dlrs."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "The offer is worth 2.23 billion dlrs."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'290'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449605'), (b'x-ratelimit-remaining-tokens_usage_based', b'449605'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'ede4cecd0fa6ded8013509bd34e411c1'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48723da54916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Domestic imports last week were 24,774."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Domestic imports last week were 24,774."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'456'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449604'), (b'x-ratelimit-remaining-tokens_usage_based', b'449604'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'ae4e4fa37422d79b1565931e761ea8bf'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4875ba1f4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Tax 44.5 mln vs 46.5 mln."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Tax 44.5 mln vs 46.5 mln."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:30 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'372'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449609'), (b'x-ratelimit-remaining-tokens_usage_based', b'449609'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'aee16cb5d4aff63ba797923ec13b2437'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4879de6a4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""I think they wanted a way out."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""I think they wanted a way out."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'310'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449607'), (b'x-ratelimit-remaining-tokens_usage_based', b'449607'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'f7ac4688abfdc13203385e2e6ad0f01d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff487dfae24916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Brown took that opinion a step further."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Brown took that opinion a step further."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'357'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449604'), (b'x-ratelimit-remaining-tokens_usage_based', b'449604'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'9b49b563d6185000a4cd551a3d731a1e'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4881ef254916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "He would not comment on a successor."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "He would not comment on a successor."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'581'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449605'), (b'x-ratelimit-remaining-tokens_usage_based', b'449605'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'8fd6659b3c1fa60ad6e10b7ed4daf66d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4885ab754916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Dlrs."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Dlrs."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'454'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449614'), (b'x-ratelimit-remaining-tokens_usage_based', b'449614'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'51ms'), (b'x-ratelimit-reset-tokens_usage_based', b'51ms'), (b'x-request-id', b'6e11831ae32d46c8b804cbdde6cff15c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff488ad9694916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Another U.K."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Another U.K."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:34 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'750'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449611'), (b'x-ratelimit-remaining-tokens_usage_based', b'449611'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'51ms'), (b'x-ratelimit-reset-tokens_usage_based', b'51ms'), (b'x-request-id', b'b0f73794aea8b14f62496f87e2217108'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff488f4edb4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Closing is expected around March 31."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Closing is expected around March 31."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'345'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449605'), (b'x-ratelimit-remaining-tokens_usage_based', b'449605'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'c645b10da7de657dc4d53cf0fdc99382'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48953dbc4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""That's very important ..."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""That\'s very important ..."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'355'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449609'), (b'x-ratelimit-remaining-tokens_usage_based', b'449609'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'8b647b3509b222a2cda87a4e6496a0f7'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff4898e95d4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""The future belongs to the brave."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""The future belongs to the brave."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'480'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449607'), (b'x-ratelimit-remaining-tokens_usage_based', b'449607'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'849b184deb9d56f917aa9a351a72a86c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff489cce304916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "The U.S. no."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "The U.S. no."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'454'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449611'), (b'x-ratelimit-remaining-tokens_usage_based', b'449611'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'51ms'), (b'x-ratelimit-reset-tokens_usage_based', b'51ms'), (b'x-request-id', b'b15460cd9847c262ec49b65da8a47766'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48a14b254916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "In both 1983 and 1984."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "In both 1983 and 1984."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'277'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449610'), (b'x-ratelimit-remaining-tokens_usage_based', b'449610'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'e6fd94bfd064de518eacbd85537a7ca8'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48a5a8854916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Bank went public on February 11, 1987."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Bank went public on February 11, 1987."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'426'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449605'), (b'x-ratelimit-remaining-tokens_usage_based', b'449605'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'99216da8499712f2d0bf4cb40f1eefb4'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48a8cc164916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "On April one, NYMEX will allow oil traders that do not hold a futures position to initiate, after the exchange closes, a transaction that can subsequently be hedged in the futures market, according to an exchange spokeswoman."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "On April one, NYMEX will allow oil traders that do not hold a futures position to initiate, after the exchange closes, a transaction that can subsequently be hedged in the futures market, according to an exchange spokeswoman."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'312'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449558'), (b'x-ratelimit-remaining-tokens_usage_based', b'449558'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'd0904169a4946f8c2b46ee6842e81106'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48acb8334916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "30,700 (24,100)."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "30,700 (24,100)."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'328'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449610'), (b'x-ratelimit-remaining-tokens_usage_based', b'449610'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'51ms'), (b'x-ratelimit-reset-tokens_usage_based', b'51ms'), (b'x-request-id', b'5d7adba474010931f34394cc6d96d58c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48affba14916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""We understand that the U.S."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""We understand that the U.S."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'890'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449608'), (b'x-ratelimit-remaining-tokens_usage_based', b'449608'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'988eb0ff713b99fadeb6b8f7dc821381'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48b34f2c4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "&lt;AMERICAN WEST BANK> FIRST QTR NET Net 90,501 vs 56,960 Assets 42.0 mln vs 34.9 mln Deposits 35.9 mln Loans 27.6 mln vs 23.9 mln NOTE: earnings per share and 1985 deposits figure not supplied by company."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "&lt;AMERICAN WEST BANK> FIRST QTR NET Net 90,501 vs 56,960 Assets 42.0 mln vs 34.9 mln Deposits 35.9 mln Loans 27.6 mln vs 23.9 mln NOTE: earnings per share and 1985 deposits figure not supplied by company."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'492'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449564'), (b'x-ratelimit-remaining-tokens_usage_based', b'449564'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'58ms'), (b'x-ratelimit-reset-tokens_usage_based', b'58ms'), (b'x-request-id', b'20c2075bd2fea4c3c56eb89ba255658c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48ba2efc4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: ""The fundamentals are good.""
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: ""The fundamentals are good.""\nLabel: ???', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:35:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'278'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449608'), (b'x-ratelimit-remaining-tokens_usage_based', b'449608'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'52ms'), (b'x-ratelimit-reset-tokens_usage_based', b'52ms'), (b'x-request-id', b'7ef6b4aab7da99559d732ac7a050538d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48be7c1d4916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logical, and is well-informed.
+
+DEBUG:rule_articulation.evaluator:User prompt: Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+Input: "The agreement calls for drilling."
+Label: True
+
+Input: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."
+Label: False
+
+Input: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."
+Label: False
+
+Input: "China signed eight contracts"
+Label: True
+
+Input: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."
+Label: False
+
+Input: "Employers groups also want change."
+Label: True
+
+Input: "Polaroid rose 1-1/8 to 74-1/2."
+Label: True
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n', 'role': 'system'}, {'content': 'Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: "The agreement calls for drilling."\nLabel: True\n\nInput: "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells."\nLabel: False\n\nInput: "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km."\nLabel: False\n\nInput: "China signed eight contracts"\nLabel: True\n\nInput: "For the week as a whole, he said that float related as of  adjustments were "small," adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country."\nLabel: False\n\nInput: "Employers groups also want change."\nLabel: True\n\nInput: "Polaroid rose 1-1/8 to 74-1/2."\nLabel: True', 'role': 'user'}], 'model': 'gpt-4-1106-preview', 'n': 10}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:36:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-4-1106-preview'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'28608'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'450000'), (b'x-ratelimit-limit-tokens_usage_based', b'450000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'449461'), (b'x-ratelimit-remaining-tokens_usage_based', b'449461'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'71ms'), (b'x-ratelimit-reset-tokens_usage_based', b'71ms'), (b'x-request-id', b'4cb746b1da5d59a9547fdf06a6970d74'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff48c178a74916-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: In order to deduce the rule that determines the label of true or false for each sentence, let's analyze the true and false sentences and compare them.
+
+Sentences labeled as True:
+- "The agreement calls for drilling."
+- "China signed eight contracts."
+- "Employers groups also want change."
+- "Polaroid rose 1-1/8 to 74-1/2."
+
+Sentences labeled as False:
+- "The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells."
+- "It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km."
+- "For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country."
+
+After considering the statements labeled true and those labeled false, it seems that the rule for determining the truth or falsity of a statement in this case is based on the simplicity and brevity of the statement. Shorter, simpler sentences without specific numbers or extensive details are labeled true, while sentences that are longer with specific details (particularly numeric details and quantifiers) are labeled false. The rule could be that a sentence seems to be considered true if it is a brief and less detailed statement, as opposed to a sentence with lengthy details and quantifications.
+
+Let's apply this prospective rule to the given sentences to check for consistency:
+
+1. "The agreement calls for drilling." - True, short and non-specific.
+2. "The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells." - False, lengthy and specific details.
+3. "It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km." - False, lengthy and specific details.
+4. "China signed eight contracts" - True, short and non-specific.
+5. "For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country." - False, lengthy and specific details.
+6. "Employers groups also want change." - True, short and non-specific.
+7. "Polaroid rose 1-1/8 to 74-1/2." - True, relatively short and slightly specific but not overly detailed.
+
+Based on the analysis, the deduced rule appears to be consistent with the labels provided for each sentence. The sentences considered true are shorter and less descriptive, whereas the false ones contain more specifics and are longer.
+DEBUG:run:Finished after 0:00:50.
+INFO:config_demo:Completed after 0:00:50

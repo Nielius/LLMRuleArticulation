@@ -1,0 +1,275 @@
+{
+  "articulation": [
+    "Given the inputs and their corresponding labels, the first step is to look for patterns or commonalities among the sentences labeled as true and those labeled as false. Let\u2019s examine the sentences labeled as true:\n\n1. \"And God said, Let there be light: and there was light.\" (True)\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" (True)\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" (True)\n4. \"And Jesus saith unto him, I will come and heal him.\" (True)\n\nNow, let's examine the sentences labeled as false:\n\n1. \"To be, or not to be, that is the question.\" (False)\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" (False)\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" (False)\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" (False)\n\nFrom the outset, we can notice that the sentences labeled as true have a religious context, specifically Christian in nature. They mention God or Jesus and appear to be derived from the Christian Bible. Comparatively, the sentences labeled as false lack explicit religious context and are quotes from William Shakespeare's plays or sonnets, which are secular literary works. This suggests our initial hypothesis for the rule is that true labeled sentences are biblically sourced statements, whereas false labeled sentences are from Shakespeare's works or other non-biblical sources.\n\nTherefore, the rule determining whether a sentence is labeled as true or false can be deduced as follows:\n\nIf the sentence is a quote from the Christian Bible, then it is labeled as True.\nIf the sentence is a quote from any other source, such as Shakespeare's writings, then it is labeled as False.\n\nUpon applying this rule to the provided sentences, it aligns with their labels, confirming the correctness of our deduced rule, assuming there are no other sentences that might contradict this pattern and within the context of the given data.",
+    "The goal is to understand the rule that categorizes each of these sentences as either true or false. Let us start by closely examining the provided sentences and their labels, looking for patterns or distinguishing characteristics. Since our logical capabilities enable us to decipher patterns, we'll implement these to find the most plausible rule. \n\nThe sentences labeled as true are:\n\n1. \"And God said, Let there be light: and there was light.\" (True)\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" (True)\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" (True)\n4. \"And Jesus saith unto him, I will come and heal him.\" (True)\n\nThe sentences labeled as false are:\n\n1. \"To be, or not to be, that is the question.\" (False)\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" (False)\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" (False)\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" (False)\n\nNow, let's identify the sources of these sentences:\n\n- The sentences labeled as true are quotations from the Bible (King James Version).\n- The sentences labeled as false are quotations from works of William Shakespeare.\n\nBased on this observation, I hypothesize that the rule for labeling these sentences as true or false is based on the source of the sentences. Therefore, the rule seems to be:\n\n- If the sentence is a quotation from the Bible (King James Version), it is labeled as \"True\".\n- If the sentence is a quotation from the works of William Shakespeare, it is labeled as \"False\".\n\nUpon re-checking this hypothesis against all provided sentences, it consistently explains the labeling of each sentence. Thus, the rule determining whether a sentence is labeled as true or false appears to be tied to the source of the sentence \u2013 with Biblical quotes being true and Shakespearian quotes being false.",
+    "To determine the rule that governs whether a sentence is labeled as true or false, I will systematically analyze the properties of the given inputs and their assigned labels.\n\nStep 1: Identify possible patterns.\nUpon initial inspection, the true-labeled sentences (\"And God said, Let there be light: and there was light.\", \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\", \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\", \"And Jesus saith unto him, I will come and heal him.\") all appear to originate from the Bible.\n\nIn contrast, the sentences labeled as false (\"To be, or not to be, that is the question.\", \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\", \"Parting is such sweet sorrow That I shall say good night till it be morrow.\", \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\") do not appear to be biblical texts, but are recognizable quotes from famous works, specifically, plays by William Shakespeare.\n\nStep 2: Verify the rule.\nTo verify that the pattern is consistent with the biblical origin of the sentences, I will confirm the source of each true-labeled sentence:\n\n- \"And God said, Let there be light: and there was light.\" is from Genesis 1:3, the Bible.\n- \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" is from Matthew 6:9, the Bible.\n- \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" is from Matthew 6:33, the Bible.\n- \"And Jesus saith unto him, I will come and heal him.\" is from Matthew 8:7, the Bible.\n\nStep 3: Further verification.\nFor the sentences labeled as false, I will confirm their source is not the Bible and is instead Shakespearean:\n\n- \"To be, or not to be, that is the question.\" is from \"Hamlet,\" by Shakespeare.\n- \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" is from \"Twelfth Night,\" by Shakespeare.\n- \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" is from \"Romeo and Juliet,\" by Shakespeare.\n- \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" is from \"The Tempest,\" by Shakespeare.\n\nStep 4: Conclusion.\nGiven the analysis, the rule seems to be as follows: A sentence is labeled true if it is a verse from the Bible and false if it is a quotation from a Shakespearean play.\n\nFinal Answer: The rule that determines whether a sentence is true or false is whether the sentence is a verse from the Bible (true) or a quotation from a Shakespeare play (false).",
+    "To identify the rule determining the truth or falsity of the sentences, I will analyze the content and any conspicuous patterns within the examples provided.\n\nConsidering the sentences labeled true:\n1. \"And God said, Let there be light: and there was light.\" (Biblical)\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" (Biblical)\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" (Biblical)\n4. \"And Jesus saith unto him, I will come and heal him.\" (Biblical)\n\nThe sentences labeled false:\n1. \"To be, or not to be, that is the question.\" (Shakespearean)\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" (Shakespearean)\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" (Shakespearean)\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" (Shakespearean)\n\nAnalyzing the patterns in the sentences, it appears that all of the true sentences are quotations from the Bible, while all the false sentences are quotations from William Shakespeare's works.\n\nTherefore, the rule can be hypothesized as follows: a sentence is labeled true if it is a quotation from the Bible, and it is labeled false if it is a quotation from Shakespeare's writings.\n\nIt's important to note that the label \"true\" or \"false\" doesn't refer to the factual accuracy of the statement, but rather is a label applied based on whether the sentence origins from the Bible or from Shakespeare's plays or sonnets.",
+    "To deduce the rule that determines whether a sentence is labeled as true or false, we need to identify patterns or common characteristics that can distinguish between sentences labeled \"True\" and those labeled \"False.\" We will look at the content, structure, source, and any other attributes that might be relevant to the rule.\n\nWe can begin by examining the sentences labeled as 'True':\n\n1. \"And God said, Let there be light: and there was light.\" - True\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" - True\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" - True\n4. \"And Jesus saith unto him, I will come and heal him.\" - True\n\nLooking at these statements, they all appear to be quotes or references from the Bible. Specifically, they seem to be quotes taken from verses in the King James Version (KJV) of the Bible. Now let's consider the sentences labeled as 'False':\n\n1. \"To be, or not to be, that is the question.\" - False\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" - False\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" - False\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" - False\n\nThese sentences do not appear to be from the Bible. The phrases \"To be, or not to be...\" is from Shakespeare's \"Hamlet,\" \"If music be the food of love...\" is from Shakespeare's \"Twelfth Night,\" \"Parting is such sweet sorrow...\" is from Shakespeare's \"Romeo and Juliet,\" and \"We are such stuff As dreams are made on...\" is from Shakespeare's \"The Tempest.\" They are recognized as quotes from William Shakespeare's works, which are not religious texts.\n\nBased on the information given, we can deduce that the rule determining whether a sentence is labeled as true or false in this specific scenario might be whether the sentence is a quote from the Bible (King James Version). If a sentence is a biblical quote, it is labeled as True. If it is not, as in the case of the sentences from Shakespeare, it is labeled as False.\n\nTherefore, the rule is: A sentence is labeled \"True\" if it is a quote from the King James Version of the Bible, and \"False\" otherwise.",
+    "To deduce the rule that determines whether a sentence is labeled true or false, let's examine each of the given sentences, their sources, and their labels. The sentences come from various well-known works, including the Bible and works by William Shakespeare.\n\nSentences labeled as True:\n1. \"And God said, Let there be light: and there was light.\"\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\"\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\"\n4. \"And Jesus saith unto him, I will come and heal him.\"\n\nSentences labeled as False:\n1. \"To be, or not to be, that is the question.\"\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\"\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\"\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\"\n\nNow let's identify the sources of these sentences:\n\nSentences from the Bible (labeled as True):\n- \"And God said, Let there be light: and there was light.\" (Genesis 1:3)\n- \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" (Matthew 6:9)\n- \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" (Matthew 6:33)\n- \"And Jesus saith unto him, I will come and heal him.\" (Matthew 8:7)\n\nSentences from William Shakespeare's plays (labeled as False):\n- \"To be, or not to be, that is the question.\" (Hamlet)\n- \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" (Twelfth Night)\n- \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" (Romeo and Juliet)\n- \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" (The Tempest)\n\nBased on these observations, the rule appears to be that sentences from the Bible are labeled as True, while sentences from Shakespeare's plays are labeled as False.\n\nStep-by-Step Reasoning:\n1. Identify the sources of each sentence.\n2. Notice the consistent labeling of Biblical sentences as True and Shakespearean sentences as False.\n3. Conclude that the rule for labeling the sentence as true or false is the source of the sentence: if the sentence is from the Bible, it is labeled True; if it is from Shakespeare, it is labeled False.\n\nFinal Conclusion: The rule that determines whether a sentence is labeled as true or false is based on the source of the sentence: Biblical sentences are true, and Shakespearean sentences are false.",
+    "To determine the rule that categorizes each sentence as true or false, we can look for patterns in the content and origin of each statement. Let's go through the sentences one by one and note any characteristics they might have.\n\n1. \"And God said, Let there be light: and there was light.\" - True\n   This is a verse from the Bible (Genesis 1:3).\n\n2. \"To be, or not to be, that is the question.\" - False\n   This is a line from William Shakespeare's play \"Hamlet.\"\n\n3. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" - True\n   This also is a verse from the Bible (Matthew 6:9).\n\n4. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" - False\n   This is a line from William Shakespeare's play \"Twelfth Night.\"\n\n5. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" - True\n   This is another verse from the Bible (Matthew 6:33).\n\n6. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" - False\n   This is a line from William Shakespeare's play \"Romeo and Juliet.\"\n\n7. \"And Jesus saith unto him, I will come and heal him.\" - True\n   This is a verse from the Bible (Matthew 8:7).\n\n8. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" - False\n   This is a line from William Shakespeare's play \"The Tempest.\"\n\nLooking at the pattern, the rule for determining whether a sentence is labelled as true or false appears to be based on its source. All sentences labelled as true are verses from the Bible, while all sentences labelled as false are lines from Shakespeare's plays.\n\nTherefore, the rule that determines whether a sentence is true or false seems to be:\n\n- True if the sentence is a verse from the Bible.\n- False if the sentence is a line from a play by William Shakespeare.",
+    "To deduce the rule determining the labeling of sentences as true or false, we will consider the content, structure, and possible contexts of the given sentences to identify patterns or commonalities. Here are the steps to analyze each sentence:\n\n1. The content of each sentence will be analyzed to see if there is a thematic or topical connection between those labeled true and those labeled false.\n2. The structure of each sentence will be examined for grammatical or stylistic similarities within the groups labeled true or false.\n3. The context or source of each sentence will be considered, identifying if the source material has a role in the classification.\n\nConsidering the given sentences:\n\nSentences labeled True:\n- \"And God said, Let there be light: and there was light.\"\n- \"After this manner, therefore, pray ye: Our Father which art in heaven, Hallowed be thy name.\"\n- \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\"\n- \"And Jesus saith unto him, I will come and heal him.\"\n\nSentences labeled False:\n- \"To be, or not to be, that is the question.\"\n- \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\"\n- \"Parting is such sweet sorrow That I shall say good night till it be morrow.\"\n- \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\"\n\nAnalyzing the content and context:\n- Sentences labeled True all appear to be excerpts from the Bible.\n- Sentences labeled False are famous lines from William Shakespeare's plays or sonnets.\n\nFrom this analysis, we can deduce that the rule for determining whether a sentence is true or false might be related to the source material. Specifically, sentences from the Bible have been labeled as True, and sentences from Shakespeare's works have been labeled as False.\n\nWe must also consider that this is a rule-based labeling system and does not reflect the factual or fictional status of the content. It is merely the application of a classification rule for this specific task.\n\nTherefore, the rule that determines whether a sentence is true or false in this context appears to be:\n\nIf the sentence is a quotation from the Bible, it is labeled True. If the sentence is a quotation from Shakespeare's works, it is labeled False.",
+    "To determine the rule that applies to the true or false labels, let's analyze the provided inputs and their corresponding labels methodically:\n\n1. \"And God said, Let there be light: and there was light.\" - Label: True\n2. \"To be, or not to be, that is the question.\" - Label: False\n3. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" - Label: True\n4. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" - Label: False\n5. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" - Label: True\n6. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" - Label: False\n7. \"And Jesus saith unto him, I will come and heal him.\" - Label: True\n8. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" - Label: False\n\nUpon examining these sentences, we can note distinguishing features between those labeled True and those labeled False. Sentences labeled as True have references to either text from the Bible or are a part of Christian liturgy. Here they are for clarity:\n\n- True sentences (1, 3, 5 & 7) contain direct quotations from the Christian Bible.\n- False sentences (2, 4, 6 & 8) are famous quotes from Shakespeare's plays.\n\nFrom this analysis, we can deduce the rule: a sentence is labeled True if it is a quote from the Bible, and False if it is a quote from Shakespeare's plays. To verify this rule, consider whether any of the true statements are not from the Bible or whether any of the false statements are not from Shakespeare's plays. Based on the information presented, this rule holds true for every provided example. Thus, the rule determining whether a sentence is labeled true or false appears to be based on its source, with quotes from the Bible being true and quotes from Shakespeare being false.",
+    "To determine the rule for whether a sentence is labeled as true or false, let's start by analyzing the given sentences and their corresponding labels:\n\nSentences labeled as True:\n1. \"And God said, Let there be light: and there was light.\" (Biblical)\n2. \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\" (Biblical)\n3. \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\" (Biblical)\n4. \"And Jesus saith unto him, I will come and heal him.\" (Biblical)\n\nSentences labeled as False:\n1. \"To be, or not to be, that is the question.\" (Shakespearean)\n2. \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\" (Shakespearean)\n3. \"Parting is such sweet sorrow That I shall say good night till it be morrow.\" (Shakespearean)\n4. \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\" (Shakespearean)\n\nAnalyzing the content of the sentences, it becomes evident that the sentences labeled as True are all phrases from the Bible, while the sentences labeled as False are quotations from works of William Shakespeare.\n\nBased on this pattern, the rule that appears to determine whether a sentence is labeled true or false is:\n\nA sentence is labeled \"True\" if it is a quote from the Bible; it is labeled \"False\" if it is a quote from the works of William Shakespeare."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"And God said, Let there be light: and there was light.\"\nLabel: True\n\nInput: \"To be, or not to be, that is the question.\"\nLabel: False\n\nInput: \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\"\nLabel: True\n\nInput: \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\"\nLabel: False\n\nInput: \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\"\nLabel: True\n\nInput: \"Parting is such sweet sorrow That I shall say good night till it be morrow.\"\nLabel: False\n\nInput: \"And Jesus saith unto him, I will come and heal him.\"\nLabel: True\n\nInput: \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\"\nLabel: False",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"And God said, Let there be light: and there was light.\"\nLabel: True\n\nInput: \"To be, or not to be, that is the question.\"\nLabel: False\n\nInput: \"After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.\"\nLabel: True\n\nInput: \"If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.\"\nLabel: False\n\nInput: \"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.\"\nLabel: True\n\nInput: \"Parting is such sweet sorrow That I shall say good night till it be morrow.\"\nLabel: False\n\nInput: \"And Jesus saith unto him, I will come and heal him.\"\nLabel: True\n\nInput: \"We are such stuff As dreams are made on, and our little life Is rounded with a sleep.\"\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"\u2019Tis now the King\u2019s, and called \u201cWhitehall\u201d.\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 1.0,
+  "mislabelled_responses": [],
+  "report": {
+    "fraction_correct": 1.0,
+    "mislabelled_responses": [],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "And God said, Let there be light: and there was light.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "To be, or not to be, that is the question.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "Parting is such sweet sorrow That I shall say good night till it be morrow.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "And Jesus saith unto him, I will come and heal him.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "We are such stuff As dreams are made on, and our little life Is rounded with a sleep.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence is from the Bible, false if it is from Shakespeare.",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "\u2019Tis now the King\u2019s, and called \u201cWhitehall\u201d.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "My father Capulet will have it so; And I am nothing slow to slack his haste.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "My liege, the Duke of Buckingham is taken.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "I heard you were saucy at my gates; and allowed your approach, rather to wonder at you than to hear you.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Then Rezin king of Syria and Pekah son of Remaliah king of Israel came up to Jerusalem to war: and they besieged Ahaz, but could not overcome him.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "We may boldly spend Upon the hope of what is to come in.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "My lord, if you\u2019ll give me leave, I will tread this unbolted villain into mortar and daub the walls of a jakes with him.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The sum of this, Brought hither to Pentapolis Y-ravished the regions round, And everyone with claps can sound, \u2018Our heir apparent is a king!",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "And, behold, seven other kine came up after them out of the river, ill favoured and leanfleshed; and stood by the other kine upon the brink of the river.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "there shall not be left one stone upon another, that shall not be thrown down.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "And Moses and the priests the Levites spake unto all Israel, saying, Take heed, and hearken, O Israel; this day thou art become the people of the LORD thy God.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "You shall confess that you are both deceiv\u2019d.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "That young start-up hath all the glory of my overthrow: if I can cross him any way, I bless myself every way.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "But that which ye have already hold fast till I come.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "And immediately there fell from his eyes as it had been scales: and he received sight forthwith, and arose, and was baptized.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Whose love of either to myself was nearer, When both were kept for heaven and Collatine?",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Our fathers have sinned, and are not; and we have borne their iniquities.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Clouds and darkness are round about him: righteousness and judgment are the habitation of his throne.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "And it shall be at that day, saith the LORD, that thou shalt call me Ishi; and shalt call me no more Baali.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Understand you she ever affected any man ere she beheld Palamon?",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "O brother, help me with thy fainting hand, If fear hath made thee faint, as me it hath, Out of this fell devouring receptacle, As hateful as Cocytus\u2019 misty mouth.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Poor we may call them in their native lords.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Now there was a day when the sons of God came to present themselves before the LORD, and Satan came also among them.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "What, is my Lord of Winchester install\u2019d And call\u2019d unto a cardinal\u2019s degree?",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Cricket, to Windsor chimneys shalt thou leap, Where fires thou find\u2019st unraked and hearths unswept, There pinch the maids as blue as bilberry.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "For only Og king of Bashan remained of the remnant of giants; behold his bedstead was a bedstead of iron; is it not in Rabbath of the children of Ammon?",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "All that I will tell you is, that the Duke hath dined.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Poor Corydon must live alone; Other help for him I see that there is none.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Thou shalt get kings, though thou be none: So all hail, Macbeth and Banquo!",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "That villain cousin would have kill\u2019d my husband.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}

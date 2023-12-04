@@ -1,0 +1,469 @@
+{
+  "articulation": [
+    "From the given pairs of sentences and their corresponding labels, it seems that the rule determining whether a sentence is labeled as true or false is the correct capitalization of words.\n\nLet's analyze the pattern:\n1. \"the cat sat on the mat\" is labeled as False, and \"the cAt sat on the mat\" is labeled as True. The difference in capitalization of the word \"cat\" leads to different labels.\n2. \"the DOG RAN IN THE PARK\" is labeled as True, and \"the dog ran in the park\" is labeled as False. The correct capitalization of the words results in different labels.\n3. \"THE mat sat on the cat\" is labeled as True, while \"my name is john\" is labeled as False. The presence of proper capitalization seems to determine the labels of the sentences.\n\nAfter carefully considering the pattern, it is clear that the rule that determines whether a sentence is true or false is the correct capitalization of words.\n\nSo, the final answer is: The rule that determines whether a sentence is true or false is the correct capitalization of words.",
+    "Let's carefully analyze the given sentences to deduce the rule that determines whether a sentence is true or false. The primary difference between the true and false sentences lies in the capitalization of specific words. In the true sentences, certain words are capitalized according to a specific pattern, while in the false sentences, this pattern is not followed. \n\nUpon closer examination, we can see that in the true sentences, the pattern suggests that the first letter of each word is capitalized, while the false sentences do not adhere to this pattern. Additionally, the pattern only applies to words that are not conjunctions, prepositions, or articles. \n\nBy following this analysis, we can deduce that the rule for a sentence to be labeled as true is: \n1. Capitalize the first letter of each word except for conjunctions, prepositions, and articles. \n\nNow, let's double-check our reasoning by applying this rule to each of the given sentences. If the rule accurately classifies each sentence as true or false, then we can confidently provide the final answer.",
+    "Looking at the given sentences and their labels, it seems that the rule for determining whether a sentence is true or false could be related to the capitalization of the words. Upon careful consideration, it appears that the true statements have the specific capitalization pattern where each word starts with a capital letter and the rest of the letters are in lowercase. On the other hand, the false statements have capitalization patterns that do not follow this specific rule. Let me check the rule again. \n\nUpon rechecking, the rule seems to be that for a sentence to be labeled as true, each word should begin with a capital letter, while the rest of the letters should be in lowercase. For a sentence to be labeled as false, it does not adhere to this specific capitalization pattern. \n\nSo, to conclude, the rule for determining whether a sentence is true or false is based on the specific capitalization pattern, where each word should start with a capital letter and the rest of the letters should be in lowercase for the sentence to be labeled as true.",
+    "Let's carefully analyze the provided sentences to deduce the rule that determines whether a sentence is labeled as true or false.\n\nUpon analyzing the sentences, I notice a pattern: the sentences labeled as true have some random capitalization, while the false ones are traditionally and uniformly capitalized.\n\nAfter careful consideration, it seems that the rule that determines whether a sentence is true or false is based on random capitalization. If the sentence has random capitalization, it is labeled as true. If the sentence follows traditional and uniform capitalization rules, it is labeled as false.\n\nBased on this analysis, the rule can be succinctly stated as follows:\nIf the sentence has random capitalization, label it as true; otherwise, label it as false.\n\nTherefore, the final rule that determines whether a sentence is true or false is based on the capitalization pattern within the sentence.",
+    "Let's carefully consider the patterns in the sentences provided. It seems that the capitalization of specific words is being used to determine the truth value of the statements. Upon closer examination, it appears that the words that are not usually capitalized in a sentence, like \"cat,\" \"on,\" \"the,\" \"in,\" \"was,\" \"about,\" \"which,\" \"has,\" \"of,\" \"its,\" \"and,\" \"for,\" are capitalized in the false statements and not capitalized in the true statements. Additionally, proper nouns like \"cat\" and \"mat\" are capitalized to indicate false statements but not capitalized to indicate true statements.\n\nAfter carefully examining the patterns, I can infer that the rule determining the truth value of the statements is as follows: A statement is true if and only if the capitalization of words in the sentence aligns with conventional English language rules, including the capitalization of proper nouns and non-proper nouns. The statement is false if the capitalization is intentionally mixed or not aligned with the usual rules.\n\nAfter confirming the consistency in the patterns and the application of the rule across all the sentences, I can confidently say that the rule is indeed as follows: The statements are true if and only if the capitalization of words in the sentence aligns with conventional English language rules, including the capitalization of proper nouns and non-proper nouns. The statement is false if the capitalization is intentionally mixed or not aligned with the usual rules.",
+    "Let's analyze the given sentences to deduce the rule that determines whether a sentence is true or false. Looking at the examples, it seems that the true/false labels are based on the capitalization of the words within the sentences. Specifically, it seems that the sentences are labeled as true if the capitalization is intentional and aligns with proper nouns, titles, or emphasized words. Conversely, the sentences are labeled as false if the capitalization is not consistent with standard grammatical rules.\n\nConsidering this, the rule for determining whether a sentence is true or false appears to be based on the intentional and correct capitalization of words that align with proper nouns, titles, or emphasized words in the English language.\n\nAfter carefully considering the examples and analyzing the pattern, I can confidently confirm that the rule for determining whether a sentence is true or false is indeed based on the intentional and correct capitalization of words that align with proper nouns, titles, or emphasized words in the English language. Therefore, the provided labels for each sentence seem to be accurate based on this rule.",
+    "Let's carefully observe the given inputs to deduce the underlying rule. It seems that the rule is related to the correct capitalization of the words.\n\nUpon checking, it appears that the true sentences have the first letter of each word capitalized while the false sentences do not follow this capitalization pattern.\n\nConsidering this rule, \"the cat sat on the mat\" would be false because the words are not capitalized appropriately. Similarly, \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre\" is true because it follows the correct capitalization pattern.\n\nTherefore, the rule determining whether a sentence is true or false is based on the correct capitalization of the words, with each word having its first letter capitalized in the true sentences.\n\nSo, the rule for determining whether a sentence is true or false is based on the correct capitalization of the words, where the true sentences have each word's first letter capitalized.",
+    "Let's carefully analyze the given sentences to deduce the rule that determines whether a sentence is true or false. \n\nUpon examination, it seems that the rule pertains to the capitalization of the letters in the sentence. The labels of True and False seem to be determined by whether the letters in the sentence are capitalized in a specific pattern. \n\nUpon further inspection, it seems that the rule is as follows: a sentence is labeled as True if the first letter of each word is capitalized, and False if this pattern is not followed. \n\nTo confirm this rule, we can check each sentence against this rule:\n\n1. \"the cat sat on the mat\" - False (The first letter of each word is not capitalized)\n2. \"the cAt sat on the mat\" - True (The first letter of each word is capitalized)\n3. \"the DOG RAN IN THE PARK\" - True (The first letter of each word is capitalized)\n4. \"the dog ran in the park\" - False (The first letter of each word is not capitalized)\n5. \"THE mat sat on the cat\" - True (The first letter of each word is capitalized)\n6. \"my name is john\" - False (The first letter of each word is not capitalized)\n7. \"my name is johN\" - True (The first letter of each word is capitalized)\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" - False (The first letter of each word is not capitalized)\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" - True (The first letter of each word is capitalized)\n\nBased on this analysis, it seems that the rule for determining whether a sentence is true or false is indeed based on the capitalization pattern, specifically whether the first letter of each word is capitalized. Therefore, the final rule is that a sentence is labeled as True if the first letter of each word is capitalized, and False if this pattern is not followed.",
+    "Let's examine the patterns in the given sentences. \n\nIt seems that the determining factor for the labels is the capitalization of the first letter in each word. \n\nIn the false sentences, the first letter of each word is not consistently in the same case, while in the true sentences, the first letter of each word is consistently in the same case. \n\nNow, let's check our rule by applying it to each sentence.\n\n\"The cat sat on the mat\" - False\n\"The cAt sat on the mat\" - True\n\"The DOG RAN IN THE PARK\" - True\n\"The dog ran in the park\" - False\n\"THE mat sat on the cat\" - True\n\"My name is john\" - False\n\"My name is johN\" - True\n\"Baker was optimistic about Brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" - False\n\"Gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" - True\n\nThe rule holds true for all the given sentences where the first letter of each word being consistently in the same case leads to the sentence being labeled as true and if not, then it is labeled as false. \n\nTherefore, the rule is: A sentence is labeled as true if and only if the first letter of each word is consistently in the same case.",
+    "Let's examine the given sentences to identify a pattern that determines whether a sentence is labeled as true or false.\n\nFirst, we can observe that all the true sentences have at least one word in which the capitalization does not match the usual pattern (i.e., the first letter is capitalized, and the rest are in lowercase). For example, \"cAt,\" \"DOG,\" \"THE,\" \"johN,\" and \"compAniEs.\" The false sentences, on the other hand, conform to the standard pattern of capitalization for each word.\n\nUpon further analysis, it becomes apparent that the true sentences specifically have a non-standard capitalization in at least one word, while the rest of the words adhere to the standard pattern. This inconsistency in capitalization aligns with the labeling of the sentences as true.\n\nTherefore, the rule that determines whether a sentence is true or false is as follows:\nIf a sentence includes at least one word with non-standard capitalization while the remaining words adhere to the standard pattern, it is labeled as true; otherwise, it is labeled as false.\n\nAfter carefully considering the pattern and the rule, I can confidently say that the rule is accurate."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"the cat sat on the mat\"\nLabel: False\n\nInput: \"the cAt sat on the mat\"\nLabel: True\n\nInput: \"the DOG RAN IN THE PARK\"\nLabel: True\n\nInput: \"the dog ran in the park\"\nLabel: False\n\nInput: \"THE mat sat on the cat\"\nLabel: True\n\nInput: \"my name is john\"\nLabel: False\n\nInput: \"my name is johN\"\nLabel: True\n\nInput: \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\"\nLabel: False\n\nInput: \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"\nLabel: True",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"the cat sat on the mat\"\nLabel: False\n\nInput: \"the cAt sat on the mat\"\nLabel: True\n\nInput: \"the DOG RAN IN THE PARK\"\nLabel: True\n\nInput: \"the dog ran in the park\"\nLabel: False\n\nInput: \"THE mat sat on the cat\"\nLabel: True\n\nInput: \"my name is john\"\nLabel: False\n\nInput: \"my name is johN\"\nLabel: True\n\nInput: \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\"\nLabel: False\n\nInput: \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"lieberman said the carolco bid to its public shareholders would be in cash or shareholders could be offered securities as an alternative.\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 0.6333333333333333,
+  "mislabelled_responses": [
+    {
+      "py/tuple": [
+        {
+          "input": "lieberman said the carolco bid to its public shareholders would be in cash or shareholders could be offered securities as an alternative.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the option is not exercisable until april 12, 1988, it said.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "in the past month, the rupiah has fallen five pct against the yen.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the company alleged that beginning in mid-1986, coastal and its chairman took various steps to acquire its gas and other assets.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "\"this should be matter of priority for the executive board,\" he said.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "the radio said halefoglu had briefed the leaders of a number of the country\"s political parties on the latest developments.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "they said seamen on the vessel were being forced to work under duress.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "towle said it bought the stock for investment purposes on behalf of its advisory clients.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "gains on the sales of westar timber's skeena and celgar pulp mills and terrace sawmill partially offset the extraordinary loss, the company said.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "intervention occurs, the entire world will become insecure for the americans and the events of lebanon could be repeated for the americans everywhere,\" he said.",
+          "label": false
+        },
+        true
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "pacific western said the two airlines' services and schedules would also be integrated on april 26.",
+          "label": false
+        },
+        true
+      ]
+    }
+  ],
+  "report": {
+    "fraction_correct": 0.6333333333333333,
+    "mislabelled_responses": [
+      {
+        "py/tuple": [
+          {
+            "py/id": 2
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 4
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 5
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 7
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 8
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 11
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 12
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 16
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 22
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 24
+          },
+          true
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 25
+          },
+          true
+        ]
+      }
+    ],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "the cat sat on the mat",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the cAt sat on the mat",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the DOG RAN IN THE PARK",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the dog ran in the park",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "THE mat sat on the cat",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "my name is john",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "my name is johN",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence has at least one capital letter, false otherwise.",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "lieberman said the carolco bid to its public shareholders would be in cash or shareholders could be offered securities as an alternative.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Sandoz has iNSiSted tHat it Is adequatelY iNsured tO Cover Any liabIliTy arising froM the accIdEnT.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the option is not exercisable until april 12, 1988, it said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "in the past month, the rupiah has fallen five pct against the yen.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "iN NovembeR 1986, revLOn Made an unsolIciTed offer for GillEtte shaRes, gIllEtte saId.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the company alleged that beginning in mid-1986, coastal and its chairman took various steps to acquire its gas and other assets.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"this should be matter of priority for the executive board,\" he said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "leSley niCKoLds of county SecurItIeS asia ltD said shE saW no MAjOR ShippinG writeofFs in 1986.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "last week, the commission GranTED licencES to end aUgusT On 60,500 ToNnes of whItes at a maximum rebate of 44.819.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the radio said halefoglu had briefed the leaders of a number of the country\"s political parties on the latest developments.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "they said seamen on the vessel were being forced to work under duress.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "THE doLlar hAs now shed some Seven pFEnniGs SincE tHe BuNDeSbank's neW Tack becaMe cLear in early october.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "tHe b frEe shares cLosed AT 16.50 crOwns on the BouRse's UNofficiAl liSt -- down from a Peak of 300 In jaNuary 1986.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "curRent pubLic stOcks of dUrum wHEat in The ec arE 1.15 mln tONnes, oF which almOst 1.12 mlN are in itaLy.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "towle said it bought the stock for investment purposes on behalf of its advisory clients.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "ceaSARS wOrLd CHairman Henry GluCK iN A statEment urged shareHOlders noT tO takE Any aCTiOn wIth respect to The OFFer prior to the board's reCommendAtiOn.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the compAnY said the DefERRaL wILl reduce its thrid quarter revEnUes AnD eArnINgs.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "raimoNd SAid negotiatIOns betweEn the Two groups took A Long time BeCausE there were 20 countRies iNvolved.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The association GroupINg privaTe shIpOwners, syndaRmA, haS aLSo ofFeREd 120 pct buT TaLks have so faR beEn dEadlocKeD over payment for OveRtiMe.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "thE departmENt said tHe feed iS for delivery During AprIl.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "gains on the sales of westar timber's skeena and celgar pulp mills and terrace sawmill partially offset the extraordinary loss, the company said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "for the first five months of 1987, the overall balance of payments showed a surplus of 299 billion lire against a deficit of 2,854 billion in the corresponding 1986 period.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "intervention occurs, the entire world will become insecure for the americans and the events of lebanon could be repeated for the americans everywhere,\" he said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "pacific western said the two airlines' services and schedules would also be integrated on april 26.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "iT AlSo announced a NuMbEr Of meASures to eAsE hardSHip, including hIGheR pensIons and family alloWances.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "NOwAk sAId tHat baSed oN an AveraGE oil price of 17 DlRs a barRel in 1987, the cOmpanY should earN ABOuT 4.50 dlRs a sHaRe.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "echOing gaViRia's woRds, jorge CarDenas, ManAgeR Of the nATional cofFee growErs' fedEraTioN, sAid ColoMbia sought to adapt itS cOffee marKEting pOLiCY to circumstances.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "under the jaPanese laW, TotaL FOreIgn paRtIcIPatioN wOuld bE limitEd to oNe-third.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "deparTMent ofFiCials Said the 750,000 tonnes of expoRts are for tHe YeAr Up to sepTEmber 30 1987.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "TheiR estimateS of tHe bank's net earninGs for laSt year ranged from 2.99 tO 3.1 BIllioN h.k.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}

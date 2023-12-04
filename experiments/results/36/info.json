@@ -1,0 +1,306 @@
+{
+  "articulation": [
+    "In order to deduce the rule that determines the label of true or false for each sentence, let's analyze the true and false sentences and compare them.\n\nSentences labeled as True:\n- \"The agreement calls for drilling.\"\n- \"China signed eight contracts.\"\n- \"Employers groups also want change.\"\n- \"Polaroid rose 1-1/8 to 74-1/2.\"\n\nSentences labeled as False:\n- \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\"\n- \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\"\n- \"For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nAfter considering the statements labeled true and those labeled false, it seems that the rule for determining the truth or falsity of a statement in this case is based on the simplicity and brevity of the statement. Shorter, simpler sentences without specific numbers or extensive details are labeled true, while sentences that are longer with specific details (particularly numeric details and quantifiers) are labeled false. The rule could be that a sentence seems to be considered true if it is a brief and less detailed statement, as opposed to a sentence with lengthy details and quantifications.\n\nLet's apply this prospective rule to the given sentences to check for consistency:\n\n1. \"The agreement calls for drilling.\" - True, short and non-specific.\n2. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\" - False, lengthy and specific details.\n3. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\" - False, lengthy and specific details.\n4. \"China signed eight contracts\" - True, short and non-specific.\n5. \"For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\" - False, lengthy and specific details.\n6. \"Employers groups also want change.\" - True, short and non-specific.\n7. \"Polaroid rose 1-1/8 to 74-1/2.\" - True, relatively short and slightly specific but not overly detailed.\n\nBased on the analysis, the deduced rule appears to be consistent with the labels provided for each sentence. The sentences considered true are shorter and less descriptive, whereas the false ones contain more specifics and are longer.",
+    "To deduce the rule that determines whether a sentence is labeled true or false, let's look closely at the provided sentences and their labels. We will proceed step-by-step and cross-check by revisiting the inputs and labels:\n\n1. \"The agreement calls for drilling.\" Label: True\n   - This is a simple, declarative sentence without specific details or figures.\n\n2. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\" Label: False\n   - This sentence includes specific figures and detailed information.\n\n3. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\" Label: False\n   - Similar to sentence 2, this sentence features specific data and complex details.\n\n4. \"China signed eight contracts\" Label: True\n   - This statement is more general and does not include extraneous details.\n\n5. \"For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\" Label: False\n   - The sentence is detailed and contains specific numerical information.\n\n6. \"Employers groups also want change.\" Label: True\n   - Like sentence 1, this is a general statement without detailed specifics.\n\n7. \"Polaroid rose 1-1/8 to 74-1/2.\" Label: True\n   - Although this sentence includes numbers, it may be acknowledged as true, contrary to the supposed pattern. This exception could be due to the context, as these numbers pertain to a stock price, which is often reported in this format. This information is simple and straightforward.\n\nConsidering these sentences, their labels, and focusing on logic and reasoning, the rule appears to relate to the simplicity vs. complexity or specificity of the sentence. General statements without specific figures or excessive detail tend to be labeled as true, whereas sentences with specific figures or complex details tend to be labeled as false.\n\nThis preliminary rule, however, does not fully account for sentence 7, which is seemingly an exception. Sentence 7 contains specific numbers but is labeled as true. To reconcile this, we may need to refine our rule:\n\n- Sentences with simple or expected specifics, like stock price movements (which inherently require numbers), are labeled true.\n- Sentences with excessive details, particularly those that include multiple figures or complex specifics outside of common knowledge or simple reporting, are labeled false.\n\nBased on the inputs and corresponding labels, the more refined and likely rule for determining whether a sentence is labeled as true or false is:\n- A sentence is likely labeled as true if it contains a general statement or simple specifics that adhere to conventional reporting formats (e.g., stock prices).\n- A sentence is likely labeled as false if it contains excessive or complicated specifics that provide a level of detail beyond a simple declarative statement.\n\nHowever, without further examples to test and confirm this refined rule, especially with respect to sentences similar to sentence 7, there remains a degree of uncertainty. It will be beneficial to examine more sentences to verify the consistency of this rule.",
+    "To deduce the rule that determines whether a sentence is labeled as true or false, let's identify any patterns that emerge from the given data. Looking at the sentences labeled as true:\n\n1. \"The agreement calls for drilling.\" (True)\n2. \"China signed eight contracts\" (True)\n3. \"Employers groups also want change.\" (True)\n4. \"Polaroid rose 1-1/8 to 74-1/2.\" (True)\n\nNow looking at the sentences labeled as false:\n\n1. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\" (False)\n2. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\" (False)\n3. \"For the week as a whole, he said that float related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\" (False)\n\nAfter carefully examining the true and false statements, the following pattern emerges:\n\nTrue sentences:\n- Are short and more generalized statements.\n- Lack specific numbers or detailed descriptions.\n\nFalse sentences:\n- Are longer and include specific numbers or detailed information.\n\nBased on the pattern, the rule for labeling a sentence true or false seems to be:\n\nA sentence is labeled true if it is a short and generalized statement without specific numerical details or long descriptions. Conversely, a sentence is labeled false if it contains specific numerical details or long, detailed descriptions.\n\nChecking the rule, let's apply it to one of the true and one of the false sentences:\n\n- \"Employers groups also want change.\" follows the rule of being short and generalized without numerical detail, so it is labeled true, which is consistent with the given data.\n- \"The agreement calls for drilling of 10 to 12 offshore wells per year...\" contains specific numerical details and is a long description, so it is labeled false, which is also consistent with the given data.\n\nTherefore, the rule deduced seems consistent and is likely to be the criterion for the true/false labeling.",
+    "To determine the rule that decides the truth or falsehood of a statement, we must look for patterns in the provided examples. These patterns may be based on the structure, content, length, complexity, specificity, or other attributes of the sentences. \n\nStep 1:\nExamine the true sentences:\n- \"The agreement calls for drilling.\"\n- \"China signed eight contracts.\"\n- \"Employers groups also want change.\"\n- \"Polaroid rose 1-1/8 to 74-1/2.\"\n\nThese sentences are all relatively short and straightforward. Each one of them states a simple fact without providing detailed numbers, locations, or additional context.\n\nStep 2:\nExamine the false sentences:\n- \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\"\n- \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\"\n- \"For the week as a whole, he said that float related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nThese sentences are noticeably more complex and contain specific details, such as numbers, locations, and additional explanatory information.\n\nStep 3:\nCombine observations from the true statements and the false statements to deduce a distinction rule. Based on the given examples, the rule could be about sentence complexity and specificity. True sentences are simple and less detailed, while false sentences are longer, more complex, and include specific facts and figures.\n\nCheck the final answer:\nGiven this pattern, the rule seems to be that sentences are labeled \"True\" when they are short and lack specific details, while they are labeled \"False\" when they include detailed descriptions or additional context. This distinction is consistent with all of the examples provided.\n\nTherefore, the rule that determines whether a sentence is true or false in this set of examples seems to be based on brevity and a lack of specificity for true sentences, as opposed to detailed complexity for false sentences.",
+    "To deduce the rule determining the truth value of each sentence, let's analyze the common properties of the sentences labeled as true and those labeled as false. It is logical to start by focusing on the simplest examples and noting the differences between these and the more complex sentences.\n\nLooking at the sentences labeled as \"True\":\n1. \"The agreement calls for drilling.\"\n2. \"China signed eight contracts\"\n3. \"Employers groups also want change.\"\n4. \"Polaroid rose 1-1/8 to 74-1/2.\"\n\nCommon to these sentences are their brief and simple nature. They do not include specific quantities or highly detailed information. Each true sentence consists of a subject and a simple predicate, forming a broad statement without delving into particular details or numbers (except for the Polaroid stock information, which, while numeric, is of a simple, declarative format).\n\nNow, examining the sentences labeled as \"False\":\n1. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\"\n2. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\"\n3. \"For the week as a whole, he said that float-related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nThe false sentences are lengthier and include several specific details such as exact numbers, locations, and additional clauses.\n\nSo, the rule seems to be linked to the simplicity versus complexity and length of the statement. However, the initial set of sentences is small, and based on these alone, we cannot categorically conclude the exact rule. Let's test the hypothesis with the Polaroid stock sentence, which is somewhat of an outlier because it includes specific figures, but it\u2019s still simpler and shorter compared to those labeled as false.\n\nReviewing the results, our hypothesis that the sentences labeled true tend to be shorter and less detailed while the ones labeled false are longer and contain more specified information is consistent with the given data. Based on the examples provided, the rule could likely be:\n\nA sentence is labeled \"True\" if it is a simple, generalized statement without detailed specifics or complex structures. A sentence is labeled \"False\" if it contains detailed specifics, including numbers, complex structures, or extensive details.\n\nTo be certain of this rule, however, one would need to confirm with a larger sample of sentences to rule out other variables that may be affecting the classification.",
+    "To determine the rule that specifies whether each sentence is labeled as true or false, I will analyze each input and its corresponding label systematically. Here are the steps I will follow:\n\n1. Identify commonalities among true sentences.\n2. Identify commonalities among false sentences.\n3. Compare and contrast to discern a rule or a set of criteria that distinguish true from false sentences.\n4. Test the rule with all given inputs to ensure consistency.\n\nLet's examine the sentences labeled as true:\n- \"The agreement calls for drilling.\"\n- \"China signed eight contracts.\"\n- \"Employers groups also want change.\"\n- \"Polaroid rose 1-1/8 to 74-1/2.\"\n\nFrom this small sample, the true sentences appear to be shorter and less complex. They are straight to the point and don't include specific numbers or detailed statistics.\n\nLet's examine the sentences labeled as false:\n- \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\"\n- \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\"\n- \"For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nThe false sentences are all significantly longer, including multiple pieces of specific information, numbers, and statistics.\n\nFrom this analysis, the rule appears to be related to the complexity and length of the sentence. Sentences labeled as true are short and lack specific numbers or detailed additional information, whereas sentences labeled as false are more complex, containing specific numbers or detailed information.\n\nTo check the consistency of this rule through a counterexample analysis:\n- A true sentence that is long and complex or provides specific numbers or statistics would refute the rule.\n- A false sentence that is short and lacks specific numbers or additional information would also refute the rule.\n\nGiven the examples provided and no counterexamples to challenge the rule, it seems that the rule to determine whether a sentence is true or false is based on the sentence's complexity and specificity. Short and general sentences are labeled as true, while longer, more complex, and detailed sentences are labeled as false.",
+    "To deduce the rule, let us analyze the provided sentences and their respective labels step by step. We should look for patterns or differences between the sentences labeled true and the sentences labeled false.\n\nStep 1: Compare Sentence Complexity\nThe first observation is that sentences labeled \"True\" seem to be shorter and less detailed, while sentences labeled \"False\" are longer and contain more specific information:\n- True sentences: \"The agreement calls for drilling.\", \"China signed eight contracts\", \"Employers groups also want change.\", \"Polaroid rose 1-1/8 to 74-1/2.\"\n- False sentences seem to include more specifics: \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\", \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\", \"For the week as a whole, he said that float related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nStep 2: Look for Specific Details\nTrue sentences do not contain numbers or specific quantitative details, whereas false sentences do:\n- True sentences have no specific numbers or quantities.\n- False sentences contain specific numbers and detailed information (\"10 to 12 offshore wells\", \"44,913 sq km\", \"negative 750 mln dlrs\").\n\nStep 3: Check for Verbatim Text\nTrue sentences might be partial or truncated versions of the false statements, as if they are snippets taken out of a detailed statement:\n- \"The agreement calls for drilling\" vs. \"The agreement calls for drilling of 10 to 12 offshore wells...\"\n- \"China signed eight contracts\" can be seen as a shortened version of the longer statement involving CNOOC.\n\nStep 4: Refine the Rule\nBased on the above analysis, it appears that the rule determining whether a sentence is true or false likely involves the length of the sentence and the presence of specific quantitative details. Short sentences without specific numeric details tend to be labeled true, while longer sentences with specific details are labeled false.\n\nIncreased complexity and the presence of specific numerical data seem to contribute to a sentence being labeled false. A sentence that is general, less complex, and lacks specific numeric data tends to be labeled true.\n\nAfter careful consideration of the presented information and reviewing the patterns discerned in each step, the final deduced rule is:\n\nA sentence will be labeled \"True\" if it is generally short and lacks specific quantitative details. Conversely, a sentence will be labeled \"False\" if it is longer and contains specific numerical details or complex quantitative information.",
+    "To deduce the rule that determines whether a sentence is labeled as true or false, we'll need to examine each pair of sentences and their labels to identify any patterns. Below, I will list the potential distinguishing features for each sentence and then attempt to identify commonalities that might contribute to their respective labels:\n\n1. \"The agreement calls for drilling.\" (True)\n- Simple statement\n- No specific details or numbers\n\n2. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\" (False)\n- Detailed statement with specific numbers\n\n3. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\" (False)\n- Detailed statement with specific numbers\n\n4. \"China signed eight contracts\" (True)\n- Simple statement\n- Contains a specific number but is not detailed\n\n5. \"For the week as a whole, he said that float related as of adjustments were 'small,' adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\" (False)\n- Detailed statement with specific numbers\n\n6. \"Employers groups also want change.\" (True)\n- Simple statement\n- No specific details or numbers\n\n7. \"Polaroid rose 1-1/8 to 74-1/2.\" (True)\n- Simple statement\n- Contains specific numbers but is not a detailed economic or operational statement\n\nLooking at the simple versus detailed nature of the sentences, and the presence of specific numbers, we can observe the following pattern:\n\nSentences labeled as true:\n- Are generally shorter and less detailed, even if they contain numbers.\n- They do not provide excessive details or context.\n\nSentences labeled as false:\n- Are longer and contain more specific details, often with multiple numbers and complex context.\n\nThe likely rule for determining the truth label thus seems to be the complexity and specificity of information in the sentence. Sentences with a simple construction that are not overly detailed, even if they contain numbers, are labeled as true. In contrast, sentences with extended detail and context, particularly with specific numerical data, are labeled as false.\n\nUpon carefully checking, this rule appears consistent with the provided sentences. The labels seem to correspond to the complexity and specificity with which information is provided. Simple, less detailed sentences are true, while detailed, specific sentences are false.",
+    "To determine the rule for true or false labels, we must compare the true-labeled sentences with the false-labeled ones and identify patterns that could explain the assigned labels. Let's analyze them:\n\nTrue-labeled sentences:\n1. \"The agreement calls for drilling.\"\n2. \"China signed eight contracts\"\n3. \"Employers groups also want change.\"\n4. \"Polaroid rose 1-1/8 to 74-1/2.\"\n\nFalse-labeled sentences:\n1. \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\"\n2. \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\"\n3. \"For the week as a whole, he said that float related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\"\n\nUpon comparison, the following patterns emerge:\n\nTrue sentences:\n- Are concise.\n- Lack specific numerical details or complex figures.\n- Do not include details such as locations, specific quantifiable amounts, or additional qualifiers beyond a simple statement.\n- Have a simpler sentence structure.\n\nFalse sentences:\n- Are longer and more detailed.\n- Include specific numerical details or complex figures.\n- Provide additional context such as locations, specific figures, or explanations beyond a simple statement.\n- Have a more complex sentence structure.\n\nBased on these observations, the rule that appears to determine whether a sentence is true or false is as follows: A sentence is labeled true if it is a general, concise statement devoid of specific numerical details, complex figures, or elaborate context. If a sentence contains specific numerical details, complex information, or is lengthy with comprehensive context, it is labeled as false.\n\nThe reasoning behind this rule has been carefully considered and checked against the given examples. Based on this analysis, this is the final rule deduced to explain the true and false labels.",
+    "To deduce the rule for the labels of true or false, let us analyze the input sentences based on their content and structure step-by-step:\n\n1. Sentences that are brief and not specific are labeled true:\n   - \"The agreement calls for drilling.\" (True)\n   - \"China signed eight contracts\" (True)\n   - \"Employers groups also want change.\" (True)\n   - \"Polaroid rose 1-1/8 to 74-1/2.\" (True)\n\n2. Sentences that contain specific details, numbers, and are lengthy are labeled false:\n   - \"The agreement calls for drilling of 10 to 12 offshore wells per year, primarily in the Gulf of Mexico area off the Texas and Louisiana coasts and 30 to 40 onshore Texas and Louisiana Gulf Coast wells.\" (False)\n   - \"It quoted a spokesman for the China National Offshore Oil Corp (CNOOC) as saying China signed eight contracts with 15 foreign firms for blocks in the Pearl River mouth and south Yellow Sea covering a total area of 44,913 sq km.\" (False)\n   - \"For the week as a whole, he said that float related as of adjustments were \"small,\" adding that they fell to a negative 750 mln dlrs on Tuesday due to a number of corrections for unrelated cash letter errors in six districts around the country.\" (False)\n\nAfter this analysis, the rule can be found in the complexity and specificity of the sentence:\n\nRule: A sentence is labeled true if it is concise and lacks specific numerical or detailed information. Conversely, a sentence is labeled false if it contains specific numerical details and/or is lengthy with complex information.\n\nTherefore, we can conclude that for this set of sentences, the rule determining true or false appears to be based on sentence brevity and the absence or presence of specific details. Short and nonspecific sentences are labeled true, while detailed and specific (especially when including numbers) sentences are labeled false."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"The agreement calls for drilling.\"\nLabel: True\n\nInput: \"The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells.\"\nLabel: False\n\nInput: \"It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km.\"\nLabel: False\n\nInput: \"China signed eight contracts\"\nLabel: True\n\nInput: \"For the week as a whole, he said that float related as of  adjustments were \"small,\" adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country.\"\nLabel: False\n\nInput: \"Employers groups also want change.\"\nLabel: True\n\nInput: \"Polaroid rose 1-1/8 to 74-1/2.\"\nLabel: True",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"The agreement calls for drilling.\"\nLabel: True\n\nInput: \"The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells.\"\nLabel: False\n\nInput: \"It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km.\"\nLabel: False\n\nInput: \"China signed eight contracts\"\nLabel: True\n\nInput: \"For the week as a whole, he said that float related as of  adjustments were \"small,\" adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country.\"\nLabel: False\n\nInput: \"Employers groups also want change.\"\nLabel: True\n\nInput: \"Polaroid rose 1-1/8 to 74-1/2.\"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"\"We have to be competitive.\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 0.9333333333333333,
+  "mislabelled_responses": [
+    {
+      "py/tuple": [
+        {
+          "input": "\"I think they wanted a way out.",
+          "label": true
+        },
+        false
+      ]
+    },
+    {
+      "py/tuple": [
+        {
+          "input": "Another U.K.",
+          "label": true
+        },
+        false
+      ]
+    }
+  ],
+  "report": {
+    "fraction_correct": 0.9333333333333333,
+    "mislabelled_responses": [
+      {
+        "py/tuple": [
+          {
+            "py/id": 16
+          },
+          false
+        ]
+      },
+      {
+        "py/tuple": [
+          {
+            "py/id": 20
+          },
+          false
+        ]
+      }
+    ],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      true,
+      true,
+      false,
+      false,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      true,
+      true,
+      false,
+      true
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "The agreement calls for drilling.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "The agreement calls for drilling of 10 to 12 offshore wells  per year, primarily in the Gulf of Mexico area off the Texas  and Louisiana coasts and 30 to 40 onshore Texas and Louisiana  Gulf Coast wells.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "It quoted a spokesman for the China National Offshore Oil  Corp (CNOOC) as saying China signed eight contracts with 15  foreign firms for blocks in the Pearl River mouth and south  Yellow Sea covering a total area of 44,913 sq km.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "China signed eight contracts",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "For the week as a whole, he said that float related as of  adjustments were \"small,\" adding that they fell to a negative  750 mln dlrs on Tuesday due to a number of corrections for  unrelated cash letter errors in six districts around the  country.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "Employers groups also want change.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "Polaroid rose 1-1/8 to 74-1/2.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence is short, false otherwise.",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "\"We have to be competitive.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Terms were not disclosed.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The central bank sources also said Japan may arrange other currency swap agreements with Britain and France if they find it necessary, but added they are not actually talking with each other towards that end.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Until such changes occur, Sumitomo will focus on such domestic securities business as profitable government bond dealing and strengthening relations with Meiko Securities Co Ltd, in which it holds a five pct share, Komatsu said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "It had been 3.80/90 on Friday.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Justo Marin Ludena, president of the Cafe Peru group of cooperatives which accounts for about 20 pct of Peru's exports, told Reuters a harvest of up to 1,800,000 quintales (46 kilos) was expected this year.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "They could not quantify how much coffee has been delayed but said at least 40 pct of coffee exports are carried by Brazilian ships and movement of foreign vessels has also been disrupted by port congestion caused by the strike.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Details were not disclosed.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Lawrence analysts Harry Mortner.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Trading would resume again on Monday.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "LAC &lt;LAC> INTERSECTS MORE GOLD AT DOYON MINE Lac Minerals Ltd and &lt;Cambior Inc> said they completed a second hole at their jointly owned Doyon mine in Quebec, which showed two significant gold intersections.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The offer is worth 2.23 billion dlrs.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Domestic imports last week were 24,774.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Tax 44.5 mln vs 46.5 mln.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"I think they wanted a way out.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Brown took that opinion a step further.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "He would not comment on a successor.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Dlrs.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Another U.K.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Closing is expected around March 31.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"That's very important ...",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"The future belongs to the brave.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The U.S. no.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "In both 1983 and 1984.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "Bank went public on February 11, 1987.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "On April one, NYMEX will allow oil traders that do not hold a futures position to initiate, after the exchange closes, a transaction that can subsequently be hedged in the futures market, according to an exchange spokeswoman.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "30,700 (24,100).",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"We understand that the U.S.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "&lt;AMERICAN WEST BANK> FIRST QTR NET Net 90,501 vs 56,960 Assets 42.0 mln vs 34.9 mln Deposits 35.9 mln Loans 27.6 mln vs 23.9 mln NOTE: earnings per share and 1985 deposits figure not supplied by company.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"The fundamentals are good.\"",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}

@@ -1,0 +1,1795 @@
+INFO:config_demo:Running command 'run'
+INFO:config_demo:Started run with ID "26"
+DEBUG:config_demo:Starting Heartbeat
+DEBUG:run:Started
+Running experiment with config:
+task='arithmetic'
+gpt4: False (type: <class 'bool'>)
+num_test_examples=30
+num_articulations=10
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "2 + 7 = 7"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "2 + 7 = 7"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f869f481b90>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f86a0ec55b0> server_hostname='api.openai.com' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f86a0dd48d0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:01 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'134'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'30a5ed60bdbef3c4fd55799d767ffce6'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=Hb00jJsTRKY_rMbGLeMIwrnZtW5rssqYGgpA3chPVZY-1701641941-0-AXRC1MCDLkymourkOJQZhS6HVIjrc9TkHC2yCEbR3x8lfjpEgfnZ6yhu5bvstQ9GfhGVUOLQ37TASKFAO+Bwlbs=; path=/; expires=Sun, 03-Dec-23 22:49:01 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=MNJ5S4hEW8T94RLhmVf8zTD_cvJnc0ghvnncmYj4TH8-1701641941850-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff3056a83d718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "5 + 20 = 25"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "5 + 20 = 25"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:02 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'102'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'5e8eb4e69f0d4e1d9024d207f8c68b06'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff3058dabe718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "8 + 1 = 13"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "8 + 1 = 13"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:02 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'235'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'9e5a15da236b63e00bab520cdf543ab1'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff305adcee718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "13 + 3 = 31"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "13 + 3 = 31"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'197'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'b10dfab2d4d0b88b9f1cafd8d4a56191'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff305df8b1718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "17 + 9 = 26"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "17 + 9 = 26"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'133'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'3b83cfde0d205db750db980024d9517a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30608b67718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "1 + 1 = 2"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "1 + 1 = 2"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:03 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'106'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'64fbea07a1e8b67c2ffa7884712c946a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30628d42718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "14 + 13 = 24"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "14 + 13 = 24"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'257'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'0034fb3686329dd2d21bbd3c1cd65a13'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30651fb2718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "0 + 6 = 6"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "0 + 6 = 6"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:04 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'243'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'7b275c3a2c320a83213eabedbfae46e1'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30682af0718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "2 + 2 = 4"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "2 + 2 = 4"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:05 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'115'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'6b551013e2ac442d3d08e38c96b09858'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff306b6dec718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "13 + 14 = 27"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "13 + 14 = 27"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:05 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'126'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'e0cbbe5bf0d05cdad10ea6d329508c73'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff306e1939718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "13 + 19 = 5"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "13 + 19 = 5"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:05 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'200'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'8c91900132756d13084d60ddff02094a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30702bac718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "0 + 13 = 13"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "0 + 13 = 13"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:06 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'125'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'6ee980fb95a014e8814558591b6aec9e'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30730ebc718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "14 + 8 = 24"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "14 + 8 = 24"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:06 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'186'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'ff183c33943ef44f6441bca8eadc478a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff3074f8ac718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "14 + 18 = 14"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "14 + 18 = 14"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:07 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'175'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'6eeb6619aa101cfa715314b7a308ff16'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30778bb2718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "11 + 1 = 12"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "11 + 1 = 12"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:07 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'141'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'ea9dc72f388317d3bf7e5d58b1d27f58'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff3079ded2718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "17 + 7 = 12"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "17 + 7 = 12"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:07 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'172'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'a2909c63785c09f0f661fda1cdcbdbe3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff307c2a04718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "13 + 17 = 30"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "13 + 17 = 30"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:08 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'199'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'3e04461285271f9e1cfce30a3713cd02'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff307e9d3c718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "2 + 9 = 11"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "2 + 9 = 11"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:08 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'104'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'00c29c039869046e0ef9aa970c9ce3d3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30813fcc718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "8 + 10 = 18"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "8 + 10 = 18"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'194'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'd3e77d8acf2580d81087adb8ba4808f9'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff3083ba67718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "18 + 16 = 15"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "18 + 16 = 15"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'266'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'e8b05b57dbf2ceee3b3b6534bafe4351'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30865d01718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "18 + 0 = 0"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "18 + 0 = 0"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'232'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'a46fd5da5ce1a3e7cfbe063fd0692ef0'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30897845718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "15 + 7 = 16"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "15 + 7 = 16"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'115'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'f37f18574e512f47acf470d677f6843f'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff308ccc49718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "7 + 7 = 14"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "7 + 7 = 14"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'360'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'469be98f6b5b1a08fde73b2c5185e0af'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff308ebe45718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "6 + 11 = 17"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "6 + 11 = 17"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:11 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'196'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'adff3044d1fb4b4542f8086a1e3f9649'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30927a03718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "6 + 14 = 24"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "6 + 14 = 24"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'452'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'ed25bd8e95009f96591e5ca166b4ce12'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30950d6d718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "10 + 8 = 18"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "10 + 8 = 18"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'109'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'615395c915d641729b4e4785096f325a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30997aba718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "17 + 0 = 20"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "17 + 0 = 20"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'207'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999777'), (b'x-ratelimit-remaining-tokens_usage_based', b'999777'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'8aec64e75686c6ca9d52aebdbef2d815'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff309c2e4a718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "10 + 8 = 23"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "10 + 8 = 23"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'121'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'908fe8cfca5a0373f7a6ef9374b16469'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff309f3a21718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "8 + 5 = 34"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "8 + 5 = 34"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:13 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'141'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'c615030a0719470949eacc722395a9f3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30a1ed1e718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "15 + 10 = 8"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "15 + 10 = 8"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:14 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'102'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999776'), (b'x-ratelimit-remaining-tokens_usage_based', b'999776'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'13ms'), (b'x-ratelimit-reset-tokens_usage_based', b'13ms'), (b'x-request-id', b'cecc2a666fe836bb893ea0c604f8790a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30a3ffc4718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logical, and is well-informed.
+
+DEBUG:rule_articulation.evaluator:User prompt: Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+Input: "19 + 15 = 34"
+Label: True
+
+Input: "19 + 10 = 26"
+Label: False
+
+Input: "1 + 6 = 27"
+Label: False
+
+Input: "17 + 8 = 25"
+Label: True
+
+Input: "11 + 18 = 29"
+Label: True
+
+Input: "17 + 14 = 1"
+Label: False
+
+Input: "1 + 7 = 14"
+Label: False
+
+Input: "20 + 16 = 36"
+Label: True
+
+Input: "19 + 10 = 29"
+Label: True
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n', 'role': 'system'}, {'content': 'Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: "19 + 15 = 34"\nLabel: True\n\nInput: "19 + 10 = 26"\nLabel: False\n\nInput: "1 + 6 = 27"\nLabel: False\n\nInput: "17 + 8 = 25"\nLabel: True\n\nInput: "11 + 18 = 29"\nLabel: True\n\nInput: "17 + 14 = 1"\nLabel: False\n\nInput: "1 + 7 = 14"\nLabel: False\n\nInput: "20 + 16 = 36"\nLabel: True\n\nInput: "19 + 10 = 29"\nLabel: True', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 10}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:19:19 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'4759'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999627'), (b'x-ratelimit-remaining-tokens_usage_based', b'999627'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'41b81760b4159ee0fa07ae84bca03a27'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff30a62a77718c-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: Let's carefully analyze the given examples in order to deduce the rule that determines whether a sentence is true or false. 
+
+Looking at the first example, "19 + 15 = 34," this is true because when you add 19 and 15, you do indeed get 34. 
+
+In the second example, "19 + 10 = 26," this is false because the sum of 19 and 10 is 29, not 26. 
+
+Moving on to the third example, "1 + 6 = 27," this is false because the sum of 1 and 6 is 7, not 27. 
+
+In the fourth example, "17 + 8 = 25," this is true because the sum of 17 and 8 is indeed 25.
+
+In the fifth example, "11 + 18 = 29," this is true because the sum of 11 and 18 is indeed 29.
+
+Considering the sixth example, "17 + 14 = 1," this is false because the sum of 17 and 14 is not 1.
+
+Moving on to the seventh example, "1 + 7 = 14," this is false because the sum of 1 and 7 is not 14.
+
+In the eighth example, "20 + 16 = 36," this is true because the sum of 20 and 16 is indeed 36.
+
+Finally, in the last example, "19 + 10 = 29," this is true because the sum of 19 and 10 is indeed 29.
+
+After carefully examining the examples, we can deduce that the rule that determines whether a sentence is true or false is: The label is true if the sum of the two numbers on the left-hand side of the equation equals the number on the right-hand side; otherwise, the label is false.
+
+Therefore, the rule is that the label is true if and only if the sum of the two numbers on the left-hand side of the equation equals the number on the right-hand side.
+DEBUG:run:Finished after 0:00:18.

@@ -1,0 +1,117 @@
+{
+  "artifacts": [],
+  "command": "run",
+  "experiment": {
+    "base_dir": "/home/niels/proj/rule-articulation/src/rule_articulation",
+    "dependencies": [
+      "sacred==0.8.5"
+    ],
+    "mainfile": "full_experiment.py",
+    "name": "config_demo",
+    "repositories": [
+      {
+        "commit": "414103912f08fa8db8e2a80f6387c29961cb54bb",
+        "dirty": true,
+        "url": "git://home/niels/proj/rule-articulation"
+      },
+      {
+        "commit": "414103912f08fa8db8e2a80f6387c29961cb54bb",
+        "dirty": true,
+        "url": "git://home/niels/proj/rule-articulation"
+      },
+      {
+        "commit": "414103912f08fa8db8e2a80f6387c29961cb54bb",
+        "dirty": true,
+        "url": "git://home/niels/proj/rule-articulation"
+      },
+      {
+        "commit": "414103912f08fa8db8e2a80f6387c29961cb54bb",
+        "dirty": true,
+        "url": "git://home/niels/proj/rule-articulation"
+      }
+    ],
+    "sources": [
+      [
+        "__init__.py",
+        "_sources/__init___d41d8cd98f00b204e9800998ecf8427e.py"
+      ],
+      [
+        "evaluator.py",
+        "_sources/evaluator_d18669758f1ff09f639b994420ae2426.py"
+      ],
+      [
+        "full_experiment.py",
+        "_sources/full_experiment_87a48b439c099c8bae4590b8ffa4e739.py"
+      ],
+      [
+        "utils.py",
+        "_sources/utils_2df332368154e6fbc1276dc66963aae7.py"
+      ]
+    ]
+  },
+  "heartbeat": "2023-12-03T22:12:53.798545",
+  "host": {
+    "ENV": {},
+    "cpu": "Intel(R) Core(TM) i7-9700F CPU @ 3.00GHz",
+    "gpus": {
+      "driver_version": "535.129.03",
+      "gpus": [
+        {
+          "model": "NVIDIA GeForce RTX 3070",
+          "persistence_mode": false,
+          "total_memory": 8192
+        }
+      ]
+    },
+    "hostname": "niels-desktop-manjaro",
+    "os": [
+      "Linux",
+      "Linux-6.1.63-1-MANJARO-x86_64-with-glibc2.38"
+    ],
+    "python_version": "3.11.6"
+  },
+  "meta": {
+    "command": "run",
+    "config_updates": {
+      "num_articulations": 10,
+      "num_test_examples": 30,
+      "task": "bibleshakespeare"
+    },
+    "named_configs": [],
+    "options": {
+      "--beat-interval": null,
+      "--capture": null,
+      "--comment": null,
+      "--debug": false,
+      "--enforce_clean": false,
+      "--file_storage": null,
+      "--force": false,
+      "--help": false,
+      "--id": null,
+      "--loglevel": null,
+      "--mongo_db": null,
+      "--name": null,
+      "--pdb": false,
+      "--print-config": false,
+      "--priority": null,
+      "--queue": false,
+      "--s3": null,
+      "--sql": null,
+      "--tiny_db": null,
+      "--unobserved": false,
+      "COMMAND": null,
+      "UPDATE": [
+        "task=bibleshakespeare",
+        "num_test_examples=30",
+        "num_articulations=10"
+      ],
+      "help": false,
+      "with": true
+    }
+  },
+  "resources": [],
+  "result": null,
+  "start_time": "2023-12-03T22:12:33.231774",
+  "status": "COMPLETED",
+  "stop_time": "2023-12-03T22:12:53.796356"
+}

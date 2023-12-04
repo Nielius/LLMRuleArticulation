@@ -1,0 +1,1699 @@
+INFO:config_demo:Running command 'run'
+INFO:config_demo:Started run with ID "25"
+DEBUG:config_demo:Starting Heartbeat
+DEBUG:run:Started
+Running experiment with config:
+task='bibleshakespeare'
+gpt4: False (type: <class 'bool'>)
+num_test_examples=30
+num_articulations=10
+/home/niels/proj/rule-articulation/downloads/datasets/bible.txt
+/home/niels/proj/rule-articulation/downloads/datasets/shakespeare.txt
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Therefore put away from among yourselves that wicked person."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Therefore put away from among yourselves that wicked person."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.connection:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f3e58d16e50>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x7f3e5a7c15b0> server_hostname='api.openai.com' timeout=5.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7f3e58d17710>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'114'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999640'), (b'x-ratelimit-remaining-tokens_usage_based', b'999640'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'5b5390266dfeab3f9de0574997a50260'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=0XBzues_C4PlioEzu3kVgtizDTNC5BHmlVauxnuQoy4-1701641555-0-ASUup5QN1VZJlq0FKrdhuzD6l/4JLNvZE1SfrfgB7SoAcAjg8UnBqA8WDBXgVVUJCYozMZS9Rpmt7gqXmwOcPgE=; path=/; expires=Sun, 03-Dec-23 22:42:35 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Set-Cookie', b'_cfuvid=T9di95acSV1i9H3bP4sIHJvGiMlYx4zG.8WbhCptldc-1701641555650-0-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26e90ba8631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Much more then, being now justified by his blood, we shall be saved from wrath through him."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Much more then, being now justified by his blood, we shall be saved from wrath through him."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:35 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'118'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999634'), (b'x-ratelimit-remaining-tokens_usage_based', b'999634'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'2de693e23a692b0a62e109e0f286d4a3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26eb0fbd631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "And David commanded his young men, and they slew them, and cut off their hands and their feet, and hanged them up over the pool in Hebron."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "And David commanded his young men, and they slew them, and cut off their hands and their feet, and hanged them up over the pool in Hebron."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'153'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999622'), (b'x-ratelimit-remaining-tokens_usage_based', b'999622'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'f9151aefbb8c2b96622bf2ca3c252a92'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26ed4bbe631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "But thou, O man of God, flee these things; and follow after righteousness, godliness, faith, love, patience, meekness."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "But thou, O man of God, flee these things; and follow after righteousness, godliness, faith, love, patience, meekness."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:36 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'139'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999627'), (b'x-ratelimit-remaining-tokens_usage_based', b'999627'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'b88b7fdc5ffe8c653452ff51daf7d97b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26eff8da631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "And the greater house he cieled with fir tree, which he overlaid with fine gold, and set thereon palm trees and chains."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "And the greater house he cieled with fir tree, which he overlaid with fine gold, and set thereon palm trees and chains."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'254'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999626'), (b'x-ratelimit-remaining-tokens_usage_based', b'999626'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'c482c5f64bdb98748d96a67031148a15'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26f26d1d631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "what is it which these witness against thee?"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "what is it which these witness against thee?"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:37 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'173'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999644'), (b'x-ratelimit-remaining-tokens_usage_based', b'999644'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'c87362a2098b844420c997c6f4729abb'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26f5bb85631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Now there are diversities of gifts, but the same Spirit."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Now there are diversities of gifts, but the same Spirit."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'127'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999642'), (b'x-ratelimit-remaining-tokens_usage_based', b'999642'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'01a5f4b0d920c75d09f1cac6072c4790'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26f82873631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "The way of man is froward and strange: but as for the pure, his work is right."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "The way of man is froward and strange: but as for the pure, his work is right."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'119'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999636'), (b'x-ratelimit-remaining-tokens_usage_based', b'999636'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'87dac7aedd39a8911075cde925e32c9b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26facd76631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Nay, do not snatch it from me; He that takes that doth take my heart withal."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Nay, do not snatch it from me; He that takes that doth take my heart withal."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'178'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999636'), (b'x-ratelimit-remaining-tokens_usage_based', b'999636'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'00bc3ff127dbdcd54c66e9f4ca96da48'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26fcd9f3631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Besides the cakes, he shall offer for his offering leavened bread with the sacrifice of thanksgiving of his peace offerings."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Besides the cakes, he shall offer for his offering leavened bread with the sacrifice of thanksgiving of his peace offerings."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'118'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999625'), (b'x-ratelimit-remaining-tokens_usage_based', b'999625'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'c7a473356410b28542c12bc31b098971'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff26ff5f66631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Both stile and gate, horseway and footpath."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Both stile and gate, horseway and footpath."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'185'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'4629afa99d93320a5169b10d3513e033'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2701cd31631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Of the tribe of Nephthalim were sealed twelve thousand."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Of the tribe of Nephthalim were sealed twelve thousand."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'201'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999643'), (b'x-ratelimit-remaining-tokens_usage_based', b'999643'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'0726c650cc1ea68f51a3bc0f9ec8030f'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27042946631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "He spake, and there came divers sorts of flies, and lice in all their coasts."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "He spake, and there came divers sorts of flies, and lice in all their coasts."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'122'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999636'), (b'x-ratelimit-remaining-tokens_usage_based', b'999636'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'eacf7271b13220ff46e95f1b9943bdf5'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2706edb8631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "A room in Ford’s house Scene V. A room in the Garter Inn Scene VI."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "A room in Ford’s house Scene V. A room in the Garter Inn Scene VI."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:40 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'135'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999638'), (b'x-ratelimit-remaining-tokens_usage_based', b'999638'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'b5e339704b7328fc5e54b8169f87c030'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2708f97e631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "there is more hope of a fool than of him."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "there is more hope of a fool than of him."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'103'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'8e1e1b7d53ff4ae451c7748a99779dd5'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff270b5d8a631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Therefore, brethren, stand fast, and hold the traditions which ye have been taught, whether by word, or our epistle."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Therefore, brethren, stand fast, and hold the traditions which ye have been taught, whether by word, or our epistle."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'136'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999627'), (b'x-ratelimit-remaining-tokens_usage_based', b'999627'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'790034dba809e59b9218fdd10a03c1fd'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff270d58ff631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "O, that it could be proved That some night-tripping fairy had exchanged In cradle-clothes our children where they lay, And called mine Percy, his Plantagenet!"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "O, that it could be proved That some night-tripping fairy had exchanged In cradle-clothes our children where they lay, And called mine Percy, his Plantagenet!"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'164'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999617'), (b'x-ratelimit-remaining-tokens_usage_based', b'999617'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'9476064b3ac3fc140b20811924e42376'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff270f7c3e631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "let him trust in the name of the LORD, and stay upon his God."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "let him trust in the name of the LORD, and stay upon his God."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:42 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'127'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999640'), (b'x-ratelimit-remaining-tokens_usage_based', b'999640'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'7846532249c6ff0fefb1afacd7fdc3e5'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2711dfaa631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "[_Aside._] Now, by the gods, I do applaud his courage."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "[_Aside._] Now, by the gods, I do applaud his courage."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:42 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'187'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999643'), (b'x-ratelimit-remaining-tokens_usage_based', b'999643'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'7d8da60da1ae5813abdad82a6b7e9a89'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27145cba631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "She will beshrew me much that Romeo Hath had no notice of these accidents; But I will write again to Mantua, And keep her at my cell till Romeo come."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "She will beshrew me much that Romeo Hath had no notice of these accidents; But I will write again to Mantua, And keep her at my cell till Romeo come."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:43 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'153'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999619'), (b'x-ratelimit-remaining-tokens_usage_based', b'999619'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'd6eb493b10c882e6995456607e99f7f3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2716e95d631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "Yet seemed it winter still, and you away, As with your shadow I with these did play."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "Yet seemed it winter still, and you away, As with your shadow I with these did play."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:43 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'157'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999635'), (b'x-ratelimit-remaining-tokens_usage_based', b'999635'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'33623b98d11930fdcc260879f245799d'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27198d23631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "I will not charm my tongue; I am bound to speak."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "I will not charm my tongue; I am bound to speak."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:43 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'128'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999643'), (b'x-ratelimit-remaining-tokens_usage_based', b'999643'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'b2d1867e5a1c5af3b29ecd6e8e460130'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff271bf8d9631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "What canst thou answer to my majesty for giving up of Normandy unto Mounsieur Basimecu, the Dauphin of France?"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "What canst thou answer to my majesty for giving up of Normandy unto Mounsieur Basimecu, the Dauphin of France?"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'276'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999628'), (b'x-ratelimit-remaining-tokens_usage_based', b'999628'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'7efa06bb9442e5b9645f85740d92d699'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff271dfc3f631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "If all the wine in my bottle will recover him, I will help his ague."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "If all the wine in my bottle will recover him, I will help his ague."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'195'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999639'), (b'x-ratelimit-remaining-tokens_usage_based', b'999639'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'95a4f0009ee6261e0a0abbc4a41def5a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27212a5d631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "A flatterer’s would not, though they do appear As huge as high Olympus."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "A flatterer’s would not, though they do appear As huge as high Olympus."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'140'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999638'), (b'x-ratelimit-remaining-tokens_usage_based', b'999638'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'34eb51394e5f33ad40f20804657d3b4c'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27244f74631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": false}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "And the chapiters that were upon the top of the pillars were of lily work in the porch, four cubits."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "And the chapiters that were upon the top of the pillars were of lily work in the porch, four cubits."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'124'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999630'), (b'x-ratelimit-remaining-tokens_usage_based', b'999630'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'97314cecca8c53bfd96bc08979abf349'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2726fbb2631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "And it was the sabbath day when Jesus made the clay, and opened his eyes."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "And it was the sabbath day when Jesus made the clay, and opened his eyes."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'163'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999638'), (b'x-ratelimit-remaining-tokens_usage_based', b'999638'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'051dee7db3b646d66a36b190a3688522'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff27290f61631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'182'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999634'), (b'x-ratelimit-remaining-tokens_usage_based', b'999634'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'93ff1b228c8b29524f06ed58480ea3e0'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff272b4b40631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "And the LORD God took the man, and put him into the garden of Eden to dress it and to keep it."
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "And the LORD God took the man, and put him into the garden of Eden to dress it and to keep it."\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'126'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999632'), (b'x-ratelimit-remaining-tokens_usage_based', b'999632'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'22ms'), (b'x-ratelimit-reset-tokens_usage_based', b'22ms'), (b'x-request-id', b'abb0451c430f8da76cb619a080a4949f'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff272dbf41631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+DEBUG:rule_articulation.evaluator:User prompt: Input: "But who comes with our brother Marcus here?"
+Label: ???
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are a precise classifier, and you need to respond with a JSON object that is either\n\'{"label": true}\' or \'{"label": false}\'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False\n\n---\n\nNow do the same for any new sentences provided to you.\n\n', 'role': 'system'}, {'content': 'Input: "But who comes with our brother Marcus here?"\nLabel: ???', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 1, 'response_format': {'type': 'json_object'}}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:47 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'152'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999646'), (b'x-ratelimit-remaining-tokens_usage_based', b'999646'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'21ms'), (b'x-ratelimit-reset-tokens_usage_based', b'21ms'), (b'x-request-id', b'bedaaa505938423769926cc84978293a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff272fdabc631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: {"label": true}
+DEBUG:rule_articulation.evaluator:System prompt: You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logical, and is well-informed.
+
+DEBUG:rule_articulation.evaluator:User prompt: Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'content': 'You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n', 'role': 'system'}, {'content': 'Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: "And God said, Let there be light: and there was light."\nLabel: True\n\nInput: "To be, or not to be, that is the question."\nLabel: False\n\nInput: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."\nLabel: True\n\nInput: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."\nLabel: False\n\nInput: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."\nLabel: True\n\nInput: "Parting is such sweet sorrow That I shall say good night till it be morrow."\nLabel: False\n\nInput: "And Jesus saith unto him, I will come and heal him."\nLabel: True\n\nInput: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."\nLabel: False', 'role': 'user'}], 'model': 'gpt-3.5-turbo-1106', 'n': 10}}
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 03 Dec 2023 22:12:53 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'Cache-Control', b'no-cache, must-revalidate'), (b'openai-model', b'gpt-3.5-turbo-1106'), (b'openai-organization', b'depict-ai'), (b'openai-processing-ms', b'6419'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15724800; includeSubDomains'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-limit-tokens_usage_based', b'1000000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'999503'), (b'x-ratelimit-remaining-tokens_usage_based', b'999503'), (b'x-ratelimit-reset-requests', b'6ms'), (b'x-ratelimit-reset-tokens', b'29ms'), (b'x-ratelimit-reset-tokens_usage_based', b'29ms'), (b'x-request-id', b'e18687e5a3b0a8ee50afc2732d8ca5a8'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'82ff2731fde5631d-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Request: POST https://api.openai.com/v1/chat/completions "200 OK"
+DEBUG:rule_articulation.evaluator:Response: Let's start by analyzing the given sentences step by step. The first sentence is "And God said, Let there be light: and there was light," and it's labeled as True. This seems to be a reference to the biblical account of creation, specifically the act of God creating light. The statement itself appears to be describing an event from the religious text, and there are no logical inconsistencies or contradictions within the sentence.
+
+The second sentence is "To be, or not to be, that is the question," labeled as False. This is a famous line from Shakespeare's play Hamlet, where the character Hamlet contemplates life and death. The statement seems to express a philosophical dilemma rather than a statement of fact. As such, it's not verifiable in a concrete sense, leading to the label of False.
+
+The third sentence is "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name," and it's labeled as True. This is a verse from the Lord's Prayer in the Bible. It's a known religious text and doesn't contain logical inconsistencies or unverifiable claims, so it's labeled as True.
+
+The fourth sentence is "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die," labeled as False. This is a line from Shakespeare's play Twelfth Night. Similar to the second sentence, it expresses a poetic sentiment rather than a verifiable fact.
+
+The fifth sentence is "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you," labeled as True. This is a biblical verse from the book of Matthew, and it's a part of a religious teaching without logical inconsistencies.
+
+The sixth sentence is "Parting is such sweet sorrow That I shall say good night till it be morrow," labeled as False. This is a line from Shakespeare's play Romeo and Juliet and expresses an emotional sentiment rather than a factual statement.
+
+The seventh sentence is "And Jesus saith unto him, I will come and heal him," labeled as True. This is a biblical verse from the book of Matthew, where Jesus makes a statement about healing.
+
+The eighth sentence is "We are such stuff As dreams are made on, and our little life Is rounded with a sleep," labeled as False. This is a poetic line from Shakespeare's play The Tempest and expresses a philosophical or literary sentiment rather than a verifiable fact.
+
+After carefully analyzing the given sentences, the rule that determines whether a sentence is labeled as True or False appears to be based on whether the statement contains verifiable facts or logical consistencies. The True labels apply to sentences that make factual statements or are from recognized religious texts, while the False labels apply to sentences expressing philosophical or emotional sentiments rather than verifiable facts. Therefore, the rule for determining the truth value of the sentences seems to be based on the verifiability and logical consistency of the statements.
+DEBUG:run:Finished after 0:00:21.
+INFO:config_demo:Completed after 0:00:21

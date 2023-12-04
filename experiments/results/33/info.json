@@ -1,0 +1,280 @@
+{
+  "articulation": [
+    "To determine the rule that governs the labeling of sentences as true or false, let's examine the given examples and look for patterns:\n\n1. \"the cat sat on the mat\" is False\n2. \"the cAt sat on the mat\" is True\n\nThe second sentence is identical to the first except for the capitalization of the letter 'A', which seems to be a critical factor in determining the truth value. \n\n3. \"the DOG RAN IN THE PARK\" is True\n\nThis sentence is entirely in uppercase, which corresponds to the rule suggested by the previous sentences: the presence of at least one capital letter seems important for the truth value to be True.\n\n4. \"the dog ran in the park\" is False\n\nThis sentence has no capital letters, which is consistent with the suggested rule.\n\n5. \"THE mat sat on the cat\" is True\n\nThis sentence contains all capital letters much like Sentence 3, reaffirming the significance of capital letters. \n\n6. \"my name is john\" is False\n7. \"my name is johN\" is True\n\nSentence 7 differs from Sentence 6 by a single capital letter at the end, reaffirming the importance of capitalization.\n\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" is False\n\nConsistent with the previous inputs, the sentence has no capital letters and is labeled False.\n\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" is True\n\nThis sentence contains a mix of uppercase and lowercase letters, which is consistent with being labeled True.\n\nFrom the given information, it seems that the rule for labeling a sentence as True is that it must contain at least one capital letter. If a sentence does not contain any capital letter, it is labeled as False.\n\nChecking the rule: All True labeled sentences contain at least one capital letter, and all False labeled sentences have no capital letters.\n\nConclusion: The rule that determines the truth label of a sentence is whether the sentence contains at least one capital letter. If it does, the sentence is labeled True; if not, the sentence is labeled False.",
+    "To deduce a rule for the true or false labels, let us analyze the provided statements and their respective labels systematically:\n\n1. \"the cat sat on the mat\" - False\n2. \"the cAt sat on the mat\" - True\n\nComparing sentences 1 and 2, the only difference is the capitalization of the letter 'A' in \"cat,\" which changes the label from false to true. This suggests that the capitalization of letters might be related to the rule determining truth value.\n\n3. \"the DOG RAN IN THE PARK\" - True\n4. \"the dog ran in the park\" - False\n\nAgain, the difference here is in capitalization, indicating that sentences with all lowercase letters are labeled false, while sentences with one or more uppercase letters are true.\n\n5. \"THE mat sat on the cat\" - True\n6. \"my name is john\" - False\n7. \"my name is johN\" - True\n\nOnce more, we see the same pattern where the presence of at least one uppercase letter results in a true label, and the absence, a false one.\n\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" - False\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" - True\n\nIn sentence 8 the entire statement is in lowercase which is consistent with the false label based on previous observations. Sentence 9 contains multiple uppercase letters and is labeled true.\n\nThe common pattern across all these examples correlates the truth label with the presence of capitalization. Therefore, the deduced rule appears to be:\n\nA sentence is labeled \"True\" if there is at least one uppercase letter in the sentence.\nA sentence is labeled \"False\" if all the letters in the sentence are lowercase.\n\nThis rule has been applied to each example logically and without exception. Thus, the final answer is that the presence of at least one uppercase letter determines a true label, while the absence of any uppercase letters determines a false label.",
+    "Let's carefully analyze the provided sentences to discern a rule that determines the truth label. We will look for patterns in the inputs and their corresponding truth values.\n\n1. \"the cat sat on the mat\"  (False)\n2. \"the cAt sat on the mat\"  (True)\n3. \"the DOG RAN IN THE PARK\" (True)\n4. \"the dog ran in the park\"  (False)\n5. \"THE mat sat on the cat\"  (True)\n6. \"my name is john\"  (False)\n7. \"my name is johN\"  (True)\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" (False)\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" (True)\n\nNow, we will look for aspects that differentiate the true statements from the false ones. The immediately noticeable pattern is the use of capitalization. All the true statements have at least one character in uppercase. However, since sentence 3 is in all caps and labeled true, simply having an uppercase letter is not the sole determining factor. We need to consider the positioning and possible other attributes of these uppercase letters.\n\nThe false statements have no capital letters except for standard grammatical capitalization at the beginning of the sentence or in the word \"I\".\n\nIf we look solely at the positioning:\n- \"the cAt sat on the mat\" - True: Capital letter A is not at the beginning.\n- \"the DOG RAN IN THE PARK\" - True: Multiple capital letters, not at the beginning.\n- \"THE mat sat on the cat\" - True: Although \"THE\" is capitalized and is at the beginning, other words are lowercase, which matches a style inversion rule.\n- \"my name is johN\" - True: Capital letter N is not at the beginning.\n\nFrom observations, the rule may be related to the presence of at least one unexpected capital letter, which is not the first letter of the whole sentence or proper noun which would normally be capitalized (this accounts for the correct capitalization of \"I\" in sentence 8 and still being false).\n\nTherefore, the plausible rule that determines whether a sentence is labeled true or false based on the given sample is:\n\nA sentence is True if it contains at least one unexpected capital letter not at the beginning of the sentence, nor capitalization of 'I' as a pronoun or a proper noun that is traditionally capitalized.\n\nLet us re-check our hypothesis against the provided data:\n\nAll true sentences:\n2, 3, 5, 7, 9 contain at least one such unexpected capitalization character.\n\nAll false sentences:\n1, 4, 6, 8 contain either no capital letters except for grammatically correct positions, or no letters at all.\n\nThe hypothesis holds for all provided sentences, and thus we can reasonably conclude that it outlines the rule used to determine the truth label for these sentences.",
+    "The rule determining whether a sentence is labeled true or false seems to depend on the capitalization of letters within the sentence. We will examine the provided sentences to identify a pattern:\n\n1. Sentences with all lowercase letters are labeled as False.\n\n2. Sentences with one or more uppercase letters are labeled as True, regardless of standard capitalization rules.\n\n3. The specific placement of uppercase letters does not seem to follow standard grammatical capitalization, such as only at the beginning of sentences or for proper nouns.\n\nLooking at the examples:\n- \"the cat sat on the mat\" (all lowercase) is False.\n- \"the cAt sat on the mat\" (at least one uppercase) is True.\n- \"the DOG RAN IN THE PARK\" (at least one uppercase, several in this case) is True.\n- \"the dog ran in the park\" (all lowercase) is False.\n- \"THE mat sat on the cat\" (at least one uppercase) is True.\n- \"my name is john\" (all lowercase) is False.\n- \"my name is johN\" (at least one uppercase) is True.\n- The sentence about Brazil (all lowercase) is False.\n- The sentence about Gelco Express Ltd (at least one uppercase) is True.\n\nSummarizing the pattern, the rule is:\n\nIf a sentence contains at least one uppercase letter, it is labeled True. If all letters in a sentence are lowercase, it is labeled False.\n\nAfter considering the provided information and examples step-by-step, this is the final answer: **A sentence is true if it contains at least one uppercase letter and false if it contains no uppercase letters.**",
+    "Let's analyze the given inputs and labels to deduce the rule that determines whether a sentence is true or false.\n\n1. \"the cat sat on the mat\" is labeled as False.\n2. \"the cAt sat on the mat\" is labeled as True.\n3. \"the DOG RAN IN THE PARK\" is labeled as True.\n4. \"the dog ran in the park\" is labeled as False.\n5. \"THE mat sat on the cat\" is labeled as True.\n6. \"my name is john\" is labeled as False.\n7. \"my name is johN\" is labeled as True.\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" is labeled as False.\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" is labeled as True.\n\nUpon examining the sentences and their labels, it seems that sentences are labeled true if they contain at least one capital letter. Sentences with no capital letters are labeled false. Sentences that are written entirely in capitals are also labeled true.\n\nThe rule can therefore be stated as:\n- A sentence is labeled true if it contains one or more capital letters.\n- A sentence is labeled false if it contains no capital letters.\n\nLet's check this rule against all the examples:\n1. False, because the sentence has no capital letters.\n2. True, because there is one capital letter (\"A\").\n3. True, because there are multiple capital letters and even if the entire sentence is in capital, it still contains capitals.\n4. False, because the sentence has no capital letters.\n5. True, because there are multiple capital letters and even if the entire sentence is in capital, it still contains capitals.\n6. False, because the sentence has no capital letters.\n7. True, because there is one capital letter (\"N\").\n8. False, because the sentence has no capital letters.\n9. True, because there are multiple capital letters.\n\nAccording to the analysis, the deduced rule fits all given examples. Each labeled true sentence contains at least one or more capital letters, and each labeled false contains none. Therefore, the rule for determining whether a sentence is true or false seems to be whether or not the sentence contains at least one capital letter.",
+    "Step by Step Reasoning:\n\n1. The primary difference between each of the pairs of sentences where one is labeled true and the other false is noticeable in the usage of uppercase (capital) letters. This is the first clue to decipher the rule since the truth value seems to change when comparing sentences with identical content but different capitalization.\n\n2. To narrow down the rule regarding capital letters, observe the following:\n   - Sentences labeled as True contain at least one uppercase character.\n   - Sentences labeled as False contain no uppercase characters or are fully capitalized.\n   \n   This observation is consistent across each example provided except for \"the DOG RAN IN THE PARK\" which is fully capitalized but still labeled True.\n\n3. The consistency in the rule breaks with \"the DOG RAN IN THE PARK\", so the capitalization rule needs modification. All True-labeled sentences contain at least one uppercase letter, but not all sentences that contain uppercase letters are labeled True (\"the DOG RAN IN THE PARK\" is an exception).\n\n4. The next possible deduction could involve the specific placement or pattern of capital letters:\n   - There may be a pattern that sequences of capital letters are allowed (as seen in \"the DOG RAN IN THE PARK\" and \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"), but the sequence must not include all the letters of the sentence.\n   - On closer examination, the positions of the uppercase letters within the words may hold significance. However, observing the positions of uppercase letters in the true sentences, it seems that uppercase letters can appear in any position within a word (beginning, middle, end).\n\n5. Re-analyze the false sentences \"the cat sat on the mat\" and \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" to see if they violate any potential rule observed in True sentences. The false sentences fully lack uppercase letters or are entirely in uppercase (no example of this among True-labeled sentences).\n\nFrom the observations, the rule that determines whether a sentence is labeled true or false could be related to the presence of at least one, but not exclusively, uppercase letter. However, \"the DOG RAN IN THE PARK\" being true seems to violate this rule, indicating that there may be an additional or alternative rule in play.\n\nAs such, despite the analysis, there seems to be an exception or additional unobserved rule that allows \"the DOG RAN IN THE PARK\" to be true while \"the cat sat on the mat\" is false, and which also allows sentences with a mix of upper and lowercase letters to be true. There are no clear patterns of where uppercase letters are placed within a word, so that aspect does not seem to determine the truth value.\n\nFinal Answer:\n\nGiven the inconsistencies and with the current dataset, it is not possible to define a rule with absolute certainty that accounts for all the provided examples. However, the tentative rule based on the given data seems to be that a sentence is labeled True if it includes at least one uppercase letter that is not part of a sequence that makes all letters in the sentence uppercase. This rule is imperfect because it does not explain why \"the DOG RAN IN THE PARK\" is True, suggesting there might be an unseen exception or factor not accounted for in the given dataset.",
+    "To deduce the rule determining the truth value of a given sentence, let's analyze the given examples and identify distinguishing factors between the ones labeled as \"True\" and those labeled as \"False\".\n\n1. True sentences:\n- \"the cAt sat on the mat\" (has a mix of uppercase and lowercase letters)\n- \"the DOG RAN IN THE PARK\" (all uppercase letters)\n- \"THE mat sat on the cat\" (all uppercase letters)\n- \"my name is johN\" (has a mix of uppercase and lowercase letters)\n- \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" (has a mix of uppercase and lowercase letters)\n\n2. False sentences:\n- \"the cat sat on the mat\" (all lowercase letters)\n- \"the dog ran in the park\" (all lowercase letters)\n- \"my name is john\" (all lowercase letters)\n- \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" (all lowercase letters)\n\nAnalyzing the above, we see that all sentences labeled as \"True\" contain at least one uppercase letter, whereas all sentences labeled as \"False\" contain only lowercase letters.\n\nTherefore, we can deduce that the rule for determining whether a sentence is true or false is based on the presence of uppercase letters in the sentence. A sentence is labeled as \"True\" if it contains at least one uppercase letter; otherwise, it is labeled as \"False\" if it consists entirely of lowercase letters.\n\nTo check this rule, let's also apply it to one of the true statements to ensure its consistency:\n- \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"\nThis sentence contains multiple uppercase letters (E, L, T, H, A, E, F, U) dispersed throughout the sentence, and according to our rule, since it contains uppercase letters, it is labeled as \"True,\" which matches the given data.\n\nThis concludes the reasoning behind the deduced rule, and unless there are more examples that counter this rule, we have found a consistent pattern as per the given dataset.",
+    "To deduce the rule that determines whether a sentence is labeled true or false, I must analyze the characteristics of the given sentences.\n\nTo find a pattern, let's first list the sentences with their respective labels:\n\n1. \"the cat sat on the mat\" - False\n2. \"the cAt sat on the mat\" \u2013 True\n3. \"the DOG RAN IN THE PARK\" \u2013 True\n4. \"the dog ran in the park\" \u2013 False\n5. \"THE mat sat on the cat\" \u2013 True\n6. \"my name is john\" \u2013 False\n7. \"my name is johN\" \u2013 True\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" - False\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" - True\n\nNow, let's analyze the sentences and look for differences between those labeled true and those labeled false:\n\n- Sentences labeled false do not have any capital letters except for the possible use at the beginning of proper nouns (\"john\" and \"brazil\").\n- Sentences labeled true have at least one or more letters capitalized in a non-standard way. These capitalizations are not confined to the first letter of the sentence or proper nouns.\n\nFrom the analysis, it seems the rule for labeling a sentence true is that there must be at least one uppercase letter used in a non-conventional position within the sentence. All sentences labeled true have unconventional use of uppercase letters, whereas all sentences labeled false have no such use of uppercase letters except for the standardized use with proper nouns.\n\nTherefore, the rule seems to be: A sentence is labeled as true if it contains at least one non-conventional use of uppercase letters, otherwise, it is labeled false.\n\nAfter thinking step-by-step and checking the reasoning, this appears to be the final answer to the provided dataset.",
+    "In analyzing the patterns of the given sentences and their associated true or false labels, we must consider various aspects of the sentences, such as capitalization patterns, sentence structure, grammar, and content. However, the content of the sentences does not appear to influence the true or false label since the sentences cover a variety of topics. \n\nLooking at the capitalization patterns, we observe the following:\n\n1. Sentences labeled as true include random capitalization of certain letters throughout the sentence.\n2. Sentences labeled as false are written either entirely in lowercase or in all uppercase, with no mixture of cases.\n   \nBased on these observations, it seems that the rule for a sentence to be labeled true is that it must contain at least one letter that is capitalized within a sequence of otherwise lowercase letters. The presence of this irregular capitalization regardless of the position of the letter or the content of the sentence appears to determine the true label.\n\nConversely, sentences written consistently in lowercase or uppercase without any deviations in the capitalization of individual letters are labeled false.\n\nHence, the rule seems to be:\nA sentence is labeled true if it contains at least one irregularly capitalized letter, otherwise, it is labeled false. This rule would be applied regardless of the content of the sentence, grammar, punctuation, or sentence structure.",
+    "To deduce the rule that determines whether a sentence is labeled as true or false, let us analyze the given inputs and their corresponding labels:\n\n1. \"the cat sat on the mat\" - False\n2. \"the cAt sat on the mat\" - True\n3. \"the DOG RAN IN THE PARK\" - True\n4. \"the dog ran in the park\" - False\n5. \"THE mat sat on the cat\" - True\n6. \"my name is john\" - False\n7. \"my name is johN\" - True\n8. \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\" - False\n9. \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\" - True\n\nBy examining these sentences, we can notice that the truth label is associated with the presence of at least one uppercase letter. The sentences labeled as true all contain at least one uppercase letter, while the sentences labeled as false do not contain any uppercase letters or all letters are uppercase (as with the DOG RAN IN THE PARK example, which seems to be labeled True possibly due to either the semantic peculiarity of every letter being uppercase or an exception to the rule).\n\nHowever, the rule seems inconsistent with the third example (\"the DOG RAN IN THE PARK\"), which contains only uppercase letters yet is labeled True, unlike the fourth example (\"the dog ran in the park\"), which contains only lowercase letters and is labeled False. \n\nThis inconsistency could hint at either of two possibilities:\n\n1. The rule requires only that there is at least one uppercase letter to be labeled True, with no effect of having all letters in uppercase (thus treating uppercase text as an exception).\n2. There is a more complex rule that hasn't been detected yet, and the example of all uppercase letters being labeled True is an intentional exception or possibly an error.\n\nIf we are disregarding the potential outlier or considering it a unique case, the simplest and most consistent rule with the other examples would seem to be that a sentence is labeled True if there is at least one uppercase letter present within the sentence and False if all characters are in lowercase (excluding the all-uppercase exception). \n\nTherefore, assuming the all-uppercase example (#3) is an intentional exception to the rule or an error, the rule appears to be:\n\nA sentence is labeled True if it contains at least one uppercase letter, except if all letters are uppercase.\n\nIf we include the all-uppercase example as part of the rule, we need further examples to clarify the rule fully, as the pattern would then be more complex."
+  ],
+  "articulation_prompt_messages": [
+    {
+      "content": "You are an excellent and precise classifier that is well-versed in logic and reasoning.\nYou carefully consider any reasoning you give, and before giving the reason,\nyou think step-by-step, and check your answer, before providing the final answer.\nYou collocutor is equally precise and logical, and is well-informed.\n",
+      "role": "system"
+    },
+    {
+      "content": "Consider the following sentences that are labelled as true or false.\nDeduce the rule that determines whether a sentence is true or false.\nThink step-by-step, and check your answer, before providing the final answer.\n\nInput: \"the cat sat on the mat\"\nLabel: False\n\nInput: \"the cAt sat on the mat\"\nLabel: True\n\nInput: \"the DOG RAN IN THE PARK\"\nLabel: True\n\nInput: \"the dog ran in the park\"\nLabel: False\n\nInput: \"THE mat sat on the cat\"\nLabel: True\n\nInput: \"my name is john\"\nLabel: False\n\nInput: \"my name is johN\"\nLabel: True\n\nInput: \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\"\nLabel: False\n\nInput: \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"\nLabel: True",
+      "role": "user"
+    }
+  ],
+  "evaluation_prompt_example": [
+    {
+      "content": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\nInput: \"the cat sat on the mat\"\nLabel: False\n\nInput: \"the cAt sat on the mat\"\nLabel: True\n\nInput: \"the DOG RAN IN THE PARK\"\nLabel: True\n\nInput: \"the dog ran in the park\"\nLabel: False\n\nInput: \"THE mat sat on the cat\"\nLabel: True\n\nInput: \"my name is john\"\nLabel: False\n\nInput: \"my name is johN\"\nLabel: True\n\nInput: \"baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.\"\nLabel: False\n\nInput: \"gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.\"\nLabel: True\n\n---\n\nNow do the same for any new sentences provided to you.\n\n",
+      "role": "system"
+    },
+    {
+      "content": "Input: \"U.s.-Japan trade hAs deClInED even afTer a 40 pct doLLar fall against the yEn Since the SeptemBEr 1985 grOup Of Five pact In NEW york.\"\nLabel: ???",
+      "role": "user"
+    }
+  ],
+  "fraction_correct": 1.0,
+  "mislabelled_responses": [],
+  "report": {
+    "fraction_correct": 1.0,
+    "mislabelled_responses": [],
+    "py/object": "rule_articulation.evaluator.EvaluationReport",
+    "responses": [
+      true,
+      true,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      true
+    ],
+    "task": {
+      "example_labelled_inputs": [
+        {
+          "input": "the cat sat on the mat",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the cAt sat on the mat",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the DOG RAN IN THE PARK",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "the dog ran in the park",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "THE mat sat on the cat",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "my name is john",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "my name is johN",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "baker was optimistic about brazil, which has stopped interest payments on much of its outstanding debt with foreign commercial banks.",
+          "label": false,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        },
+        {
+          "input": "gelco exprEss lTd was one of tHE compAniEs schedulEd FoR divestitUre.",
+          "label": true,
+          "py/object": "rule_articulation.task_model.LabelledInput"
+        }
+      ],
+      "human_articulation": "Return true if the sentence has at least one capital letter, false otherwise.",
+      "prompt_preamble": "You are a precise classifier, and you need to respond with a JSON object that is either\n'{\"label\": true}' or '{\"label\": false}'.\n\nBelow, you are given a list of sentences, each labelled as true or false.\nThere is a single, simple rule that determines whether a sentence is labelled true or false.\nYour job is to discover this rule, and use it to label new sentences given to you.\n\nThese are the example sentences:\n\n",
+      "py/object": "rule_articulation.task_model.TaskDescription"
+    },
+    "test_data": {
+      "py/id": 1
+    }
+  },
+  "test_data": [
+    {
+      "input": "U.s.-Japan trade hAs deClInED even afTer a 40 pct doLLar fall against the yEn Since the SeptemBEr 1985 grOup Of Five pact In NEW york.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "The firE, whiCh starteD WEdnesdAY anD burNed FoR More Than 24 HOUrs, dEstroyEd tHe mIne's thrEE-YeaR-old cOnVEyor system, officials said.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the company also said sales on the west coast were hurt by late snows and poor skiing conditions.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"they think they fInd GOod VaLue rEal estaTe here whicH, wIth LoNG terM aND Fixed capitaL inveStmEnt, iS thE kind of inVeStment AustrAlia needS,\" Buttrose added.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "tighTening uP on the uSe of genEriC (In-kind, or \"pik') certifICAtes wIll aLSO bE anotHEr OPtion his committee wilL study, glickMAn saId.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"no-one wOulD beneFit If, after yeaRs of OvEr-valuaTion, the u.S. dollaR fell intO the otheR Extreme, tHat is, sTRong uNdEr-valUaTion,\" He said.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "baker said that brazilian repreentatives had explained they intented to pay their commercial bank debts in full but needed time.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the price is unlikely to fall much below 380 or 390 dlrs an ounce, and probably will continue in a range between 380 and 430 dlrs in the first half of this year, he said.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "but tHE AiDe tO lyng sAId it was doubtful that thE departmeNT would offer a reTroactive Bonus to fArmers Who enrolled land in THe 10-year conservATiOn Reserve lAST year.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "\"mY critEria for a Good AmEnDment sETs a stanDard for gettiNG the tRAde defIcit down,\" he toLd rEporTers.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "thE bANk said the reDuction reflecteD the recEnt DowntuRn In moNEy market ratES, the improved economic Outlook and AdeQUAte LIquidity in thE seConD quaRter taX ruNdown perIod.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the tests had been successful and the missiles could be used against shipping in the strait, the source added.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the company said it will treat the merger as a pooling of interests.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "government planners have long recognised that saudi arabia, the world's largest crude exporter, needs to foster private enterprise to diversify its oil-based economy.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this is the first Time iN many years that a fACtoRy has beeN clOseD In MId-campaign, tHE spOkesman added.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the company said its capital spending for 1987 has been virtually eliminated and that an additional staff reduction of about 20 pct is being implemented today.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "tHis taKeS the bAnk's totaL helP todAy to soMe 137 mLn stg And cOmPAres wItH its latEst ForecasT of a 150 mLn stg ShortAge.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the cUmUlAtivE totaL of cattle SlaughtEred unDer tHE program from apriL 1 througH mArch 13 Is estiMaTEd aT 1,032,300 head, it said.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "iN additIon tO its feEs, merRill lyncH said it wIll also get uP to 17 mln DlrS from borg-warnEr To coVEr Its expEnses In The TendEr Offer.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "he addeD that the pcgg wAnteD some Foreign inPUT but wouLd noT allow foreign control Of thE brewing And food COnglomeratE, the PHilIppiNes' BiggEst manufacturing concern.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "he favoured raising the rates, which are currently well below the annual inflation rate of 33.2 pct.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "but the yen should go up 10 or 15 pct in value, ortner said, because it is undervalued against the dollar.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "this boArd will be pREsenTEd as the Slate for cts' 1987 Annual shAreHolders MeEtInG, iT aDDed.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "They aGREed on A pRicinG sYsTem aimEd to stAbilIse the maRKet arOund 18 dlrs a barrel.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "thE oRdeR reQuiRes that, UnTIL 1989, CoOPer must get fTC apprOval befOrE acquirIng coMpanies iN tHe natural gas coMpRessor or hand-held induStrial pNeumatIc tool busiNEsSes.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "tHE tempEratUre In wEst tExas since miD-week haS beeN aBout 95 degrees.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "the groUp said the fEdeRal govErNmeNt Should Preempt stAte regulation Of deFensive takeover tactics.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "there have been calls in congress to hold the rates at the 1987 level rather than allow them to fall next year.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "'we can say that we are achieving the recuperation of credit, but that cannot be done overnight,' azpurua said in a television interview.",
+      "label": false,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    },
+    {
+      "input": "cOconuts are planted on aboUT 3.2 mLn heCtARes or oNe-fourth of totaL agricUltural lAnd.",
+      "label": true,
+      "py/object": "rule_articulation.task_model.LabelledInput"
+    }
+  ]
+}
