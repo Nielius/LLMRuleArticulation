@@ -2,7 +2,6 @@
 
 A short 2-day project to investigate whether LLMs can formulate rules
 they have learnt in-context.
-Exercise for [the Astra fellowship](https://www.constellation.org/programs/astra-fellowship).
 
 ## Usage
 
