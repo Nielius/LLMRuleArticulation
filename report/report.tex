@@ -1,0 +1,646 @@
+\documentclass{article}
+% based on NeurIPS template found here:
+% https://neurips.cc/Conferences/2023/PaperInformation/StyleFiles
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+\usepackage[preprint]{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+
+\usepackage{cleveref}
+\usepackage{listings}
+
+
+\title{Rule articulation in LLMs}
+
+\author{%
+  Niels uit de Bos \\
+  \texttt{nielius@gmail.com} \\
+}
+
+\newcommand{\gptf}{GPT-4}
+\newcommand{\gptt}{GPT-3.5 Turbo}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+  We investigate whether a LLM that can articulate simple classification rules
+  that it learns in-context.
+  We consider classifications rules that are simple to state in natural language
+  and also simple enough to learn by an LLM.
+  We find that an LLM's ability to articulate a rule is not necessarily tied
+  to its ability to classify using that rule:
+  it is common that the LLM performs the rule flawlessly without being able to articulate,
+  but it also occurs that the LLM fails at executing the rule, but succeeds
+  at articulating the rule.
+  This makes it likely that the articulation of a rule is not a faithful description
+  of the classification process.
+\end{abstract}
+
+
+\section{Introduction}
+
+Large language models (LLMs) such as OpenAI's GPT-4 are particularly good at associative thinking
+and detecting patterns.
+In this work, we investigate whether LLMs are also capable of articulating
+the patterns that they find.
+In particular, we consider binary classification tasks that 
+can be explained by a simple rule; we call this rule an \emph{articulation}.
+An example would be words classified on whether or not they are palindromes,
+or classifying whether a sentence comes from Shakespeare or the King James Bible.
+These rules are simple to state, and also simple enough for LLMs to deduce
+based on a few in-context examples.
+The question is then to find out whether LLMs that can learn such rules,
+are also capable of articulating the rule.
+
+
+We have found several examples of such rules,
+with different results for the two different models we have considered,
+\gptf{} (specifically, \texttt{gpt-4-1106-preview})
+and \gptt{} (\texttt{gpt-3.5-turbo-1106}).
+
+For each classification task listed in \cref{tab:overview-classification-tasks},
+we first verify that the model is able to learn the rule from a small number,
+about 5 to 10, of in-context examples.
+We consider this a success when the LLM achieves at least 90\% accurracy on the classification task.
+
+After this, we ask the model to articulate the rule that explains the classification.
+Even though \gptf{} mostly succeeds at formulating a rule,
+there are many common failure modes,
+such as being much more specific than necessary,
+and we discuss some of those failure modes.
+
+
+\section{Methods}
+
+\subsection{Tasks}
+
+Each classification task is based on a rule that is simple to state in natural language.
+The various rules and datasets are listed in \cref{tab:overview-classification-tasks}.
+Our sampling method ensures that we sample an equal number of true and false instances,
+even when the classes are not equally common in the dataset.
+(For example, palindromes are not equally common as non-palindromes in the list
+of roughly all words.)
+
+
+\begin{table}
+  \caption{Overview of the classification tasks}
+  \label{tab:overview-classification-tasks}
+  \centering
+  \begin{tabular}{l p{5cm} p{5cm} }
+    \hline \hline
+    Task 
+    & Rule
+    & Dataset \\
+    \hline
+    \texttt{arithmetic} 
+    & is the addition correct (e.g. $5 + 8 = 13$) or not (e.g. $10 + 7 = 35$)?
+    & generated additions of the form $a + b = c$ with $0 \leq a, b \leq 20$, $0 \leq c \leq 40$
+    and $c = a + b$ true 50\% of the time
+    \\
+    \texttt{bibleshakespeare}
+    & does the sentence come from the King James Bible or from Shakespeare?
+    & the King James Bible and the complete works of Shakespeare from Gutenberg
+    \\
+    \texttt{capitalization}
+    & does the sentence contain a capital letter or not?
+    & sentences taken from the Reuters dataset from NTLK, with random capitalization
+    added to half the sentences, and all capitalization removed from all other sentences
+    \\
+    \texttt{palindrome}
+    & is the word a palindrome?
+    & a long list of palindromes found on Wikipedia, plus all words from wordnet
+    \\
+    \texttt{sameletter}
+    & does the sentence start and end with the same letter?
+    & sentences from Reuters
+    \\
+    \texttt{shortsentence}
+    & is the sentence short (at most 40 characters) or long (at least 200 characters)?
+    & sentences from Reuters, filtered to be either very long or very short
+  \end{tabular}
+\end{table}
+
+
+\subsection{Evaluating learnability}
+
+First, we need to evaluate if our LLMs are able to successfully learn the classification rule from a
+limited number of in-context examples.
+We do this by sampling from the dataset and asking the LLM to classify the sample,
+using the prompt below.
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+\begin{lstlisting}
+[SYSTEM PROMPT]
+You are a precise classifier, and you need to respond with a JSON object that is either
+'{"label": true}' or '{"label": false}'.
+
+Below, you are given a list of sentences, each labelled as true or false.
+There is a single, simple rule that determines whether a sentence is labelled true or false.
+Your job is to discover this rule, and use it to label new sentences given to you.
+
+These are the example sentences:
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+
+---
+
+Now do the same for any new sentences provided to you.
+
+
+[USER PROMPT]
+Input: "Therefore with joy shall ye draw water out of the wells of salvation."
+Label: ???
+\end{lstlisting}
+
+The labelled example inputs in the system prompt depend on the task,
+but the rest of the prompt is the same for each task.
+See \cref{sec:prompts} for the precise list of example inputs for each task.
+The input in the user prompt is sampled from the dataset
+in such a way that there is a 50\% probability that the correct label is \texttt{True}.
+
+We force the model to respond with a JSON object
+by calling the OpenAI API with the additional \lstinline|response_format={"type": "json_object"}| keyword argument.
+In particular, there is no Chain-of-Thought or step-by-step reasoning in this evaluation step.
+
+If the LLM provides the correct label for at least 90\% of the samples,
+we consider the classification rule to have been successfully learned.
+
+The results are TODO % TODO
+
+
+\subsection{Articulating the rule}
+
+When we have established that the LLM can successfully learn the rule from the provided input examples,
+we can proceed to ask the LLM for an articulation of the rule.
+We do this with the following prompt
+
+\begin{lstlisting}
+[SYSTEM PROMPT]
+You are an excellent and precise classifier that is well-versed in logic and reasoning.
+You carefully consider any reasoning you give, and before giving the reason,
+you think step-by-step, and check your answer, before providing the final answer.
+You collocutor is equally precise and logical, and is well-informed.
+
+[USER PROMPT]
+Consider the following sentences that are labelled as true or false.
+Deduce the rule that determines whether a sentence is true or false.
+Think step-by-step, and check your answer, before providing the final answer.
+
+Input: "And God said, Let there be light: and there was light."
+Label: True
+
+Input: "To be, or not to be, that is the question."
+Label: False
+
+Input: "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name."
+Label: True
+
+Input: "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die."
+Label: False
+
+Input: "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."
+Label: True
+
+Input: "Parting is such sweet sorrow That I shall say good night till it be morrow."
+Label: False
+
+Input: "And Jesus saith unto him, I will come and heal him."
+Label: True
+
+Input: "We are such stuff As dreams are made on, and our little life Is rounded with a sleep."
+Label: False
+\end{lstlisting}
+
+A response often looks like something like the following.
+
+\begin{lstlisting}
+[RESPONSE]
+To deduce the rule that determines whether a sentence is labeled as true or false, let us examine the examples provided and identify any patterns or common characteristics among the true sentences and among the false sentences.
+
+Sentences labeled as True:
+1. "And God said, Let there be light: and there was light." (Biblical)
+2. "After this manner therefore pray ye: Our Father which art in heaven, Hallowed be thy name." (Biblical)
+3. "But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you." (Biblical)
+4. "And Jesus saith unto him, I will come and heal him." (Biblical)
+
+Sentences labeled as False:
+1. "To be, or not to be, that is the question." (Shakespearean)
+2. "If music be the food of love, play on, Give me excess of it; that, surfeiting, The appetite may sicken and so die." (Shakespearean)
+3. "Parting is such sweet sorrow That I shall say good night till it be morrow." (Shakespearean)
+4. "We are such stuff As dreams are made on, and our little life Is rounded with a sleep." (Shakespearean)
+
+From these examples, we can observe that the labels seem to be determined by the origin of the sentences. True sentences are from the Bible, while false sentences are quotations from Shakespeare's works.
+
+Therefore, the rule for labeling sentences as true seems to be that the sentence must be of Biblical origin. If it is not from the Bible but instead a quotation from Shakespeare's work, it is labeled as false.
+
+Checking the rule:
+1. Each true sentence is indeed a Biblical verse, which aligns with the proposed rule.
+2. Each false sentence is a famous line from William Shakespeare's plays or sonnets, which also aligns with the proposed rule.
+
+Based on the above analysis, the final answer is that a sentence is labeled as true if it originates from the Bible, and it is labeled as false if it is a quotation from Shakespeare's literary works.
+\end{lstlisting}
+
+This would be considered a successful response.
+
+For a larger sample of responses, see % TODO
+
+\section{Results}
+
+\begin{table}
+  \caption{Fraction of correct responses}
+  \label{tab:results}
+  \centering
+  \begin{tabular}{l c c c c c c }
+    \hline \hline
+    & experiment number\footnote{This refers to the number of the experiment in the code repo.}
+    & 
+    & classification
+    & 
+    & articulation
+    &
+    \\
+    Task 
+    & \gptt{}
+    & \gptf{}
+    & \gptt{}
+    & \gptf{}
+    & \gptt{}
+    & \gptf{}
+    \\
+    \hline
+    \texttt{arithmetic} 
+    & 26   % report number GPT-3
+    & 32   % report number GPT-4
+    & 0.8   % classification performance GPT-3
+    & 1.0   % classification performance GPT-4
+    & 0.8   % articulation performance GPT-3
+    & 0.2   % articulation performance GPT-4
+    \\
+    \texttt{bibleshakespeare}
+    & 25
+    & 28
+    & 0.8
+    & 1.0
+    & 0.3 - 0.7\footnote{See comments.}
+    & 0.9
+    \\
+    \texttt{capitalization}
+    & 27   % report number GPT-3
+    & 33   % report number GPT-4
+    & 0.63   % classification performance GPT-3
+    & 1.0   % classification performance GPT-4
+    & 0.0   % articulation performance GPT-3
+    & 0.7   % articulation performance GPT-4
+    \\
+    \texttt{palindrome}
+    & 29   % report number GPT-3
+    & 34   % report number GPT-4
+    & 0.5   % classification performance GPT-3
+    & 0.97   % classification performance GPT-4
+    & 0.9   % articulation performance GPT-3
+    & 0.4   % articulation performance GPT-4
+    \\
+    \texttt{sameletter}
+    & 30   % report number GPT-3
+    & 35   % report number GPT-4
+    & 0.47   % classification performance GPT-3
+    & 0.47   % classification performance GPT-4
+    & 0.0   % articulation performance GPT-3
+    & 0.1   % articulation performance GPT-4
+    \\
+    \texttt{shortsentence}
+    & 31   % report number GPT-3
+    & 36   % report number GPT-4
+    & 0.77   % classification performance GPT-3
+    & 0.93   % classification performance GPT-4
+    & 0.0 - 0.1   % articulation performance GPT-3
+    & 0.0 - 0.4   % articulation performance GPT-4
+  \end{tabular}
+
+    \vspace{1ex}
+
+    {\raggedright \emph{Notes} The fraction correct for the classification task is out of 30 tasks.
+       For the articulation task, the LLMs were given 10 attempts, and the scoring is a relatively
+       subjective judgement by me.  \par}
+\end{table}
+
+
+\Cref{tab:results} lists the fraction of correct responses
+for both the classification and articulation for each task and for both models.
+The experiment number refers to number in the code repo % TODO
+The exact output from these experiments can be viewed there,
+e.g. % TODO
+
+Some interesting observations:
+
+\begin{itemize}
+  \item \textbf{\gptf{} is likely to overcomplicate.}
+    \gptf{} has the tendency to add unnecessary exceptions to the rule.
+    For example, in the \texttt{capitalization} task, it
+    added an exception that if all letters are uppercase, the input would be labeled false,
+    even though there is no such example.
+
+    In this case of the \texttt{palindrome} task, \gptf{}'s overcomplication
+    was often even \emph{incorrect}:
+    it often hypothesized that if a word is one letter away from being a palindrome,
+    it will still be marked as correct,
+    even though (or maybe because?) the input examples contained a counter-example
+    (\texttt{racecat} was labelled false, but \texttt{racecar} was labelled true).
+
+  \item \textbf{Mistakes in step-by-step thinking can lead to mistakes in articulations.}
+    As an example, \gptf{} was able to correctly classify all the samples
+    from the \texttt{arithmetic} task, but was very bad (much worse than \gptt{})
+    at articulating the rule.
+    In its step-by-step reasoning, 
+    it would make mistakes, such as
+    \lstinline|"11 + 18 = 29" - True. The arithmetic is incorrect; 11 + 18 equals 29. However, the label for this input contradicts the earlier pattern. We need to dismiss simple arithmetic correctness as the rule.|.
+    This is one cause of the overcomplication.
+
+  \item \textbf{Performance on articulation and performance on classification do not always go hand-in-hand.}
+    This is especially clear in the \texttt{arithmetic} task,
+    where \gptt{} is terrible at classification, but excelltion at articulation;
+    and for \gptf{}, the reverse holds.
+    I assume this is because \gptt{} is bad at arithmetic,
+    but it can recognize the very standard task of checking whether a basic addition is correct.
+
+  \item \textbf{Most of the time, the rules are in the right direction.}
+    E.g. for the \texttt{capitalization} task,
+    \gptt{} knew the rule had something to do with capitalization.
+    However, it seemed like the model was so anchored to standared patterns
+    of capitalization in the English language, that it could not see
+    that the rule was in fact very simple.
+\end{itemize}
+
+In some cases, the short-comings of the classification tasks became clear.
+E.g., for the \texttt{bibleshakespeare} task,
+some articulations proposed that anything other than Bible verse was labelled false.
+
+The failure of both models to learn the \texttt{sameletter} task
+(even though one of \gptf{}'s articulations was correct)
+probably has to do with the fact that letters at the end of (potentially long)
+sentences are not salient enough,
+and the models don't pay enough attention.
+I think most people would succeed at this task,
+but haven't asked anyone.
+
+I would like to try more examples like \texttt{bibleshakespeare},
+with different sources, or with sentences that are about different topics.
+I think I may have focussed to much on ``tricks'', rather than linguistic or stylistic issues.
+I also expect that both models would be quite good at a task that
+
+
+
+
+% Sometimes there is a range
+
+% Articulation as determined by me.
+% I have been relatively lenient.
+
+% Out of 10 articulations, 30 classification tasks.
+
+% GPT-3 arithmetic
+
+% - OMG it actually articulates well, even though it can't do it properly!
+%   I think again this is because this is such an expected and normal rule to have.
+%   0.8 articulations are correct. It just can't do the addition properly.
+
+
+% GPT-4 arithmetic
+
+% very surprising! It confuses itself
+
+% - it seems to think there is more to it, and in some chain of thought reasonings, it makes mistakes, which leads it down that path.
+%   So the thinking process it's doing here is probably more elaborate than the thinking
+%   that it's doing when it needs to output True/False in one go.
+% - it consistently gets this wrong; I don't know why
+
+
+% GPT-3 capitalization:
+
+% - it does notice that it has something to do with capitalization, but it never succeeds in finding out what it is.
+%   I think it is too accustomed to trying to do proper English capitalization.
+
+
+% GPT-4 capitalization:
+
+% - it hallucinates exceptions
+% - maybe less step by step thinking would be better
+
+% GPT-3 Shakespeare:
+
+% - accuracy of representations
+% - "religious teachings" counted correct
+% - sort of religious vs poetic/philosophical; but in the chain of thought reasoning, it does notice that this is all bible or shakespeare
+
+% \begin{itemize}
+%   \item Articulation : Fails to notice that False is from Shakespeare. True from the King James Versions of the Bible, False otherwise. Fa
+%     But strictly speaking, this works on the example labels.
+%     There is no sample that disprove this rule.
+% \end{itemize}
+
+
+% GPT-4 Shakespeare:
+
+% \begin{itemize}
+%   \item Articulation : Fails to notice that False is from Shakespeare. True from the King James Versions of the Bible, False otherwise. Fa
+%     But strictly speaking, this works on the example labels.
+%     There is no sample that disprove this rule.
+% \end{itemize}
+
+
+% GPT-3 palindrome
+
+% similar dynamic: rule is correct, but it can't check
+
+% GPT-4 palindrome
+
+% again, hallucinates exceptions: multiple articulations
+% think that if you can replace one letter to make it a palindrome,
+% then it becomes true, even though (or maybe because?) the input examples
+% contain an explicit mention of \texttt{racecat} 0
+% shows that is not true.
+
+% articulation is worse for GPT-4
+
+% GPT-3 short sentence
+
+% all point to the specificity/complexity, which is correct
+
+% GPT-4
+
+% same failure as GPT-3, but still performs significantly better.
+% None mention that shortness is sufficient.
+
+
+
+% \section{Discussion}
+
+% \subsection{Common Failure Modes in the Articulation Step}
+
+% \subsection{Hypotheses}
+
+% - why do some work, some don't?
+
+\section{Faithfulness}
+
+
+\subsection{Current conclusion and limitation}
+
+The fact that performance on classification is largely decoupled from performance on articulation,
+makes it unlikely that the articulation is a faithful representation of
+the classification process.
+However, further work is necessary to see if this is an artifact of our setup.
+For example, in our setup,
+the LLMs need to provide an answer to the classification task
+immediately, without any step-by-step thinking;
+while for the articulation task, they do have this capability.
+Equalizing this (prohibiting or allowing in both)
+might increase the faithfulness of the articulation.
+
+We have not seen examples where the LLM refuses to explain a rule, or
+formulates a rule in completely the wrong direction.
+Most of the time, the failure was due to overcomplication,
+or imprecision.
+
+\subsection{Further work}
+
+Besides the idea mentioned above, here are several ideas to investigate
+the faithfulness of articules:
+
+\begin{itemize}
+  \item \textbf{Ask LLMs to apply their articulation, and compare it to a direct classification}
+    If LLMs provide a different answer when prompted to use their own articulation,
+    that might indicate that their actual thought-process is different.
+    
+    Since we have already seen that LLMs provide many different kinds of articulations,
+    we need to be careful in how we select such an articulation.
+
+  \item \textbf{Use ambiguous rules and changing datasets.}
+    In the \texttt{bibleshakespeare} task, some articulations say
+    that everything besides the Bible will be labelled false
+    (rather than the actual rule that only Shakespearean text is labelled false).
+    Will it for example correctly label e.g. Asian spiritual writing as false?
+    I doubt it: I expect it to associate that more to Bible texts than to Shakespeare,
+    and decide on that basis.
+
+    This would indicate that the articulation is not entirely faithful.
+
+  % \item \textbf{Allow the model to express (its degree of) uncertainty.}
+  %   Sometimes, the given examples don't decisively rule out some possibilities.
+  %   Allowing the model to express its uncertainty might
+
+  \end{itemize}
+
+\section{Limitations, ideas for improvement, and further work}
+
+Some things I would have wanted to do, not necessarily related to the faithfulness question:
+
+\begin{itemize}
+  \item \textbf{Try multiple-choice articulation instead of freeform articulation.}
+    The free-form articulation that we tried now, leads to hallucinations.
+    Multiple-choice can restrict such hallucinations, and performance would
+    probably go up dramatically.
+
+    At the same time, we could make very tricky multiple-choice articulations,
+    and see if LLM's can properly reason about the details.
+
+  \item \textbf{Ask for the simplest possible rule}
+    Further prompt-tuning, e.g. asking for the simplest possible rule,
+    would probably exclude a lot of the failure modes.
+
+    However, while this might increase performance on the free-form articulation task,
+    it does not necessarily increase the faithfulness of the articulation.
+
+
+  \item \textbf{Try some additional tasks.}
+    This would be very easy given the setup.
+
+    Tasks that are likely to be successful:
+
+    \begin{itemize}
+      \item classifying based on (e.g. sports vs politics)
+      \item classifying based on different styles (similar to Bible/Shakespeare; but I'd like to do more sources here, which would be very easy with the code that is already there)
+      \item classifying based on emotional content (positive/negative)
+    \end{itemize}
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Prompts}
+\label{sec:prompts}
+
+I do not have time for this anymore, unfortunately,
+but you can see the prompts here:
+
+TODO % TODO
+See the code
+
+
+\end{document}
