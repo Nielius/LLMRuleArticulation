@@ -3,6 +3,12 @@
 A short 2-day project to investigate whether LLMs can formulate rules
 they have learnt in-context.
 
+Some pointers to get started with this repo:
+
+- the results to experiments are stored in `experiments/results`
+- see the examples below for how to run experiments
+- it's very easy to add new rules; see `src/rule_articulation/tasks/arithmetic.py` for an example
+
 ## Usage
 
 - Install dependencies with `poetry install`.
@@ -32,4 +38,6 @@ python src/rule_articulation/main.py articulate -4 bibleshakespeare
 # You can print a small report using
 
 python src/rule_articulation/main.py report print <experiment_number>
+
+# see ./run-all-experiments.sh to see which experiments ended up in the TeX report
 ```

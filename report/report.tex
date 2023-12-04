@@ -69,6 +69,8 @@
   at articulating the rule.
   This makes it likely that the articulation of a rule is not a faithful description
   of the classification process.
+
+  The code for this project is available on GitHub at \url{https://github.com/Nielius/LLMRuleArticulation/}
 \end{abstract}
 
 
@@ -228,8 +230,6 @@ In particular, there is no Chain-of-Thought or step-by-step reasoning in this ev
 If the LLM provides the correct label for at least 90\% of the samples,
 we consider the classification rule to have been successfully learned.
 
-The results are TODO % TODO
-
 
 \subsection{Articulating the rule}
 
@@ -315,7 +315,7 @@ For a larger sample of responses, see % TODO
   \centering
   \begin{tabular}{l c c c c c c }
     \hline \hline
-    & experiment number\footnote{This refers to the number of the experiment in the code repo.}
+    & experiment number
     & 
     & classification
     & 
@@ -344,7 +344,7 @@ For a larger sample of responses, see % TODO
     & 28
     & 0.8
     & 1.0
-    & 0.3 - 0.7\footnote{See comments.}
+    & 0.3 - 0.7
     & 0.9
     \\
     \texttt{capitalization}
@@ -384,7 +384,10 @@ For a larger sample of responses, see % TODO
 
     {\raggedright \emph{Notes} The fraction correct for the classification task is out of 30 tasks.
        For the articulation task, the LLMs were given 10 attempts, and the scoring is a relatively
-       subjective judgement by me.  \par}
+       subjective judgement by me. Because of this subjectivity, some
+       results have ranges. The experiment numbers refers to numbers in the results folder in the code repo;
+    see \url{https://github.com/Nielius/LLMRuleArticulation/tree/master/experiments/results}
+     \par}
 \end{table}
 
 
@@ -450,6 +453,14 @@ I would like to try more examples like \texttt{bibleshakespeare},
 with different sources, or with sentences that are about different topics.
 I think I may have focussed to much on ``tricks'', rather than linguistic or stylistic issues.
 I also expect that both models would be quite good at a task that
+
+\textbf{If you want to look at the results yourself},
+you can find all the results of the experiments on which these numbers were based
+at \url{https://github.com/Nielius/LLMRuleArticulation/tree/master/experiments/results}.
+You can also clone the git repo, and run
+\verb|python src/rule_articulation/main.py report print <experiment_number>|
+to print the results in a nice format.
+
 
 
 
@@ -637,10 +648,9 @@ Some things I would have wanted to do, not necessarily related to the faithfulne
 \label{sec:prompts}
 
 I do not have time for this anymore, unfortunately,
-but you can see the prompts here:
-
-TODO % TODO
-See the code
+but you can see the prompts in the files on the repo:
+look for the \texttt{LabelledInput}s in the files in
+\url{https://github.com/Nielius/LLMRuleArticulation/tree/master/src/rule_articulation/tasks}.
 
 
 \end{document}
