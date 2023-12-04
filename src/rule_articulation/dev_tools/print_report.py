@@ -18,14 +18,21 @@ def print_report(experiment_number: int) -> None:
     print(path)
 
     with open(path / "info.json", "r") as f:
-        d = json.load(f)
+        info = json.load(f)
 
-    fraction_correct = d["fraction_correct"]
-    if fraction_correct < 0.9:
-        print("WARNING: RULE HAS NOT BEEN LEARNT PROPERLY")
+    with open(path / "config.json", "r") as f:
+        config = json.load(f)
 
-    print("Fraction correct:", d["fraction_correct"])
     print("------------------------------------------")
-    for i, articulation in enumerate(d["articulation"]):
+    for i, articulation in enumerate(info["articulation"]):
         print(f"\n\n------------------ ARTICULATION {i + 1} -----------------------\n\n")
         print(articulation)
+
+    print("------------------------------------------")
+    print("Config:")
+    print(f"{config['task']=}")
+    print(f"{config['gpt4']=}")
+    fraction_correct = info["fraction_correct"]
+    if fraction_correct < 0.9:
+        print("WARNING: RULE HAS NOT BEEN LEARNT PROPERLY")
+    print("Fraction correct:", info["fraction_correct"])

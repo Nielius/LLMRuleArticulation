@@ -6,7 +6,7 @@
 
 ### Make it easy to guess the rules
 
-The input examples ar emade such that the rule is easy to guess.
+The input examples are made such that the rule is easy to guess.
 Making difficult rules is not the point of this experiment.
 
 But sometimes, there are multiple rules that would explain the examples.
